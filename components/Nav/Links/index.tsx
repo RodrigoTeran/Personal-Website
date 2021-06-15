@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
+import { useContext } from "react";
 
 // Styles
-import styles from "./nav.module.scss";
+import styles from "./links.module.scss";
 
 // Variants
-import { elementVariants } from "./Variants";
+import { elementVariants } from "./../Variants";
 
-import { useContext } from "react";
-import { AppContext } from "../../pages/_app";
+// Context
+import { AppContext } from "../../../pages/_app";
+
 type PropsLinks = {
-  additionalStyle?: string;
+  isResponsive?: boolean;
   goto: (where: any) => void;
 };
-
-// Links
-export default function Links({ additionalStyle, goto }: PropsLinks) {
+export default function Links({ isResponsive, goto }: PropsLinks) {
   const { aboutRef, workRef, contactRef } = useContext(AppContext);
 
   return (
     <>
       <motion.div
         variants={elementVariants}
-        className={`${styles.nav__text} ${additionalStyle}`}
+        className={`${isResponsive ? styles.link_responsive : styles.link}`}
         onClick={() => {
           goto(aboutRef);
         }}
@@ -35,7 +35,7 @@ export default function Links({ additionalStyle, goto }: PropsLinks) {
       </motion.div>
       <motion.div
         variants={elementVariants}
-        className={`${styles.nav__text} ${additionalStyle}`}
+        className={`${isResponsive ? styles.link_responsive : styles.link}`}
         onClick={() => {
           goto(workRef);
         }}
@@ -49,7 +49,7 @@ export default function Links({ additionalStyle, goto }: PropsLinks) {
       </motion.div>
       <motion.div
         variants={elementVariants}
-        className={`${styles.nav__text} ${additionalStyle}`}
+        className={`${isResponsive ? styles.link_responsive : styles.link}`}
         onClick={() => {
           goto(contactRef);
         }}

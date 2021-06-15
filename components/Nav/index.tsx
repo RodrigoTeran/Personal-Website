@@ -12,14 +12,13 @@ import { useAnimatedNav } from "../../hooks/useAnimatedNav";
 
 // Styles
 import styles from "./nav.module.scss";
-import stylesResponsive from "./navResponsive.module.scss";
 
 // Functions
 import { goto } from "../../functions/goTo";
 
 // Components
-import Links from "./links";
-import Responsive from "./responsive";
+import Links from "./Links/index";
+import Responsive from "./Responsive/index";
 
 // Nav
 export default function index() {
@@ -69,7 +68,7 @@ export default function index() {
         setResponsiveNav={setResponsiveNav}
       >
         <Links
-          additionalStyle={stylesResponsive.nav__responsive__container__text}
+          isResponsive
           goto={_goto}
         ></Links>
       </Responsive>

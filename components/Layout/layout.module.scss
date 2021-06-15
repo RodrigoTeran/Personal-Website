@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
 
-  &__svg {
+  &_svg {
     position: absolute;
     top: calc(50%);
     left: calc(50%);
@@ -15,10 +15,10 @@
       fill: var(--black-400);
       width: 450px;
       height: 450px;
-      transition: width ease-out .15s, height ease-out .15s;;
+      transition: width ease-out 150ms, height ease-out 150ms;
     }
   }
-  &__circle {
+  &_circle {
     position: absolute;
     width: 160px;
     height: 160px;
@@ -26,16 +26,16 @@
     border-radius: 50%;
     top: 100px;
     right: 50px;
-    transition: width ease-out .15s, height ease-out .15s;;
+    transition: width ease-out 150ms, height ease-out 150ms;
   }
   @media screen and (max-width: 750px) {
-    &__svg {
+    &_svg {
       svg {
         width: 80vw;
         height: 80vw;
       }
     }
-    &__circle {
+    &_circle {
       width: 80px;
       height: 80px;
     }

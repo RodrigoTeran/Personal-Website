@@ -37,7 +37,7 @@ import Layout from "../components/Layout/index";
 import Nav from "../components/Nav/index";
 import SocialMedia from "../components/SocialMedia/index";
 
-const PortfolioApp = ({ Component, pageProps }) => {
+export default function PortfolioApp({ Component, pageProps }) {
   // Layout Msgs
   const [isLayoutMsg, setIsLayoutMsg] = useState(false); // Appear or not appear
   const layoutMsgData = useRef<LayoutMsgData>({
@@ -77,12 +77,10 @@ const PortfolioApp = ({ Component, pageProps }) => {
       <Nav></Nav>
       <div className="layout">
         <SocialMedia></SocialMedia>
-        <div className="layout_content">
+        <main className="layout_content">
           <Component {...pageProps} />
-        </div>
+        </main>
       </div>
     </AppContext.Provider>
   );
-};
-
-export default PortfolioApp;
+}

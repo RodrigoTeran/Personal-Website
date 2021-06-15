@@ -1,6 +1,6 @@
 import styles from "./layout.module.scss";
 
-export default function index() {
+export default function Layout() {
   return (
     <div className={styles.layout}>
       <div className={styles.layout_svg}>

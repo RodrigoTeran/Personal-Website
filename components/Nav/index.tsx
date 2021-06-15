@@ -21,7 +21,7 @@ import Links from "./Links/index";
 import Responsive from "./Responsive/index";
 
 // Nav
-export default function index() {
+export default function Nav() {
   /**
    * Is Responsive Nav Open or not
    */

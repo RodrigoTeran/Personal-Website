@@ -12,7 +12,7 @@ import styles from "./social.module.scss";
 
 export default function SocialMedia() {
   return (
-    <div className={styles.social}>
+    <aside className={styles.social}>
       <motion.div
         className={styles.social_column}
         variants={containerVariants}
@@ -54,6 +54,6 @@ export default function SocialMedia() {
           variants={elementVariants}
         ></motion.div>
       </motion.div>
-    </div>
+    </aside>
   );
 }

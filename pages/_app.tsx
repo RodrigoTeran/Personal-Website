@@ -35,6 +35,7 @@ import "../styles/globals.scss";
 // Components
 import Layout from "../components/Layout/index";
 import Nav from "../components/Nav/index";
+import SocialMedia from "../components/SocialMedia/index";
 
 const PortfolioApp = ({ Component, pageProps }) => {
   // Layout Msgs
@@ -74,7 +75,12 @@ const PortfolioApp = ({ Component, pageProps }) => {
     >
       <Layout></Layout>
       <Nav></Nav>
-      <Component {...pageProps} />
+      <div className="layout">
+        <SocialMedia></SocialMedia>
+        <div className="layout_content">
+          <Component {...pageProps} />
+        </div>
+      </div>
     </AppContext.Provider>
   );
 };

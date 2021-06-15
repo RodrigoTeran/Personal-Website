@@ -5,7 +5,7 @@ import { useContext } from "react";
 import styles from "./links.module.scss";
 
 // Variants
-import { elementVariants } from "./../Variants";
+import { elementVariants } from "./../../Variants/StaggerChildren";
 
 // Context
 import { AppContext } from "../../../pages/_app";

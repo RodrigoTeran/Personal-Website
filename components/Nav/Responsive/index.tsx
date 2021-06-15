@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import styles from "./responsive.module.scss";
 
 // Variants
-import { elementVariants } from "./../Variants";
+import { elementVariants } from "./../../Variants/StaggerChildren";
 
 type PropsResponsive = {
   responsiveNav: boolean;

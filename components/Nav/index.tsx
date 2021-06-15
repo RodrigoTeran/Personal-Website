@@ -5,7 +5,7 @@ import {
 import { motion } from "framer-motion";
 
 // Variants
-import { containerVariants } from "./Variants";
+import { containerVariants } from "../Variants/StaggerChildren";
 
 // Hooks
 import { useAnimatedNav } from "../../hooks/useAnimatedNav";

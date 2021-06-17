@@ -16,7 +16,11 @@ export default function Typing() {
       "Amante de los libros",
     ],
     setWord,
-    setIsWriting
+    setIsWriting,
+    100,
+    60,
+    10,
+    40
   );
   return (
     <div className={styles.type}>

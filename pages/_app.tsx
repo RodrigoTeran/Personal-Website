@@ -5,7 +5,9 @@ import {
   Dispatch,
   SetStateAction,
   MutableRefObject,
+  Fragment,
 } from "react";
+import { AnimatePresence } from "framer-motion";
 
 // App Context
 interface ValueAppProvider {
@@ -17,6 +19,7 @@ interface ValueAppProvider {
   aboutRef: any;
   workRef: any;
   contactRef: any;
+  setIsModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AppContext = createContext<Partial<ValueAppProvider>>({});
@@ -36,6 +39,7 @@ import "../styles/globals.scss";
 import Layout from "../components/Layout/index";
 import Nav from "../components/Nav/index";
 import SocialMedia from "../components/SocialMedia/index";
+import WindowModal from "../components/WindowModal/index";
 
 export default function PortfolioApp({ Component, pageProps }) {
   // Layout Msgs
@@ -47,8 +51,11 @@ export default function PortfolioApp({ Component, pageProps }) {
     text: "",
   });
 
+  // Modal
+  const [isModal, setIsModal] = useState(true);
+
   // LayoutLoader
-  const [isInLayoutLoader, setIsInLayoutLoader] = useState(false);
+  const [isInLayoutLoader, setIsInLayoutLoader] = useState(true);
 
   // Refs
   const aboutRef = useRef(null); // About Page Ref
@@ -71,16 +78,29 @@ export default function PortfolioApp({ Component, pageProps }) {
         aboutRef,
         workRef,
         contactRef,
+
+        // Modal
+        setIsModal,
       }}
     >
-      <Layout></Layout>
-      <Nav></Nav>
-      <div className="layout">
-        <SocialMedia></SocialMedia>
-        <main className="layout_content">
-          <Component {...pageProps} />
-        </main>
-      </div>
+      <AnimatePresence exitBeforeEnter>
+        {isModal ? (
+          <Fragment key="modal">
+            <WindowModal></WindowModal>
+          </Fragment>
+        ) : (
+          <>
+            <Layout></Layout>
+            <Nav></Nav>
+            <div className="layout" key="layout">
+              <SocialMedia></SocialMedia>
+              <main className="layout_content">
+                <Component {...pageProps} />
+              </main>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
     </AppContext.Provider>
   );
 }

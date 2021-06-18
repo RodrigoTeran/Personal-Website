@@ -17,6 +17,7 @@ interface ValueAppProvider {
   isInLayoutLoader: boolean;
   setIsInLayoutLoader: Dispatch<SetStateAction<boolean>>;
   aboutRef: any;
+  experienceRef: any;
   workRef: any;
   contactRef: any;
   setIsModal: Dispatch<SetStateAction<boolean>>;
@@ -60,6 +61,7 @@ export default function PortfolioApp({ Component, pageProps }) {
   // Refs
   const aboutRef = useRef(null); // About Page Ref
   const workRef = useRef(null); // Work Page Ref
+  const experienceRef = useRef(null); // Experience Page Ref
   const contactRef = useRef(null); // Contact Page Ref
 
   return (
@@ -76,6 +78,7 @@ export default function PortfolioApp({ Component, pageProps }) {
 
         // Refs
         aboutRef,
+        experienceRef,
         workRef,
         contactRef,
 

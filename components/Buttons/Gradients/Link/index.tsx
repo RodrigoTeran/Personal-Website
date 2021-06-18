@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
 
-// Variants
-import { buttonVariants } from "../../../Variants/Header";
-
 // Styles
 import styles from "../button.module.scss";
 
@@ -12,6 +9,9 @@ type PropsBtn = {
   target: "_blank" | "_self";
   isGradient?: boolean;
   addedClasses?: string;
+  variants?: any;
+  whileHover?: any;
+  whileTap?: any;
 };
 
 export default function LinkBtn({
@@ -20,12 +20,15 @@ export default function LinkBtn({
   target,
   isGradient,
   addedClasses,
+  variants,
+  whileHover,
+  whileTap,
 }: PropsBtn) {
   return (
     <motion.a
-      variants={buttonVariants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 1.05 }}
+      variants={variants}
+      whileHover={whileHover}
+      whileTap={whileTap}
       className={`${styles.btn} ${
         isGradient ? styles.gradient : styles.blank
       } ${addedClasses ? addedClasses : ""}`}

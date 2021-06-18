@@ -2,7 +2,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Variants
-import { buttonsContainerVariants, imageVariants } from "../Variants/Header";
+import {
+  buttonsContainerVariants,
+  imageVariants,
+  buttonVariants,
+} from "../Variants/Header";
 
 // Images
 import profilePic from "../../public/images/me.jpg";
@@ -14,8 +18,8 @@ import styles from "./header.module.scss";
 import Title from "./Title/index";
 import Typing from "./Typing/index";
 import Responsive from "./Responsive/index";
-import Button from "../Buttons/Gradients/Click/index";
-import Link from "../Buttons/Gradients/Link/index";
+import GradientButton from "../Buttons/Gradients/Click/index";
+import GradientLink from "../Buttons/Gradients/Link/index";
 
 export default function Header() {
   return (
@@ -30,18 +34,24 @@ export default function Header() {
             animate="visible"
             className={styles.header_info_buttons}
           >
-            <Button
+            <GradientButton
               onClickFunction={() => {}}
               text="Contáctame"
               addedClasses={styles.header_info_buttons_gradient}
               isGradient
-            ></Button>
-            <Link
+              variants={buttonVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 1.05 }}
+            ></GradientButton>
+            <GradientLink
               addedClasses={styles.header_info_buttons_blank}
-              link=""
+              link="/Profile.pdf"
               text="Portafolio"
               target="_blank"
-            ></Link>
+              variants={buttonVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 1.05 }}
+            ></GradientLink>
           </motion.div>
         </div>
         <motion.div

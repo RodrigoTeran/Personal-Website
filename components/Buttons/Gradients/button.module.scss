@@ -1,0 +1,56 @@
+.btn {
+  cursor: pointer;
+  border-radius: 50px;
+  position: relative;
+  transition: background-color ease-out 500ms, color ease-out 500ms;
+  font-size: 1.2rem;
+  z-index: 0;
+  padding: 15px 0 15px 0;
+  color: var(--white-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::after {
+    transition: opacity ease-out 500ms;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background: var(--aqua-100);
+    background: linear-gradient(90deg, var(--aqua-100) 0%, var(--blue-100) 100%);
+  }
+}
+
+.gradient {
+  background-color: transparent;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--white-100);
+      color: var(--black-100);
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.blank {
+  background: var(--white-100);
+  color: var(--black-100);
+  &::after {
+    opacity: 0;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: transparent;
+      color: var(--white-100);
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

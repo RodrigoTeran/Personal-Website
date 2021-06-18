@@ -4,11 +4,35 @@
   padding: 0 50px;
   transition: padding ease-out 300ms;
 
-  &_info, &_img {
+  &_info,
+  &_img {
     margin: 0 0 100px 0;
   }
   &_info {
     width: 435px;
+    &_buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 0 0 0;
+      &_gradient,
+      &_blank {
+        width: 47.5%;
+      }
+      @media screen and (max-width: 890px) {
+        margin: 30px 0 20px 0;
+      }
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
+        &_gradient,
+        &_blank {
+          width: 100%;
+        }
+        &_blank {
+          margin: 20px 0 0 0;
+        }
+      }
+    }
   }
   &_img {
     display: flex;
@@ -28,12 +52,12 @@
   }
   @media screen and (max-width: 890px) {
     // MOBILE
-    
     padding: 0;
-    min-height: 850px;
+    min-height: 650px;
     flex-direction: column;
     justify-content: center;
-    &_info, &_img {
+    &_info,
+    &_img {
       width: 100%;
       margin: 0;
     }

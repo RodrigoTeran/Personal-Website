@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+
+// Variants
+import { imageVariants } from "../../Variants/Header";
 
 // Styles
 import styles from "./type.module.scss";
@@ -23,7 +27,12 @@ export default function Typing() {
     40
   );
   return (
-    <div className={styles.type}>
+    <motion.div
+      variants={imageVariants}
+      initial="hidden"
+      animate="visible"
+      className={styles.type}
+    >
       <div className={styles.type_word}>
         {word.split("").map((char, index) => {
           return (
@@ -43,6 +52,6 @@ export default function Typing() {
           }`}
         ></span>
       </div>
-    </div>
+    </motion.div>
   );
 }

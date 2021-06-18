@@ -1,4 +1,4 @@
-export const buttonHeaderVariants = {
+export const buttonVariants = {
   hidden: {
     y: 150,
     opacity: 0,

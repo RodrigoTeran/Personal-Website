@@ -32,3 +32,13 @@
     }
   }
 }
+
+.sections {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 890px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

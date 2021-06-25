@@ -1,0 +1,63 @@
+.card {
+  height: 100%;
+  background-color: var(--black-500);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color ease-out 300ms, transform ease-out 300ms, left ease-out 300ms;
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+  }
+  svg {
+    fill: var(--aqua-100);
+    width: 50px;
+    height: 50px;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    &:hover {
+      transform: translateY(-5px);
+      background-color: var(--black-600);
+    }
+  }
+  &_open {
+    background-color: var(--aqua-100-55);
+    @media (hover:hover) and (pointer:fine) {
+      &:hover {
+        transform: none;
+        background-color: var(--aqua-100-55);
+      }
+    }
+    svg {
+      fill: var(--white-100);
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+.span {
+  color: var(--white-100);
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.span_work {
+  color: var(--white-100);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+}

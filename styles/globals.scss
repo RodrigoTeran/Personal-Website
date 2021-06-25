@@ -13,10 +13,11 @@
   --black-800: rgba(80, 80, 80);
   --black-900: rgb(131, 130, 130);
 
-  --black-300-9: rgb(29, 29, 29, .9);
+  --black-300-9: rgb(29, 29, 29, 0.9);
 
-  --aqua-100:  rgb(67, 247, 213);
-  --blue-100:  rgba(58, 54, 242);
+  --aqua-100: rgb(67, 247, 213);
+  --aqua-100-55: rgba(67, 247, 213, 0.55);
+  --blue-100: rgb(58, 54, 242);
 
   --white-100: rgb(255, 255, 255);
   --white-200: rgb(221, 221, 221);
@@ -84,7 +85,7 @@ a {
 }
 .notAppear_scale {
   opacity: 0;
-  transform: scale(.8);
+  transform: scale(0.8);
 }
 .notAppear_leftToRight {
   opacity: 0;

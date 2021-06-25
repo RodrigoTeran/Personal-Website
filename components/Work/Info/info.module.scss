@@ -1,0 +1,51 @@
+.info {
+  width: calc(100% - 285px);
+  h3 {
+    margin-bottom: 45px;
+  }
+  &_cards {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 270px;
+    &_btn {
+      width: 35px;
+      height: 100%;
+      background-color: var(--black-400);
+      cursor: pointer;
+      transition: background-color ease-out 150ms;
+      svg {
+        fill: var(--white-200);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: var(--black-600);
+        }
+      }
+      &_no {
+        svg {
+          fill: var(--black-800);
+        }
+        @media (hover: hover) and (pointer: fine) {
+          cursor: not-allowed;
+          &:hover {
+            background-color: var(--black-400);
+          }
+        }
+      }
+    }
+    &_container {
+      width: calc(100% - 70px);
+      height: 100%;
+      overflow: hidden;
+      &_movable {
+        height: 100%;
+        display: flex;
+        position: relative;
+      }
+    }
+  }
+  @media screen and (max-width: 890px) {
+    width: 90%;
+  }
+}

@@ -1,14 +1,15 @@
+.span {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
 .quotes {
-  &::before, &::after {
+  &::before,
+  &::after {
     content: "";
   }
   font-size: 3rem;
   font-weight: bold;
   color: var(--black-900);
-  span {
-    font-size: 1.3rem;
-    font-weight: normal;
-  }
   a {
     color: var(--black-900);
     @media (hover: hover) and (pointer: fine) {
@@ -17,21 +18,20 @@
       }
     }
   }
-  svg {
-    fill: var(--black-900);
-    width: 50px;
-    height: 50px;
-    &:nth-child(1) {
-      margin: 0 13px 0 0;
-      transform: translateY(-10px);
-    }
-    &:nth-child(2) {
-      margin: 0 0 0 13px;
-      transform: translateY(10px);
-    }
-  }
   @media screen and (max-width: 890px) {
     display: block;
     text-align: center;
   }
+}
+.svg_1,
+.svg_2 {
+  fill: var(--black-900);
+  width: 50px;
+  height: 50px;
+}
+.svg_1 {
+  margin: 0 13px 10px 0;
+}
+.svg_2 {
+  margin: 0 0 0 13px;
 }

@@ -1,4 +1,4 @@
-const getTop = (component: any): number => {
+export const getTop = (component: any): number => {
   // It computes the distance that exista bewteen a component and the top of the whole website
   try {
     return parseInt(

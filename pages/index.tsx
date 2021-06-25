@@ -2,6 +2,7 @@ import Head from "next/head";
 
 // Components
 import Header from "../components/Header/index";
+import About from "../components/About/index";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
+      <About></About>
     </>
   );
 }

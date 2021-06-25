@@ -7,20 +7,18 @@ import {
   MutableRefObject,
   Fragment,
 } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 // App Context
 interface ValueAppProvider {
   isLayoutMsg: boolean;
   setIsLayoutMsg: Dispatch<SetStateAction<boolean>>;
   layoutMsgData: MutableRefObject<LayoutMsgData>;
-  isInLayoutLoader: boolean;
-  setIsInLayoutLoader: Dispatch<SetStateAction<boolean>>;
   aboutRef: any;
   experienceRef: any;
   workRef: any;
   contactRef: any;
-  setIsModal: Dispatch<SetStateAction<boolean>>;
+  setIsModalLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AppContext = createContext<Partial<ValueAppProvider>>({});
@@ -36,11 +34,14 @@ type LayoutMsgData = {
 // Styles
 import "../styles/globals.scss";
 
+// Variants
+import { layoutVariants } from "../components/Variants/Layout";
+
 // Components
 import Layout from "../components/Layout/index";
 import Nav from "../components/Nav/index";
 import SocialMedia from "../components/SocialMedia/index";
-import WindowModal from "../components/WindowModal/index";
+import WindowModalLoading from "../components/Loader/LayoutLoader/index";
 
 export default function PortfolioApp({ Component, pageProps }) {
   // Layout Msgs
@@ -52,11 +53,8 @@ export default function PortfolioApp({ Component, pageProps }) {
     text: "",
   });
 
-  // Modal
-  const [isModal, setIsModal] = useState(true);
-
   // LayoutLoader
-  const [isInLayoutLoader, setIsInLayoutLoader] = useState(true);
+  const [isModalLoading, setIsModalLoading] = useState(true);
 
   // Refs
   const aboutRef = useRef(null); // About Page Ref
@@ -72,27 +70,29 @@ export default function PortfolioApp({ Component, pageProps }) {
         setIsLayoutMsg,
         layoutMsgData,
 
-        // Loader
-        isInLayoutLoader,
-        setIsInLayoutLoader,
-
         // Refs
         aboutRef,
         experienceRef,
         workRef,
         contactRef,
 
-        // Modal
-        setIsModal,
+        // Loader
+        setIsModalLoading,
       }}
     >
       <AnimatePresence exitBeforeEnter>
-        {isModal ? (
-          <Fragment key="modal">
-            <WindowModal></WindowModal>
+        {isModalLoading ? (
+          <Fragment key="layoutLoader">
+            <WindowModalLoading></WindowModalLoading>
           </Fragment>
         ) : (
-          <>
+          <motion.div
+            key="content"
+            variants={layoutVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
             <Layout></Layout>
             <Nav></Nav>
             <div className="layout" key="layout">
@@ -101,7 +101,7 @@ export default function PortfolioApp({ Component, pageProps }) {
                 <Component {...pageProps} />
               </main>
             </div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </AppContext.Provider>

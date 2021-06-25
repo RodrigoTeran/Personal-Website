@@ -1,76 +1,60 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useContext, useEffect } from "react";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 // App Context
 import { AppContext } from "../../../pages/_app";
 
 // Variants
-import {
-  svgPathVariants,
-  loaderVariants,
-  infoVariants,
-  h1Variants,
-} from "../../Variants/LayoutLoader";
+import { svgPathVariants, loaderVariants } from "../../Variants/LayoutLoader";
 
 // Styles
 import styles from "./loader.module.scss";
 
+// Window Modal
+import WindowModal from "../../WindowModal/index";
+
 export default function Loader() {
-  const { setIsModal, setIsInLayoutLoader } = useContext(AppContext);
-  const [isSvg, setIsSvg] = useState(true);
+  const { setIsModalLoading } = useContext(AppContext);
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
-      setIsInLayoutLoader(false);
-      setIsModal(false);
+      setIsModalLoading(false);
       clearTimeout(timeOut);
-    }, 6000);
-
-    const timeOutSvg = setTimeout(() => {
-      setIsSvg(false);
-      clearTimeout(timeOutSvg);
-    }, 3500);
+    }, 4000);
   }, []);
 
   return (
-    <motion.div
-      variants={loaderVariants}
-      exit="exit"
-      initial="hidden"
-      animate="visible"
-      className={styles.loader}
-    >
-      <div className={styles.loader_circle}>
-        <AnimatePresence exitBeforeEnter>
-          {isSvg ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              version="1.1"
-              height="55"
-              width="55"
-            >
-              <motion.path
-                key="svg"
-                variants={svgPathVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                d="M 27.5, 27.5 m -27, 0 a 27,27 0 1,0 54,0 a 27,27 0 1,0 -54,0"
-                stroke="rgb(67, 247, 213)"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-          ) : null}
-        </AnimatePresence>
-        <motion.div variants={h1Variants} className={styles.loader_h1}>
-          <h1>Rodrigo Terán</h1>
-        </motion.div>
-      </div>
+    <WindowModal>
       <motion.div
-        className={styles.loader_line}
-        variants={infoVariants}
-      ></motion.div>
-    </motion.div>
+        variants={loaderVariants}
+        exit="exit"
+        initial="hidden"
+        animate="visible"
+        className={styles.loader}
+      >
+        <div className={styles.loader_circle}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            height="55"
+            width="55"
+          >
+            <motion.path
+              key="svg"
+              variants={svgPathVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              d="M290.59 192c-20.18 0-106.82 1.98-162.59 85.95V192c0-52.94-43.06-96-96-96-17.67 0-32 14.33-32 32s14.33 32 32 32c17.64 0 32 14.36 32 32v256c0 35.3 28.7 64 64 64h176c8.84 0 16-7.16 16-16v-16c0-17.67-14.33-32-32-32h-32l128-96v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V289.86c-10.29 2.67-20.89 4.54-32 4.54-61.81 0-113.52-44.05-125.41-102.4zM448 96h-64l-64-64v134.4c0 53.02 42.98 96 96 96s96-42.98 96-96V32l-64 64zm-72 80c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16zm80 0c-8.84 0-16-7.16-16-16s7.16-16 16-16 16 7.16 16 16-7.16 16-16 16z"
+              stroke={publicRuntimeConfig.AQUA_100}
+              strokeWidth="15"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </motion.div>
+    </WindowModal>
   );
 }

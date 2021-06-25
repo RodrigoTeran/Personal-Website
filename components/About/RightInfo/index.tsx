@@ -50,7 +50,7 @@ export default function RightInfo() {
       </em>
       <br />
       <p ref={pStudy}>
-        Recientemente terminé mis estudios de preparatoria de la{" "}
+        Recientemente terminé mis estudios de preparatoria en la{" "}
         <a href="https://tec.mx/en/queretaro-campus" target="blank">
           Prepa Tec Querétaro.
         </a>

@@ -1,0 +1,34 @@
+.work {
+  margin-top: 100px;
+  margin-bottom: 500px;
+  &_h2 {
+    font-size: 3rem;
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 3px;
+      background-color: var(--black-600);
+      top: calc(50% - 1.5px);
+      left: -320px;
+      z-index: 1;
+    }
+  }
+  @media screen and (max-width: 890px) {
+    &_h2 {
+      padding: 0 15px;
+      margin-right: auto;
+      width: 10%;
+      text-align: center;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

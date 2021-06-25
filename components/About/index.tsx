@@ -26,7 +26,7 @@ export default function About() {
     <article ref={aboutRef} className={`${styles.about} sections`}>
       <h2
         ref={h2}
-        className={`${styles.about_h2} notAppear_bottomToTop notAppearing_transitions`}
+        className={`${styles.about_h2}`}
       >
         Acerca de mí
       </h2>

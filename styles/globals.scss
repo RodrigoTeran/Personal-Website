@@ -91,6 +91,13 @@ a {
   opacity: 0;
   transform: translateX(-50px);
 }
+.notAppear_rightToLeft {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.notAppear_opacity {
+  opacity: 0;
+}
 
 // Components
 @import "./layout";

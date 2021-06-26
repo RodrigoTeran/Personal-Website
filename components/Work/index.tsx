@@ -6,6 +6,9 @@ import LeadsalesImage from "../../public/images/leadsales.png";
 // Functions
 import { goto } from "../../functions/goTo";
 
+// Hooks
+import { useAnimationsScroll } from "../../hooks/useAnimationsScroll";
+
 // Styles
 import styles from "./work.module.scss";
 
@@ -57,9 +60,17 @@ export default function Work() {
     goto(proyectRef);
   };
 
+  // Refs for animations
+  const h2Ref = useRef(null);
+
+  // Animations scroll
+  useAnimationsScroll([h2Ref], 0.6, "notAppear_bottomToTop");
+
   return (
     <article className={`${styles.work} sections`} ref={experienceRef}>
-      <h2 className={`${styles.work_h2}`}>Experiencia</h2>
+      <h2 ref={h2Ref} className={`${styles.work_h2}`}>
+        Experiencia
+      </h2>
       <div className={styles.sections}>
         <Years
           years={3}
@@ -95,8 +106,8 @@ export default function Work() {
             </>
           ) : childrenIndex == 2 ? (
             <>
-              Desarrollé la <b>plataforma de control de ventas</b> de una empresa
-              queretana que se dedica a vender uniformes.
+              Desarrollé la <b>plataforma de control de ventas</b> de una
+              empresa queretana que se dedica a vender uniformes.
             </>
           ) : null}
         </Proyect>

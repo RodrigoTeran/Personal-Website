@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 
 // Images
 import BimasImage from "../../../public/images/bimas.jpg";
@@ -8,6 +8,9 @@ import UniformsImage from "../../../public/images/uniformes.png";
 // Styles
 import styles from "./info.module.scss";
 import stylesAbout from "../../About/RightInfo/right.module.scss";
+
+// Hooks
+import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 
 // Componentes
 import Card from "./Cards/index";
@@ -35,17 +38,31 @@ export default function Info({
   changeProyect,
 }: Props) {
   var quantityOfCards = 3;
+
+  // Refs for animations
+  const h3Ref = useRef(null);
+  const emRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  // Animations
+  useAnimationsScroll([h3Ref, emRef, cardsRef], 0.6, "notAppear_topToBottom");
+
   return (
     <section className={styles.info}>
-      <h3>
+      <h3 ref={h3Ref}>
         Desarrollador de plataformas web, especializado en funcionalidades,
         diseño y animaciones.
       </h3>
 
-      <em className={`${stylesAbout.em} ${stylesAbout.em_left} ${styles.em}`}>Trabajos que he tenido</em>
+      <em
+        ref={emRef}
+        className={`${stylesAbout.em} ${stylesAbout.em_left} ${styles.em}`}
+      >
+        Trabajos que he tenido
+      </em>
       <br />
 
-      <div className={styles.info_cards}>
+      <div className={styles.info_cards} ref={cardsRef}>
         <button
           onClick={() => {
             if (indexes < 0) {

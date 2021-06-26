@@ -29,7 +29,7 @@
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           &::after {
-            opacity: 0.6;
+            opacity: 0.7;
           }
         }
       }
@@ -55,7 +55,7 @@
       border-radius: 5px;
       margin-bottom: 20px;
       font-size: 1.1rem;
-      transition: width ease-out 300ms;
+      transition: width ease-out 300ms, opacity ease-out 500ms, transform ease-out 500ms;
       b {
         color: var(--aqua-100);
       }

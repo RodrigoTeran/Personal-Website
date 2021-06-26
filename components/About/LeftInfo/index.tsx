@@ -24,6 +24,7 @@ export default function LeftInfo() {
       <Quotes
         text="Si puedes imaginarlo, puedes programarlo"
         person="Alejandro Taboada"
+        link="https://www.youtube.com/channel/UC7QoKU6bj1QbXQuNIjan82Q"
       ></Quotes>
     </section>
   );

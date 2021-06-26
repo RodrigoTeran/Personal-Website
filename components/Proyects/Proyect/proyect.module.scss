@@ -118,13 +118,14 @@
   }
   @media screen and (max-width: 890px) {
     flex-direction: column;
+    height: fit-content;
     &_img {
       &_container {
         display: flex;
         justify-content: center;
         width: 90%;
         margin-left: 5%;
-        height: 100vw; // Just a big number
+        height: 53vw; // Just a big number
       }
     }
     &_info {

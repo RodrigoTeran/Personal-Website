@@ -9,9 +9,10 @@ import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 type Props = {
   text: string;
   person: string;
+  link: string
 };
 
-export default function Quotes({ text, person }: Props) {
+export default function Quotes({ text, person, link }: Props) {
   // Refs for animations
   const quotes = useRef(null);
 
@@ -39,7 +40,7 @@ export default function Quotes({ text, person }: Props) {
       <span className={`${styles.span}`}>
         -&nbsp;
         <a
-          href="https://www.youtube.com/channel/UC7QoKU6bj1QbXQuNIjan82Q"
+          href={link}
           target="blank"
         >
           {person}

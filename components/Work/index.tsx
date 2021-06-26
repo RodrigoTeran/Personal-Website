@@ -19,6 +19,7 @@ import { AppContext } from "../../pages/_app";
 import Years from "./Years/index";
 import Info from "./Info/index";
 import Proyect from "../Proyects/Proyect/index";
+import Skills from "./Skills/index";
 
 export default function Work() {
   const { experienceRef } = useContext(AppContext);
@@ -112,6 +113,7 @@ export default function Work() {
           ) : null}
         </Proyect>
       </div>
+      <Skills></Skills>
     </article>
   );
 }

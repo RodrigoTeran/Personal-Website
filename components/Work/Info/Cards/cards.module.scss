@@ -21,8 +21,8 @@
   }
   svg {
     fill: var(--aqua-100);
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
   }
   @media (hover:hover) and (pointer:fine) {
     &:hover {
@@ -40,15 +40,15 @@
     }
     svg {
       fill: var(--white-100);
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
     }
   }
 }
 .span {
   color: var(--white-100);
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 .span_work {
   color: var(--white-100);

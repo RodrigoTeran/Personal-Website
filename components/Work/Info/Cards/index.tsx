@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function Card({ text, callback, isSelected, index }: Props) {
-  var width = 280;
+  var width = 240;
   return (
     <button
       className={`${styles.card} ${isSelected ? styles.card_open : ""}`}

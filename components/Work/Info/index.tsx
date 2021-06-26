@@ -1,12 +1,13 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 // Images
-
 import BimasImage from "../../../public/images/bimas.jpg";
 import LeadsalesImage from "../../../public/images/leadsales.png";
+import UniformsImage from "../../../public/images/uniformes.png";
 
 // Styles
 import styles from "./info.module.scss";
+import stylesAbout from "../../About/RightInfo/right.module.scss";
 
 // Componentes
 import Card from "./Cards/index";
@@ -40,6 +41,10 @@ export default function Info({
         Desarrollador de plataformas web, especializado en funcionalidades,
         diseño y animaciones.
       </h3>
+
+      <em className={`${stylesAbout.em} ${stylesAbout.em_left} ${styles.em}`}>Trabajos que he tenido</em>
+      <br />
+
       <div className={styles.info_cards}>
         <button
           onClick={() => {
@@ -58,7 +63,7 @@ export default function Info({
         <div className={styles.info_cards_container}>
           <div className={styles.info_cards_container_movable}>
             <Card
-              text="Leadsales"
+              text="Leadsales (actual)"
               callback={() => {
                 setIndexCardSelected(0);
                 changeProyect(
@@ -93,6 +98,14 @@ export default function Info({
               text="Uniformate bien"
               callback={() => {
                 setIndexCardSelected(2);
+                changeProyect(
+                  UniformsImage,
+                  "Uniformate bien",
+                  ["Junio 2021"],
+                  "https://uniformate-bien.vercel.app/",
+                  "Uniformes",
+                  2
+                );
               }}
               isSelected={indexCardSelected == 2 ? true : false}
               index={indexes + 2}

@@ -1,13 +1,13 @@
 .info {
   width: calc(100% - 285px);
   h3 {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
   }
   &_cards {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    height: 270px;
+    height: 150px;
     &_btn {
       width: 35px;
       height: 100%;
@@ -48,4 +48,7 @@
   @media screen and (max-width: 890px) {
     width: 90%;
   }
+}
+.em {
+  margin-bottom: 10px;
 }

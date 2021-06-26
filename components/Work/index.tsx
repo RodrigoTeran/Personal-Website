@@ -93,6 +93,11 @@ export default function Work() {
               Desarrollé la <b>página web de BIMAS SC</b>, una empresa con la
               finalidad de ofrecer servicios en temas ambientales.
             </>
+          ) : childrenIndex == 2 ? (
+            <>
+              Desarrollé la <b>plataforma de control de ventas</b> de una empresa
+              queretana que se dedica a vender uniformes.
+            </>
           ) : null}
         </Proyect>
       </div>

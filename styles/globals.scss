@@ -21,6 +21,8 @@
 
   --white-100: rgb(255, 255, 255);
   --white-200: rgb(221, 221, 221);
+
+  --brown-100: #d7a25c;
 }
 ::-webkit-scrollbar {
   width: 1em;
@@ -97,6 +99,11 @@ a {
 }
 .notAppear_opacity {
   opacity: 0;
+}
+.notAppear_mountains {
+  section {
+    top: 100% !important;
+  }
 }
 
 // Components

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   createContext,
   useState,
@@ -63,47 +64,52 @@ export default function PortfolioApp({ Component, pageProps }) {
   const contactRef = useRef(null); // Contact Page Ref
 
   return (
-    <AppContext.Provider
-      value={{
-        // Layout Msgs
-        isLayoutMsg,
-        setIsLayoutMsg,
-        layoutMsgData,
+    <>
+      <Head>
+        <title>Desarrollador de Software | Rodrigo Terán Hernández.</title>
+      </Head>
+      <AppContext.Provider
+        value={{
+          // Layout Msgs
+          isLayoutMsg,
+          setIsLayoutMsg,
+          layoutMsgData,
 
-        // Refs
-        aboutRef,
-        experienceRef,
-        workRef,
-        contactRef,
+          // Refs
+          aboutRef,
+          experienceRef,
+          workRef,
+          contactRef,
 
-        // Loader
-        setIsModalLoading,
-      }}
-    >
-      <AnimatePresence exitBeforeEnter>
-        {isModalLoading ? (
-          <Fragment key="layoutLoader">
-            <WindowModalLoading></WindowModalLoading>
-          </Fragment>
-        ) : (
-          <motion.div
-            key="content"
-            variants={layoutVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <Layout></Layout>
-            <Nav></Nav>
-            <div className="layout" key="layout">
-              <SocialMedia></SocialMedia>
-              <main className="layout_content">
-                <Component {...pageProps} />
-              </main>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </AppContext.Provider>
+          // Loader
+          setIsModalLoading,
+        }}
+      >
+        <AnimatePresence exitBeforeEnter>
+          {isModalLoading ? (
+            <Fragment key="layoutLoader">
+              <WindowModalLoading></WindowModalLoading>
+            </Fragment>
+          ) : (
+            <motion.div
+              key="content"
+              variants={layoutVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <Layout></Layout>
+              <Nav></Nav>
+              <div className="layout" key="layout">
+                <SocialMedia></SocialMedia>
+                <main className="layout_content">
+                  <Component {...pageProps} />
+                </main>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </AppContext.Provider>
+    </>
   );
 }

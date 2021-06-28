@@ -1,0 +1,13 @@
+.proyects {
+  margin-bottom: 500px;
+  &_h2::after {
+    width: 270px;
+    right: -290px;
+  }
+  hr {
+    margin: 75px 0;
+    background-color: var(--black-800);
+    height: 2px;
+    border: none;
+  }
+}

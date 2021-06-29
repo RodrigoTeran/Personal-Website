@@ -8,12 +8,10 @@ import styles from "./years.module.scss";
 
 type Props = {
   years: number;
-  text_1: string;
-  text_2: string;
-  text_3: string;
+  text: any;
 };
 
-export default function Years({ years, text_1, text_2, text_3 }: Props) {
+export default function Years({ years, text }: Props) {
   // Refs for animations
   const boldRef = useRef(null);
   const divRef = useRef(null);
@@ -30,11 +28,7 @@ export default function Years({ years, text_1, text_2, text_3 }: Props) {
         </svg>
       </b>
       <br />
-      <div ref={divRef}>
-        <p>{text_1}</p>
-        <p>{text_2}</p>
-        <p>{text_3}</p>
-      </div>
+      <div ref={divRef}>{text}</div>
     </section>
   );
 }

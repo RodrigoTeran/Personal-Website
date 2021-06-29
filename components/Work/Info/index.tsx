@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useRef } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 // Images
 import BimasImage from "../../../public/images/bimas.jpg";
@@ -16,10 +16,6 @@ import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 import Card from "./Cards/index";
 
 type Props = {
-  indexCardSelected: number;
-  setIndexCardSelected: Dispatch<SetStateAction<number>>;
-  indexes: number;
-  setIndexes: Dispatch<SetStateAction<number>>;
   changeProyect: (
     imgSrc_: any,
     title_: string,
@@ -30,13 +26,7 @@ type Props = {
   ) => any;
 };
 
-export default function Info({
-  indexCardSelected,
-  setIndexCardSelected,
-  indexes,
-  setIndexes,
-  changeProyect,
-}: Props) {
+export default function Info({ changeProyect }: Props) {
   var quantityOfCards = 3;
 
   // Refs for animations
@@ -46,6 +36,10 @@ export default function Info({
 
   // Animations
   useAnimationsScroll([h3Ref, emRef, cardsRef], 0.6, "notAppear_topToBottom");
+
+  // Info state
+  const [indexCardSelected, setIndexCardSelected] = useState(0);
+  const [indexes, setIndexes] = useState(0);
 
   return (
     <section className={styles.info}>

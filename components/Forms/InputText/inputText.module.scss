@@ -1,0 +1,22 @@
+.text {
+  border: 2px solid var(--black-700);
+  background-color: var(--black-400);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: var(--white-200);
+  margin-bottom: 30px;
+  &_label {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: var(--black-300);
+    padding: 0 6px;
+    font-size: .8rem;
+  }
+  &_container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+}

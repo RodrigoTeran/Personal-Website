@@ -1,5 +1,16 @@
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useState, useRef } from "react";
+import { motion } from "framer-motion";
+
+// Hooks
+import { useAnimationsScrollWithState } from "../../../hooks/useAnimationsScroll";
+
+// Variants
+import {
+  containerVariants,
+  elementVariants,
+  variantsInitial,
+} from "../../Variants/Proyect";
 
 // Styles
 import styles from "./proyectTech.module.scss";
@@ -11,6 +22,7 @@ type PropsLeft = {
   linkSource?: string;
   host: any;
   techStack: Array<string>;
+  animation: boolean;
 };
 
 function Left({
@@ -20,11 +32,17 @@ function Left({
   linkSource,
   host,
   techStack,
+  animation,
 }: PropsLeft) {
   return (
     <div className={styles.tech_left}>
-      <h3>{title}</h3>
-      <div className={styles.tech_left_img_container}>
+      <motion.h3 variants={animation ? elementVariants : variantsInitial}>
+        {title}
+      </motion.h3>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_left_img_container}
+      >
         <Image
           src={imgSrc}
           alt={title}
@@ -34,8 +52,11 @@ function Left({
           className={styles.tech_left_img}
         />
         {/* Resolution: 1218 × 790  */}
-      </div>
-      <div className={styles.tech_left_links}>
+      </motion.div>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_left_links}
+      >
         <a href={linkProyect} target="blank">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
             <path d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
@@ -58,21 +79,31 @@ function Left({
             Repositorio Privado
           </span>
         )}
-      </div>
-      <div className={styles.tech_left_host}>{host}</div>
-      <h4>Tecnologías usadas</h4>
+      </motion.div>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_left_host}
+      >
+        {host}
+      </motion.div>
+      <motion.h4 variants={animation ? elementVariants : variantsInitial}>
+        Tecnologías usadas
+      </motion.h4>
       <div className={styles.tech_left_stack_container}>
         <ul className={styles.tech_left_stack}>
           {techStack
             .filter((_e, index) => index < techStack.length / 2)
             .map((tech, index) => (
               <Fragment key={index}>
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  variants={animation ? elementVariants : variantsInitial}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm80 248c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80z" />
                   </svg>
                   {tech}
-                </li>
+                </motion.li>
               </Fragment>
             ))}
         </ul>
@@ -81,12 +112,14 @@ function Left({
             .filter((_e, index) => index >= techStack.length / 2)
             .map((tech, index) => (
               <Fragment key={index}>
-                <li>
+                <motion.li
+                  variants={animation ? elementVariants : variantsInitial}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm80 248c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80z" />
                   </svg>
                   {tech}
-                </li>
+                </motion.li>
               </Fragment>
             ))}
         </ul>
@@ -100,6 +133,7 @@ type PropsRight = {
   difficulties: any;
   solution: any;
   notableFeatures: Array<string>;
+  animation: boolean;
 };
 
 function Right({
@@ -107,30 +141,56 @@ function Right({
   difficulties,
   solution,
   notableFeatures,
+  animation,
 }: PropsRight) {
   return (
     <div className={styles.tech_right}>
-      <h4
+      <motion.h4
+        variants={animation ? elementVariants : variantsInitial}
         style={{
           marginTop: "0px",
         }}
       >
         Descripción
-      </h4>
-      <div className={styles.tech_right_des}>{description}</div>
-      <h4>Dificultades del Proyecto</h4>
-      <div className={styles.tech_right_problems}>{difficulties}</div>
-      <h4>Mi Solución</h4>
-      <div className={styles.tech_right_solution}>{solution}</div>
-      <h4>Características Notables</h4>
+      </motion.h4>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_right_des}
+      >
+        {description}
+      </motion.div>
+      <motion.h4 variants={animation ? elementVariants : variantsInitial}>
+        Dificultades del Proyecto
+      </motion.h4>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_right_problems}
+      >
+        {difficulties}
+      </motion.div>
+      <motion.h4 variants={animation ? elementVariants : variantsInitial}>
+        Mi Solución
+      </motion.h4>
+      <motion.div
+        variants={animation ? elementVariants : variantsInitial}
+        className={styles.tech_right_solution}
+      >
+        {solution}
+      </motion.div>
+      <motion.h4 variants={animation ? elementVariants : variantsInitial}>
+        Características Notables
+      </motion.h4>
       <ul>
         {notableFeatures.map((feature, index) => (
-          <li key={index}>
+          <motion.li
+            variants={animation ? elementVariants : variantsInitial}
+            key={index}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm80 248c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80z" />
             </svg>
             {feature}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
@@ -162,8 +222,19 @@ export default function ProyectTech({
   solution,
   notableFeatures,
 }: PropsTech) {
+  const [animation, setAnimation] = useState<boolean>(false);
+  const sectionRef = useRef(null);
+
+  useAnimationsScrollWithState(setAnimation, 0.4, sectionRef);
+
   return (
-    <section className={styles.tech}>
+    <motion.section
+      variants={animation ? containerVariants : variantsInitial}
+      initial="hidden"
+      animate="visible"
+      className={styles.tech}
+      ref={sectionRef}
+    >
       <Left
         title={title}
         imgSrc={imgSrc}
@@ -171,13 +242,15 @@ export default function ProyectTech({
         linkSource={linkSource}
         host={host}
         techStack={techStack}
+        animation={animation}
       ></Left>
       <Right
         description={description}
         difficulties={difficulties}
         solution={solution}
         notableFeatures={notableFeatures}
+        animation={animation}
       ></Right>
-    </section>
+    </motion.section>
   );
 }

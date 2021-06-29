@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { getTop } from "../functions/goTo";
 
 export const useAnimationsScroll = (
@@ -17,10 +17,10 @@ export const useAnimationsScroll = (
   const addClasses = () => {
     for (var i = 0; i < componentsList.length; i++) {
       const htmlElement = componentsList[i].current;
-      htmlElement.classList.add(notAppearClass)
-      htmlElement.classList.add("notAppearing_transitions")
+      htmlElement.classList.add(notAppearClass);
+      htmlElement.classList.add("notAppearing_transitions");
     }
-  }
+  };
 
   const handleScroll = () => {
     try {
@@ -33,7 +33,33 @@ export const useAnimationsScroll = (
         ) {
           // Remove class notAppear
           htmlElement.classList.remove(notAppearClass);
-        };
+        }
+      }
+    } catch {}
+  };
+};
+
+export const useAnimationsScrollWithState = (
+  setAnimation: Dispatch<SetStateAction<boolean>>,
+  screenPercentage: number,
+  componentRef: any
+) => {
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  const handleScroll = () => {
+    try {
+      const top = getTop(componentRef.current);
+      if (
+        document.scrollingElement.scrollTop >=
+        top - window.innerHeight * screenPercentage
+      ) {
+        setAnimation(true);
       }
     } catch {}
   };

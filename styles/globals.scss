@@ -14,6 +14,7 @@
   --black-900: rgb(131, 130, 130);
 
   --black-300-9: rgb(29, 29, 29, 0.9);
+  --black-100-8: rgb(0, 0, 0, 0.8);
 
   --aqua-100: rgb(67, 247, 213);
   --aqua-100-55: rgba(67, 247, 213, 0.55);
@@ -23,6 +24,15 @@
   --white-200: rgb(221, 221, 221);
 
   --brown-100: #d7a25c;
+
+  --info-100: #0c8797;
+  --info-200: #cef9ff;
+
+  --warning-100: #a72626;
+  --warning-200: #ffdcdc;
+
+  --success-100: #468a39;
+  --success-200: #caf7cc;
 }
 ::-webkit-scrollbar {
   width: 1em;

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "emailjs-com": "^3.0.2",
+    "emailjs-com": "2.6.4",
     "framer-motion": "^4.1.17",
     "next": "10.2.3",
     "next-images": "^1.8.1",

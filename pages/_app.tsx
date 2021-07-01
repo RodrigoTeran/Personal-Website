@@ -26,10 +26,9 @@ export const AppContext = createContext<Partial<ValueAppProvider>>({});
 
 // Type LayotuMsg Data
 type LayoutMsgData = {
-  bg: string;
-  textColor: string;
+  type: "info" | "success" | "warning";
   title: string;
-  text: string;
+  msg: string;
 };
 
 // Styles
@@ -43,15 +42,15 @@ import Layout from "../components/Layout/index";
 import Nav from "../components/Nav/index";
 import SocialMedia from "../components/SocialMedia/index";
 import WindowModalLoading from "../components/Loader/LayoutLoader/index";
+import Msgs from "../components/Msgs/index";
 
 export default function PortfolioApp({ Component, pageProps }) {
   // Layout Msgs
   const [isLayoutMsg, setIsLayoutMsg] = useState(false); // Appear or not appear
   const layoutMsgData = useRef<LayoutMsgData>({
-    bg: "",
-    textColor: "",
+    type: "info",
     title: "",
-    text: "",
+    msg: "",
   });
 
   // LayoutLoader
@@ -85,6 +84,18 @@ export default function PortfolioApp({ Component, pageProps }) {
           setIsModalLoading,
         }}
       >
+        <AnimatePresence exitBeforeEnter>
+          {isLayoutMsg ? (
+            <Fragment key="layoutmsgs">
+              <Msgs
+                toggle={setIsLayoutMsg}
+                type={layoutMsgData.current.type}
+                title={layoutMsgData.current.title}
+                msg={layoutMsgData.current.msg}
+              ></Msgs>
+            </Fragment>
+          ) : null}
+        </AnimatePresence>
         <AnimatePresence exitBeforeEnter>
           {isModalLoading ? (
             <Fragment key="layoutLoader">

@@ -15,7 +15,7 @@ export const containerVariants = {
     opacity: 1,
     transition: {
       delay: 0.1,
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
       when: "beforeChildren",
     },
   },

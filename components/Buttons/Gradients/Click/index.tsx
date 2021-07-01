@@ -9,8 +9,6 @@ type PropsBtn = {
   isGradient?: boolean;
   addedClasses?: string;
   variants?: any;
-  whileHover?: any;
-  whileTap?: any;
 };
 
 export default function ClickeableBtn({
@@ -19,14 +17,10 @@ export default function ClickeableBtn({
   isGradient,
   addedClasses,
   variants,
-  whileHover,
-  whileTap,
 }: PropsBtn) {
   return (
     <motion.button
       variants={variants}
-      whileHover={whileHover}
-      whileTap={whileTap}
       className={`${styles.btn} ${
         isGradient ? styles.gradient : styles.blank
       } ${addedClasses ? addedClasses : ""}`}

@@ -10,8 +10,6 @@ type PropsBtn = {
   isGradient?: boolean;
   addedClasses?: string;
   variants?: any;
-  whileHover?: any;
-  whileTap?: any;
 };
 
 export default function LinkBtn({
@@ -21,14 +19,10 @@ export default function LinkBtn({
   isGradient,
   addedClasses,
   variants,
-  whileHover,
-  whileTap,
 }: PropsBtn) {
   return (
     <motion.a
       variants={variants}
-      whileHover={whileHover}
-      whileTap={whileTap}
       className={`${styles.btn} ${
         isGradient ? styles.gradient : styles.blank
       } ${addedClasses ? addedClasses : ""}`}

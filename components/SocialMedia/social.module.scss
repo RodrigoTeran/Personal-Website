@@ -45,6 +45,26 @@
     }
   }
   @media screen and (max-width: 1130px) {
-    display: none;
+    height: 100px;
+    width: 100%;
+    position: static;
+    align-items: center;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    &_column {
+      margin: 0;
+      flex-direction: row;
+      align-items: center;
+      a {
+        margin: 0 30px;
+        svg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &_line {
+        display: none;
+      }
+    }
   }
 }

@@ -1,7 +1,7 @@
 .btn {
   cursor: pointer;
   position: relative;
-  transition: background-color ease-out 500ms, color ease-out 500ms;
+  transition: background-color ease-out 500ms, color ease-out 500ms, transform ease-out 250ms;
   z-index: 0;
   color: var(--white-100);
   display: flex;
@@ -18,6 +18,14 @@
     height: 100%;
     background: var(--aqua-100);
     background: linear-gradient(90deg, var(--aqua-100) 0%, var(--blue-100) 100%);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.1) !important;
+    }
+    &:active {
+      transform: scale(1) !important;
+    }
   }
 }
 

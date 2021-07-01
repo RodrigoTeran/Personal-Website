@@ -225,7 +225,7 @@ export default function ProyectTech({
   const [animation, setAnimation] = useState<boolean>(false);
   const sectionRef = useRef(null);
 
-  useAnimationsScrollWithState(setAnimation, 0.5, sectionRef);
+  useAnimationsScrollWithState(setAnimation, 0.6, sectionRef);
 
   return (
     <motion.section

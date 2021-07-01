@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+// App Context
+import { AppContext } from "../../pages/_app";
 
 // Variants
 import {
@@ -14,6 +18,9 @@ import profilePic from "../../public/images/me.jpg";
 // Styles
 import styles from "./header.module.scss";
 
+// Functions
+import { goto } from "../../functions/goTo";
+
 // Components
 import Title from "./Title/index";
 import Typing from "./Typing/index";
@@ -22,6 +29,8 @@ import GradientButton from "../Buttons/Gradients/Click/index";
 import GradientLink from "../Buttons/Gradients/Link/index";
 
 export default function Header() {
+  const { contactRef } = useContext(AppContext);
+
   return (
     <header className={styles.header}>
       <Responsive>
@@ -35,13 +44,13 @@ export default function Header() {
             className={styles.header_info_buttons}
           >
             <GradientButton
-              onClickFunction={() => {}}
+              onClickFunction={() => {
+                goto(contactRef);
+              }}
               text="Contáctame"
               addedClasses={styles.header_info_buttons_gradient}
               isGradient
               variants={buttonVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 1.05 }}
             ></GradientButton>
             <GradientLink
               addedClasses={styles.header_info_buttons_blank}
@@ -49,8 +58,6 @@ export default function Header() {
               text="Portafolio"
               target="_blank"
               variants={buttonVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 1.05 }}
             ></GradientLink>
           </motion.div>
         </div>

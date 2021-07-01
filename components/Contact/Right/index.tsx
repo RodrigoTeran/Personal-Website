@@ -1,10 +1,18 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "./right.module.scss";
 
 // Email
 import emailJs from "emailjs-com";
+
+// Hooks
+import { useAnimationsScrollWithState } from "../../../hooks/useAnimationsScroll";
+
+// Variants
+import { variantsInitial, containerVariants } from "../../Variants/Proyect";
+import { elementVariants } from "../../Variants/Contact";
 
 // Components
 import InputText from "../../Forms/InputText/index";
@@ -87,11 +95,31 @@ export default function RightContact() {
     return false;
   };
 
+  // Refs for animation
+  const sectionRef = useRef(null);
+
+  // State for animation
+  const [isAnimated, setIsAnimated] = useState<boolean>(false);
+
+  // Animation
+  useAnimationsScrollWithState(setIsAnimated, 0.5, sectionRef);
+
   return (
-    <section className={`${styles.right}`}>
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={isAnimated ? containerVariants : variantsInitial}
+      className={`${styles.right}`}
+      ref={sectionRef}
+    >
       <Loader isInLayout={isLoading} />
-      <div className={styles.right_card}>
-        <h3>Envíame un mensaje 🚀</h3>
+      <motion.div
+        variants={isAnimated ? elementVariants : variantsInitial}
+        className={styles.right_card}
+      >
+        <motion.h3 variants={isAnimated ? elementVariants : variantsInitial}>
+          Envíame un mensaje 🚀
+        </motion.h3>
         <form onSubmit={submit}>
           <InputText
             labelText="Nombre Completo"
@@ -133,7 +161,7 @@ export default function RightContact() {
             addedClasses={styles.btn}
           ></BtnGradient>
         </form>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

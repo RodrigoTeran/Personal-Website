@@ -11,7 +11,7 @@ import { AppContext } from "../../pages/_app";
 import ProyectTech from "./ProyectTech/index";
 
 // Images
-import dogFinderImg from "../../public/images/dogFinder.jpg";
+import dogFinderImg from "../../public/images/dogFinderMx.jpg";
 import darkImg from "../../public/images/dark-programming.png";
 import fourierImg from "../../public/images/fourier.png";
 

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 // Images
-import BimasImage from "../../../public/images/bimas.jpg";
+import BimasImage from "../../../public/images/bimasSc.jpg";
 import LeadsalesImage from "../../../public/images/leadsales.png";
 import UniformsImage from "../../../public/images/uniformes.png";
 

@@ -102,7 +102,6 @@
     }
   }
   &_right {
-    // background-color: blue;
     width: calc(100% - 385.44px);
     padding-left: 100px;
     transition: padding ease-out 300ms;
@@ -170,6 +169,16 @@
       a {
         &:nth-child(1) {
           margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 330px) {
+    &_left_stack_container {
+      flex-direction: column;
+      ul {
+        &:first-child {
+          margin-bottom: 0%;
         }
       }
     }

@@ -22,6 +22,11 @@
     width: 90%;
     margin-left: 5%;
   }
+  @media screen and (max-width: 400px) {
+    h3 {
+      font-size: 3rem;
+    }
+  }
 }
 .card {
   display: flex;

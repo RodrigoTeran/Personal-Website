@@ -1,8 +1,8 @@
 .msgs {
   position: fixed;
-  top: 25px;
-  width: calc(100vw - 100px);
-  left: 50px;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
   z-index: 99999;
   display: flex;
   &_info {
@@ -19,11 +19,11 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      width: 75px;
+      width: 40px;
       svg {
         margin-top: 13px;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
       }
     }
     &_info {
@@ -38,7 +38,7 @@
   }
   &_body {
     display: block;
-    width: calc(100% - 150px);
+    width: 250px;
     h5 {
       font-size: 1.2rem;
       margin: 0;
@@ -61,7 +61,7 @@
     }
   }
   &_btn {
-    width: 75px;
+    width: 30px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -73,8 +73,8 @@
       align-items: center;
       cursor: pointer;
       svg {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
       }
     }
     &_info {

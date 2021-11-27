@@ -50,12 +50,11 @@ export default function RightInfo() {
       </em>
       <br />
       <p ref={pStudy}>
-        Recientemente terminé mis estudios de preparatoria en la{" "}
-        <a href="https://tec.mx/en/queretaro-campus" target="blank">
-          Prepa Tec Querétaro.
+        Actualmente estudio la carrera de Ingeniería en Tecnologías
+        Computacionales en el
+        &nbsp;<a href="https://tec.mx/en/queretaro-campus" target="blank">
+          Tec de Monterrey Campus Querétaro.
         </a>
-        &nbsp;En <time dateTime="2021-08-08">agosto del 2021</time> empezaré mi
-        carrera de Ingeniería de Software en la misma Universidad.
       </p>
       <div ref={imgStudy} className={styles.img_container}>
         <Image

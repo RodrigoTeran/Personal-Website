@@ -16,10 +16,6 @@ class PortfolioDocument extends Document {
     return (
       <Html lang="es">
         <Head>
-          <meta
-            name="description"
-            content="Desarrollador de Software | Rodrigo Terán Hernández."
-          />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

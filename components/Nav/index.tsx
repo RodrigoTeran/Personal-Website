@@ -46,7 +46,9 @@ export default function Nav() {
   };
   const _goto = (where: any) => {
     setResponsiveNav(false);
-    goto(where);
+    if (where) {
+      goto(where);
+    }
   };
 
   const isNavOpen = useAnimatedNav(10, 50);

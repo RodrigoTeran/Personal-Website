@@ -32,6 +32,9 @@ export default function Links({ isResponsive, goto }: PropsLinks) {
       <motion.div
         variants={elementVariants}
         className={`${isResponsive ? styles.link_responsive : styles.link}`}
+        onClick={() => {
+          goto(undefined);
+        }}
       >
         <Link href="/" locale={lang == "es" ? "en" : "es"}>
           <a>

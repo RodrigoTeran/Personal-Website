@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { useRef } from "react";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Images
 import profilePic from "../../../public/images/itesm_logo.png";
 
@@ -34,26 +37,31 @@ export default function RightInfo() {
     "notAppear_topToBottom"
   );
 
+  // Languages
+  const { t } = useTranslation("about");
+
   return (
     <section className={styles.right}>
       <em ref={emInterests} className={`${styles.em_left} ${styles.em}`}>
-        Intereses
+        {t("right-section-1")}
       </em>
       <br />
       <p ref={pInterests}>
-        Soy un apasionado de la tecnología, en especial la{" "}
-        <b>Inteligencia Artificial.</b> Me encanta resolver problemas con el uso
-        de la tecnología. Toda mi vida me ha llamado la atención la ingeniería.
+        {t("right-section-1-p-1")}
+        &nbsp;
+        <b>{t("right-section-1-p-ai")}</b>
+        &nbsp;
+        {t("right-section-1-p-2")}
       </p>
       <em ref={emStudy} className={`${styles.em_right} ${styles.em}`}>
-        Estudios
+        {t("right-section-2")}
       </em>
       <br />
       <p ref={pStudy}>
-        Actualmente estudio la carrera de Ingeniería en Tecnologías
-        Computacionales en el
-        &nbsp;<a href="https://tec.mx/en/queretaro-campus" target="blank">
-          Tec de Monterrey Campus Querétaro.
+        {t("right-section-2-p")}
+        &nbsp;
+        <a href="https://tec.mx/en/queretaro-campus" target="blank">
+          {t("right-section-2-a")}
         </a>
       </p>
       <div ref={imgStudy} className={styles.img_container}>
@@ -67,22 +75,23 @@ export default function RightInfo() {
         />
       </div>
       <em ref={emHobbies} className={`${styles.em_left} ${styles.em}`}>
-        Hobbies
+        {t("right-section-3")}
       </em>
       <br />
-      <p ref={pHobbies}>Aparte de programar, me gusta...</p>
+      <p ref={pHobbies}>{t("right-section-3-p")}</p>
       <ul ref={ulHobbies}>
         <li>
-          hacer{" "}
+          {t("right-section-3-li-1")}
+          &nbsp;
           <a
             href="https://www.google.com/search?q=que+es+la+calistenia&oq=que+es+la+calistenia&aqs=chrome..69i57.222j0j1&sourceid=chrome&ie=UTF-8"
             target="blank"
           >
-            Calistenia
+            {t("right-section-3-li-1-a")}
           </a>
         </li>
-        <li>cocinar postres</li>
-        <li>y leer</li>
+        <li>{t("right-section-3-li-2")}</li>
+        <li>{t("right-section-3-li-3")}</li>
       </ul>
     </section>
   );

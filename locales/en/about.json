@@ -1,0 +1,22 @@
+{
+  "title": "About me",
+
+  "left-presentation": "Hello, my name is Rodrigo Terán. I live in Querétaro, Mexico.",
+  "left-quote": "If you can imagine it, you can code it",
+
+  "right-section-1": "Interests",
+  "right-section-1-p-1": "I am passionate about technology, especially",
+  "right-section-1-p-ai": "Artificial Intelligence.",
+  "right-section-1-p-2": "I love solving problems with the use of technology. Engineering has drawn my attention all my life.",
+
+  "right-section-2": "Education",
+  "right-section-2-p": "I am currently studying the career of Engineering in Computational Technologies at the",
+  "right-section-2-a": "College of Tec de Monterrey.",
+
+  "right-section-3": "Hobbies",
+  "right-section-3-p": "Apart from programming, I like ...",
+  "right-section-3-li-1": "doing",
+  "right-section-3-li-1-a": "calisthenics",
+  "right-section-3-li-2": "cooking desserts",
+  "right-section-3-li-3": "and reading"
+}

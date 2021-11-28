@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Styles
 import styles from "./title.module.scss";
 
@@ -7,7 +10,10 @@ import styles from "./title.module.scss";
 import { sentenceVariants, letterVariants } from "../../Variants/Sentence";
 
 export default function Title() {
-  const title1 = "Soy Rodrigo";
+  // Languages
+  const { t } = useTranslation("header");
+
+  const title1 = t("name");
   const title2 = "Terán";
   return (
     <motion.h1
@@ -24,7 +30,7 @@ export default function Title() {
               variants={letterVariants}
               key={index}
               style={{
-                marginRight: index == 2 ? "20px" : ""
+                marginRight: index == 2 ? "20px" : "",
               }}
             >
               {char}

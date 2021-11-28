@@ -1,0 +1,22 @@
+{
+  "title": "Contact me",
+
+  "left-hi-1": "Hi,",
+  "left-hi-2": "tell me about your project",
+  "left-create": "Let's create something together 🤟",
+  "left-remember-1": "Remember that you can also contact me",
+  "left-remember-2": "in my social media",
+
+  "right-email-success-title": "Message",
+  "right-email-success-msg": "Message sent succesfully!",
+
+  "right-email-warning-1-msg": "The message could not be sent :(",
+  "right-email-warning-2-msg": "Fill in all the required data before sending the message",
+
+  "right-msg-title": "Send me a message 🚀",
+  "right-msg-name": "Full Name",
+  "right-msg-email": "Email",
+  "right-msg-theme": "Subject",
+  "right-msg-text-title": "Tell me more about it",
+  "right-msg-btn": "Send message"
+}

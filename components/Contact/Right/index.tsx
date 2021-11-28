@@ -1,6 +1,9 @@
 import { useState, useContext, useRef } from "react";
 import { motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Styles
 import styles from "./right.module.scss";
 
@@ -33,6 +36,9 @@ export default function RightContact() {
   const [message, setMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  // Languages
+  const { t } = useTranslation("contact");
+
   const submit = (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -57,8 +63,8 @@ export default function RightContact() {
             setIsLoading(false);
             layoutMsgData.current = {
               type: "success",
-              title: "Mensaje",
-              msg: "Mensaje enviado con éxito!",
+              title: t("right-email-success-title"),
+              msg: t("right-email-success-msg"),
             };
             setIsLayoutMsg(true);
             setName("");
@@ -72,8 +78,8 @@ export default function RightContact() {
             console.error(error);
             layoutMsgData.current = {
               type: "warning",
-              title: "Mensaje",
-              msg: "El mensaje no se pudo enviar :(",
+              title: t("right-email-success-title"),
+              msg: t("right-email-warning-1-msg"),
             };
             setIsLayoutMsg(true);
           }
@@ -82,8 +88,8 @@ export default function RightContact() {
       setIsLoading(false);
       layoutMsgData.current = {
         type: "warning",
-        title: "Mensaje",
-        msg: "Llena todos los datos requeridos antes de enviar el mensaje",
+        title: t("right-email-success-title"),
+        msg: t("right-email-warning-2-msg"),
       };
       setIsLayoutMsg(true);
     }
@@ -118,34 +124,34 @@ export default function RightContact() {
         className={styles.right_card}
       >
         <motion.h3 variants={isAnimated ? elementVariants : variantsInitial}>
-          Envíame un mensaje 🚀
+          {t("right-msg-title")}
         </motion.h3>
         <form onSubmit={submit}>
           <InputText
-            labelText="Nombre Completo"
+            labelText={t("right-msg-name")}
             setValue={setName}
             value={name}
             type="text"
             name="name"
             id="name-contact"
-          ></InputText>
+          />
           <InputText
-            labelText="Correo Electrónico"
+            labelText={t("right-msg-email")}
             setValue={setEmail}
             value={email}
             type="email"
             name="email"
             id="email-contact"
-          ></InputText>
+          />
           <InputText
-            labelText="Asunto"
+            labelText={t("right-msg-theme")}
             setValue={setSubject}
             value={subject}
             type="text"
             name="subject"
             id="subject-contact"
-          ></InputText>
-          <span>Cuéntame más del asunto</span>
+          />
+          <span>{t("right-msg-text-title")}</span>
           <textarea
             onChange={(event) => {
               setMessage(event.target.value);
@@ -156,10 +162,10 @@ export default function RightContact() {
           ></textarea>
           <BtnGradient
             onClickFunction={() => {}}
-            text="Mandar mensaje"
+            text={t("right-msg-btn")}
             isGradient
             addedClasses={styles.btn}
-          ></BtnGradient>
+          />
         </form>
       </motion.div>
     </motion.section>

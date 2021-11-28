@@ -5,6 +5,9 @@ import Image from "next/image";
 // Hooks
 import { useAnimationsScrollWithState } from "../../../hooks/useAnimationsScroll";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Images
 import profilePic from "../../../public/images/me.jpg";
 
@@ -25,6 +28,9 @@ export default function LeftContact() {
   // Animation
   useAnimationsScrollWithState(setIsAnimated, 0.5, sectionRef);
 
+  // Languages
+  const { t } = useTranslation("contact");
+
   return (
     <motion.section
       initial="hidden"
@@ -34,12 +40,12 @@ export default function LeftContact() {
       ref={sectionRef}
     >
       <motion.h3 variants={isAnimated ? elementVariants : variantsInitial}>
-        Hola,
+        {t("left-hi-1")}
         <br />
-        cuéntame sobre tu proyecto
+        {t("left-hi-2")}
       </motion.h3>
       <motion.p variants={isAnimated ? elementVariants : variantsInitial}>
-        Vamos a crear algo juntos 🤟
+        {t("left-create")}
       </motion.p>
       <motion.div
         variants={isAnimated ? elementVariants : variantsInitial}
@@ -56,9 +62,9 @@ export default function LeftContact() {
           />
         </div>
         <div className={styles.card_info}>
-          Recuerda que también puedes contactarme
+          {t("left-remember-1")}
           <br />
-          <span>en mis redes sociales</span>
+          <span>{t("left-remember-2")}</span>
         </div>
       </motion.div>
     </motion.section>

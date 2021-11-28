@@ -1,0 +1,35 @@
+{
+  "info-cards-view-job": "See work",
+
+  "me": "Web developer, specialized in functionalities, design and animations.",
+  "jobs": "Jobs I've had",
+
+  "leadsales": "Leadsales",
+  "leadsales-from": "Since May 2021",
+  "leadsales-to": "to the present",
+  "leadsales-des-1": "Work as",
+  "leadsales-des-2": "intern",
+  "leadsales-des-3": "at Leadsales in the frontend web development area.",
+
+  "bimas": "BIMAS SC",
+  "bimas-from": "September 2020",
+  "bimas-des-1": "I developed the",
+  "bimas-des-2": "website of BIMAS SC",
+  "bimas-des-3": ", a company that offers services on environmental issues.",
+
+  "uniforms": "Uniforms",
+  "uniforms-from": "June 2021",
+  "uniforms-des-1": "I developed the",
+  "uniforms-des-2": "sales control platform",
+  "uniforms-des-3": "of a Mexican company that sells uniforms.",
+
+  "experience": "Experience",
+  "years-1": "Three",
+  "years-2": "years",
+  "years-3": "developing",
+
+  "quotes": "The best way to predict the future is to invent it",
+  "mountain-1": "Frontend",
+  "mountain-2": "Backend",
+  "mountain-3": "Technologies"
+}

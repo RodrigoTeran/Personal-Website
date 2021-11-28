@@ -2,6 +2,9 @@ import { useContext } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // App Context
 import { AppContext } from "../../pages/_app";
 
@@ -31,12 +34,15 @@ import GradientLink from "../Buttons/Gradients/Link/index";
 export default function Header() {
   const { contactRef } = useContext(AppContext);
 
+  // Languages
+	const { t } = useTranslation("header");
+
   return (
     <header className={styles.header}>
       <Responsive>
         <div className={styles.header_info}>
-          <Title></Title>
-          <Typing></Typing>
+          <Title />
+          <Typing />
           <motion.div
             variants={buttonsContainerVariants}
             initial="hidden"
@@ -47,18 +53,18 @@ export default function Header() {
               onClickFunction={() => {
                 goto(contactRef);
               }}
-              text="Contáctame"
+              text={t("btn-1")}
               addedClasses={styles.header_info_buttons_gradient}
               isGradient
               variants={buttonVariants}
-            ></GradientButton>
+            />
             <GradientLink
               addedClasses={styles.header_info_buttons_blank}
               link="/Profile.pdf"
-              text="Portafolio"
+              text={t("btn-2")}
               target="_blank"
               variants={buttonVariants}
-            ></GradientLink>
+            />
           </motion.div>
         </div>
         <motion.div

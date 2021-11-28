@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Variants
 import { imageVariants } from "../../Variants/Header";
 
@@ -13,11 +16,15 @@ import { useTyping } from "../../../hooks/useTyping";
 export default function Typing() {
   const [word, setWord] = useState<string>("");
   const [isWriting, setIsWriting] = useState<boolean>(true);
+
+  // Languages
+	const { t } = useTranslation("header");
+
   useTyping(
     [
-      "Desarrollador de Aplicaciones Web",
-      "Entusiasta de la Tecnología",
-      "Amante de los libros",
+      t("typing-1"),
+      t("typing-2"),
+      t("typing-3"),
     ],
     setWord,
     setIsWriting,

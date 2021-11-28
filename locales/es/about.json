@@ -1,0 +1,22 @@
+{
+  "title": "Acerca de mí",
+
+  "left-presentation": "Hola, me llamo Rodrigo Terán. Vivo en Querétaro, México.",
+  "left-quote": "Si puedes imaginarlo, puedes programarlo",
+
+  "right-section-1": "Intereses",
+  "right-section-1-p-1": "Soy un apasionado de la tecnología, en especial la",
+  "right-section-1-p-ai": "Inteligencia Artificial.",
+  "right-section-1-p-2": "Me encanta resolver problemas con el uso de la tecnología. Toda mi vida me ha llamado la atención la ingeniería.",
+
+  "right-section-2": "Estudios",
+  "right-section-2-p": "Actualmente estudio la carrera de Ingeniería en Tecnologías Computacionales en el",
+  "right-section-2-a": "Tec de Monterrey Campus Querétaro.",
+
+  "right-section-3": "Hobbies",
+  "right-section-3-p": "Aparte de programar, me gusta...",
+  "right-section-3-li-1": "hacer",
+  "right-section-3-li-1-a": "calistenia",
+  "right-section-3-li-2": "cocinar postres",
+  "right-section-3-li-3": "y leer"
+}

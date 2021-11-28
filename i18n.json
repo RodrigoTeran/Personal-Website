@@ -1,0 +1,14 @@
+{
+  "locales": ["en", "es"],
+  "defaultLocale": "es",
+  "pages": {
+    "/": [
+      "common",
+      "header",
+      "about",
+      "work",
+      "proyects",
+      "contact"
+    ]
+  }
+}

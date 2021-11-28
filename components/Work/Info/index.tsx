@@ -1,4 +1,7 @@
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useRef, useState } from "react";
+
+// Languages
+import useTranslation from "next-translate/useTranslation";
 
 // Images
 import BimasImage from "../../../public/images/bimasSc.jpg";
@@ -29,6 +32,9 @@ type Props = {
 export default function Info({ changeProyect }: Props) {
   var quantityOfCards = 3;
 
+  // Languages
+  const { t } = useTranslation("work");
+
   // Refs for animations
   const h3Ref = useRef(null);
   const emRef = useRef(null);
@@ -43,16 +49,13 @@ export default function Info({ changeProyect }: Props) {
 
   return (
     <section className={styles.info}>
-      <h3 ref={h3Ref}>
-        Desarrollador de plataformas web, especializado en funcionalidades,
-        diseño y animaciones.
-      </h3>
+      <h3 ref={h3Ref}>{t("me")}</h3>
 
       <em
         ref={emRef}
         className={`${stylesAbout.em} ${stylesAbout.em_left} ${styles.em}`}
       >
-        Trabajos que he tenido
+        {t("jobs")}
       </em>
       <br />
 
@@ -74,53 +77,53 @@ export default function Info({ changeProyect }: Props) {
         <div className={styles.info_cards_container}>
           <div className={styles.info_cards_container_movable}>
             <Card
-              text="Leadsales (actual)"
+              text={t("leadsales")}
               callback={() => {
                 setIndexCardSelected(0);
                 changeProyect(
                   LeadsalesImage,
-                  "Leadsales",
-                  ["Desde Mayo 2021", "-", "hasta la actualidad"],
+                  t("leadsales"),
+                  [t("leadsales-from"), "-", t("leadsales-to")],
                   "https://leadsales.io/en/",
-                  "Leadsales",
+                  t("leadsales"),
                   0
                 );
               }}
               isSelected={indexCardSelected == 0 ? true : false}
               index={indexes}
-            ></Card>
+            />
             <Card
-              text="BIMAS SC"
+              text={t("bimas")}
               callback={() => {
                 setIndexCardSelected(1);
                 changeProyect(
                   BimasImage,
-                  "BIMAS SC",
-                  ["Septiembre 2020"],
+                  t("bimas"),
+                  [t("bimas-from")],
                   "https://bimas.com.mx/",
-                  "Bimas SC",
+                  t("bimas"),
                   1
                 );
               }}
               isSelected={indexCardSelected == 1 ? true : false}
               index={indexes + 1}
-            ></Card>
+            />
             <Card
-              text="Uniformate bien"
+              text={t("uniforms")}
               callback={() => {
                 setIndexCardSelected(2);
                 changeProyect(
                   UniformsImage,
-                  "Uniformate bien",
-                  ["Junio 2021"],
+                  t("uniforms"),
+                  [t("uniforms-from")],
                   "https://uniformate-bien.vercel.app/",
-                  "Uniformes",
+                  t("uniforms"),
                   2
                 );
               }}
               isSelected={indexCardSelected == 2 ? true : false}
               index={indexes + 2}
-            ></Card>
+            />
           </div>
         </div>
         <button

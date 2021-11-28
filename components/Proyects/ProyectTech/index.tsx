@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Fragment, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Hooks
 import { useAnimationsScrollWithState } from "../../../hooks/useAnimationsScroll";
 
@@ -34,6 +37,10 @@ function Left({
   techStack,
   animation,
 }: PropsLeft) {
+
+  // Languages
+	const { t } = useTranslation("proyects");
+
   return (
     <div className={styles.tech_left}>
       <motion.h3 variants={animation ? elementVariants : variantsInitial}>
@@ -61,14 +68,14 @@ function Left({
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
             <path d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
           </svg>
-          Link al Proyecto
+          {t("component-left-link-proyect")}
         </a>
         {linkSource && (
           <a href={linkSource} target="blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
               <path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z" />
             </svg>
-            Link al Repositorio
+            {t("component-left-link-git")}
           </a>
         )}
         {!linkSource && (
@@ -76,7 +83,7 @@ function Left({
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
               <path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z" />
             </svg>
-            Repositorio Privado
+            {t("component-left-git-private")}
           </span>
         )}
       </motion.div>
@@ -87,7 +94,7 @@ function Left({
         {host}
       </motion.div>
       <motion.h4 variants={animation ? elementVariants : variantsInitial}>
-        Tecnologías usadas
+        {t("component-left-tech-stack")}
       </motion.h4>
       <div className={styles.tech_left_stack_container}>
         <ul className={styles.tech_left_stack}>
@@ -143,6 +150,10 @@ function Right({
   notableFeatures,
   animation,
 }: PropsRight) {
+
+  // Languages
+	const { t } = useTranslation("proyects");
+
   return (
     <div className={styles.tech_right}>
       <motion.h4
@@ -151,7 +162,7 @@ function Right({
           marginTop: "0px",
         }}
       >
-        Descripción
+        {t("component-right-des")}
       </motion.h4>
       <motion.div
         variants={animation ? elementVariants : variantsInitial}
@@ -160,7 +171,7 @@ function Right({
         {description}
       </motion.div>
       <motion.h4 variants={animation ? elementVariants : variantsInitial}>
-        Dificultades del Proyecto
+        {t("component-right-hard")}
       </motion.h4>
       <motion.div
         variants={animation ? elementVariants : variantsInitial}
@@ -169,7 +180,7 @@ function Right({
         {difficulties}
       </motion.div>
       <motion.h4 variants={animation ? elementVariants : variantsInitial}>
-        Mi Solución
+        {t("component-right-solution")}
       </motion.h4>
       <motion.div
         variants={animation ? elementVariants : variantsInitial}
@@ -178,7 +189,7 @@ function Right({
         {solution}
       </motion.div>
       <motion.h4 variants={animation ? elementVariants : variantsInitial}>
-        Características Notables
+        {t("component-right-characteristics")}
       </motion.h4>
       <ul>
         {notableFeatures.map((feature, index) => (
@@ -243,14 +254,14 @@ export default function ProyectTech({
         host={host}
         techStack={techStack}
         animation={animation}
-      ></Left>
+      />
       <Right
         description={description}
         difficulties={difficulties}
         solution={solution}
         notableFeatures={notableFeatures}
         animation={animation}
-      ></Right>
+      />
     </motion.section>
   );
 }

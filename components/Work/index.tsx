@@ -15,8 +15,8 @@ export default function Work() {
 
   return (
     <article className={`${styles.work} sections`} ref={experienceRef}>
-      <Proyects></Proyects>
-      <Skills></Skills>
+      <Proyects />
+      <Skills />
     </article>
   );
 }

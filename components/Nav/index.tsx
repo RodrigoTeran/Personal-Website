@@ -1,7 +1,4 @@
-import {
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Variants
@@ -32,7 +29,7 @@ export default function Nav() {
    * And the variable responsiveNav also changes, so that when the screen gets smaller
    * it doesnt appear as responsive mode
    */
-  
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
@@ -53,6 +50,7 @@ export default function Nav() {
   };
 
   const isNavOpen = useAnimatedNav(10, 50);
+
   return (
     <motion.nav
       variants={containerVariants}
@@ -60,17 +58,12 @@ export default function Nav() {
       animate="visible"
       className={`${styles.nav} ${isNavOpen ? "" : styles.close}`}
     >
-      <Links
-        goto={_goto}
-      ></Links>
+      <Links goto={_goto} />
       <Responsive
         responsiveNav={responsiveNav}
         setResponsiveNav={setResponsiveNav}
       >
-        <Links
-          isResponsive
-          goto={_goto}
-        ></Links>
+        <Links isResponsive goto={_goto} />
       </Responsive>
     </motion.nav>
   );

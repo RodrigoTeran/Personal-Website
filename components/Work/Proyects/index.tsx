@@ -3,6 +3,9 @@ import { useState, useRef } from "react";
 // Images
 import LeadsalesImage from "../../../public/images/leadsales.png";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // Functions
 import { goto } from "../../../functions/goTo";
 
@@ -18,16 +21,19 @@ import Info from "../Info/index";
 import Proyect from "../../Proyects/Proyect/index";
 
 export default function Work() {
+  // Languages
+  const { t } = useTranslation("work");
+
   // Proyect state
   const [imgSrc, setImgSrc] = useState<any>(LeadsalesImage);
-  const [title, setTitle] = useState<string>("Leadsales");
+  const [title, setTitle] = useState<string>(t("leadsales"));
   const [techStack, setTechStack] = useState<Array<string>>([
-    "Desde Mayo 2021",
+    t("leadsales-from"),
     "-",
-    "hasta la actualidad",
+    t("leadsales-to"),
   ]);
   const [link, setLink] = useState<string>("https://leadsales.io/en/");
-  const [alt, setAlt] = useState<string>("Leadsales");
+  const [alt, setAlt] = useState<string>(t("leadsales"));
   const [childrenIndex, setChildrenIndex] = useState<number>(0);
 
   // Proyect Ref
@@ -60,16 +66,16 @@ export default function Work() {
   return (
     <>
       <h2 ref={h2Ref} className={`${styles.work_h2}`}>
-        Experiencia
+        {t("experience")}
       </h2>
       <div className={styles.sections}>
         <Years
           years={3}
           text={
             <>
-              <p>Más de tres</p>
-              <p>años</p>
-              <p>creando</p>
+              <p>{t("years-1")}</p>
+              <p>{t("years-2")}</p>
+              <p>{t("years-3")}</p>
             </>
           }
         ></Years>
@@ -85,18 +91,26 @@ export default function Work() {
         >
           {childrenIndex == 0 ? (
             <>
-              Trabajo como <b>intern</b> en Leadsales en el área de desarrollo
-              web frontend.
+              {t("leadsales-des-1")}
+              &nbsp;
+              <b>{t("leadsales-des-2")}</b>
+              &nbsp;
+              {t("leadsales-des-3")}
             </>
           ) : childrenIndex == 1 ? (
             <>
-              Desarrollé la <b>página web de BIMAS SC</b>, una empresa con la
-              finalidad de ofrecer servicios en temas ambientales.
+              {t("bimas-des-1")}
+              &nbsp;
+              <b>{t("bimas-des-2")}</b>
+              {t("bimas-des-3")}
             </>
           ) : childrenIndex == 2 ? (
             <>
-              Desarrollé la <b>plataforma de control de ventas</b> de una
-              empresa queretana que se dedica a vender uniformes.
+              {t("uniforms-des-1")}
+              &nbsp;
+              <b>{t("uniforms-des-2")}</b>
+              &nbsp;
+              {t("uniforms-des-3")}
             </>
           ) : null}
         </Proyect>

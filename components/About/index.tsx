@@ -1,5 +1,8 @@
 import { useContext, useRef } from "react";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // App Context
 import { AppContext } from "../../pages/_app";
 
@@ -22,17 +25,17 @@ export default function About() {
   // Animations
   useAnimationsScroll([h2], 0.6, "notAppear_bottomToTop");
 
+  // Languages
+  const { t } = useTranslation("about");
+
   return (
     <article ref={aboutRef} className={`${styles.about} sections`}>
-      <h2
-        ref={h2}
-        className={`${styles.about_h2}`}
-      >
-        Acerca de mí
+      <h2 ref={h2} className={`${styles.about_h2}`}>
+        {t("title")}
       </h2>
       <div className={styles.info}>
-        <LeftInfo></LeftInfo>
-        <RightInfo></RightInfo>
+        <LeftInfo />
+        <RightInfo />
       </div>
     </article>
   );

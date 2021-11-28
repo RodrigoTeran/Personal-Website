@@ -10,6 +10,9 @@ import {
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+// Languages
+import useTranslation from "next-translate/useTranslation";
+
 // App Context
 interface ValueAppProvider {
   isLayoutMsg: boolean;
@@ -53,6 +56,9 @@ export default function PortfolioApp({ Component, pageProps }) {
     msg: "",
   });
 
+  // Languages
+  const { t } = useTranslation("common");
+
   // LayoutLoader
   const [isModalLoading, setIsModalLoading] = useState(true);
 
@@ -65,7 +71,7 @@ export default function PortfolioApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Desarrollador de Software | Rodrigo Terán Hernández.</title>
+        <title>{t("title")}</title>
       </Head>
       <AppContext.Provider
         value={{

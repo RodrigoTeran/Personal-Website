@@ -79,7 +79,7 @@ export default function Proyects() {
           t("dogfinder-features-5"),
           t("dogfinder-features-6"),
         ]}
-      ></ProyectTech>
+      />
       <hr />
       <ProyectTech
         title={t("dark-title")}
@@ -118,7 +118,7 @@ export default function Proyects() {
           t("dark-features-5"),
           t("dark-features-6"),
         ]}
-      ></ProyectTech>
+      />
       <hr />
       <ProyectTech
         title={t("fourier-title")}
@@ -161,7 +161,7 @@ export default function Proyects() {
           </p>
         }
         notableFeatures={[t("fourier-features-1"), t("fourier-features-2")]}
-      ></ProyectTech>
+      />
     </article>
   );
 }

@@ -8,6 +8,7 @@ type Props = {
   type: "gradient" | "white" | "black";
   size: "small" | "medium" | "large";
   isClicked?: boolean;
+  className?: string;
 };
 
 export default function Btn({
@@ -17,12 +18,15 @@ export default function Btn({
   type,
   size,
   isClicked,
+  className,
 }: Props) {
   return (
     <button
-      className={`${styles.btn} ${withBorder && styles.btn_border} ${
-        styles[type]
-      } ${styles[size]} ${isClicked && type == "black" && styles.black_click}`}
+      className={`${styles.btn} ${className && className} ${
+        withBorder && styles.btn_border
+      } ${styles[type]} ${styles[size]} ${
+        isClicked && type == "black" && styles.black_click
+      }`}
       onClick={callback}
     >
       {text}

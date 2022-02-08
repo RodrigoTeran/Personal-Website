@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+
+    overflow: hidden; // Because of staggering
     &_vr {
         margin-top: 20px;
         background-color: var(--white-100);

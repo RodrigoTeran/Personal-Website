@@ -1,5 +1,9 @@
 @import "../../../styles/utilities";
 
+$max-width-wrapper: 980px;
+$width-aside: 150px;
+$basic-padding: 25px;
+
 .loader {
     background-color: var(--black-300);
     width: 100%;
@@ -14,12 +18,20 @@
     display: flex;
     &_children {
         z-index: 0;
-        padding: 0 175px 0 25px;
-        width: calc(100% - 150px);
+        padding: 0 calc($width-aside + $basic-padding) 0 $basic-padding;
+        width: calc(100% - $width-aside);
+        max-width: $max-width-wrapper;
+
         transition: padding ease-out 300ms;
-        max-width: 980px;
-        @media screen and (min-width: 1280px) { // 980px + 300px
-            margin-left: calc((100vw - 1280px) / 2);
+
+        @media screen and (min-width: calc($max-width-wrapper + $width-aside)) {
+            padding: 0 calc($width-aside + $basic-padding - (100vw - $max-width-wrapper - $width-aside)) 0
+                $basic-padding;
+
+        }
+        @media screen and (min-width: calc($max-width-wrapper + ($width-aside * 2))) {
+            margin-left: calc((100vw - calc($max-width-wrapper + $width-aside * 2)) / 2);
+            padding: 0 $basic-padding;
         }
         @media screen and (max-width: $responsive-nav) {
             padding: 0 5vw 0 5vw;

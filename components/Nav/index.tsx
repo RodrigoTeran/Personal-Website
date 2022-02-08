@@ -14,6 +14,9 @@ import { containerVariants } from "../animations/variants/stagger";
 // Lang
 import useTranslation from "next-translate/useTranslation";
 
+// Hooks
+import { useAnimatedNav } from "../../hooks/useAnimatedNav";
+
 type Refs = "about" | "experience" | "skills" | "projects" | "contact";
 
 export default function Nav() {
@@ -27,12 +30,17 @@ export default function Nav() {
     setIsResponsiveOpen(false);
   };
 
+  // Hook state
+  const isNavOpen = useAnimatedNav({});
+
   return (
     <motion.nav
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className={styles.nav}
+      className={`${styles.nav} ${
+        !isNavOpen && !isResponsiveOpen && styles.close
+      }`}
     >
       <div
         onClick={() => {

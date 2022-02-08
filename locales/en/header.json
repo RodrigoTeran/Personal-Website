@@ -1,3 +1,10 @@
 {
-    "name": "I'm Rodrigo"
+  "name": "I'm Rodrigo",
+
+  "typing-1": "Web Developer",
+  "typing-2": "Tech Enthusiast",
+  "typing-3": "Books lover",
+
+  "btn-1": "Contact me",
+  "btn-2": "Resume"
 }

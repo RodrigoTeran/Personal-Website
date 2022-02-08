@@ -6,9 +6,11 @@ import styles from "./header.module.scss";
 
 // Components
 import Title from "./Title/index";
-import ImageShimmer from "./Shimmer/index";
+import Typing from "./Typing/index";
+import Buttons from "./Btns/index";
+import ImageShimmer from "../Shimmer/index";
 
-const imageVariants = {
+export const imageVariants = {
   hidden: {
     opacity: 0,
   },
@@ -21,8 +23,10 @@ const imageVariants = {
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.header_left}>
         <Title />
+        <Typing />
+        <Buttons />
       </div>
       <motion.div
         variants={imageVariants}
@@ -30,7 +34,13 @@ export default function Header() {
         animate="visible"
         className={styles.header_right}
       >
-        <ImageShimmer />
+        <ImageShimmer
+          src="/images/me.jpg"
+          alt="Rodrigo Terán"
+          width={250}
+          height={250}
+          priority
+        />
       </motion.div>
     </header>
   );

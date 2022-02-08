@@ -6,7 +6,7 @@
     padding: 0 10px;
     position: relative;
     overflow: hidden;
-    transition: background-color ease-out 300ms, color ease-out 300ms;
+    transition: background-color ease-out 300ms, color ease-out 300ms, min-width ease-out 300ms;
     &_border {
         border-radius: 1000px; // Very big
     }

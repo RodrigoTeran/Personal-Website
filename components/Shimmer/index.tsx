@@ -21,15 +21,25 @@ const toBase64 = (str: string) =>
     ? Buffer.from(str).toString("base64")
     : window.btoa(str);
 
-const Shimmer = () => (
+type Props = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  priority: boolean;
+};
+
+const Shimmer = ({ src, alt, width, height, priority }: Props) => (
   <Image
-    alt="Rodrigo Terán"
-    src="/images/me.jpg"
+    alt={alt}
+    src={src}
     placeholder="blur"
-    priority
-    blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(250, 250))}`}
-    width={250}
-    height={250}
+    priority={priority}
+    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+      shimmer(width, height)
+    )}`}
+    width={width}
+    height={height}
   />
 );
 

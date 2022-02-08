@@ -1,3 +1,10 @@
 {
-    "name": "Soy Rodrigo"
+  "name": "Soy Rodrigo",
+
+  "typing-1": "Desarrollador de Aplicaciones Web",
+  "typing-2": "Entusiasta de la Tecnología",
+  "typing-3": "Amante de los libros",
+
+  "btn-1": "Contáctame",
+  "btn-2": "Currículum"
 }

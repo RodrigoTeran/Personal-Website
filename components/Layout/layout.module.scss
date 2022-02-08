@@ -1,0 +1,42 @@
+@import "../../styles/utilities";
+
+.layout {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    &_circle {
+        width: 187px;
+        height: 187px;
+        background-color: var(--black-400);
+        position: absolute;
+        z-index: 1;
+        border-radius: 50%;
+        top: 110px;
+        right: 10%;
+        transition: width ease-out 150ms, height ease-out 150ms;
+    }
+    svg {
+        fill: var(--black-400);
+        width: 463px;
+        height: 463px;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: width ease-out 150ms, height ease-out 150ms;
+    }
+    @media screen and (max-width: $responsive-nav) {
+        &_circle {
+            width: 100px;
+            height: 100px;
+        }
+        svg {
+            width: 263px;
+            height: 263px;
+        }
+    }
+}

@@ -21,7 +21,7 @@ type Props = {
 };
 
 export default function LinkNav({ linkType, text, goto }: Props) {
-  const { lang } = useTranslation("common");
+  const { t, lang } = useTranslation("common");
 
   return (
     <motion.div
@@ -42,7 +42,7 @@ export default function LinkNav({ linkType, text, goto }: Props) {
         )}
         {linkType == "lang" && (
           <Link href="/" locale={lang == "es" ? "en" : "es"}>
-            <a>
+            <a title={t("title-a")}>
               {lang == "es" && (
                 <Icon.MexicoFlag className={styles.link_svg_flag} />
               )}

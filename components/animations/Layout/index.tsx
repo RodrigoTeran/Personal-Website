@@ -16,6 +16,7 @@ import Icon from "../../Icons/index";
 // Components
 import Nav from "../../Nav/index";
 import SocialMedia from "../../SocialMedia/index";
+import LayoutBackground from "../../Layout/index";
 
 type Props = {
   children: any;
@@ -57,6 +58,7 @@ export default function LayoutAnimation({ children }: Props) {
           className={styles.wrapper}
         >
           <Nav />
+          <LayoutBackground />
           <SocialMedia />
           <div className={styles.wrapper_children}>{children}</div>
         </motion.div>

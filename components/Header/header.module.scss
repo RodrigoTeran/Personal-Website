@@ -1,0 +1,15 @@
+.header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &_left {
+        display: flex;
+        flex-direction: column;
+    }
+    &_right {
+        img {
+            border-radius: 50%;
+        }
+    }
+}

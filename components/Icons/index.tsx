@@ -3,6 +3,7 @@ import Briefcase from "./svg/briefcase";
 import Cat from "./svg/cat";
 import Check from "./svg/check";
 import ChevronDown from "./svg/chevronDown";
+import Code from "./svg/code";
 import CodeBranch from "./svg/codeBranch";
 import Desktop from "./svg/desktop";
 import ExclamationCircle from "./svg/exclamationCircle";
@@ -24,6 +25,7 @@ export default {
   Cat,
   Check,
   ChevronDown,
+  Code,
   CodeBranch,
   Desktop,
   ExclamationCircle,

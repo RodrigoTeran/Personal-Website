@@ -1,20 +1,29 @@
-import { createContext } from "react";
+// Modules
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 
 // App Context
-interface ValueAppProvider {}
-
-export const AppContext = createContext<Partial<ValueAppProvider>>({});
+interface ValueAppProvider {
+  isLayoutAnimationOpen: boolean;
+  setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>;
+}
+export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
 
 // Styles
 import "../styles/global.scss";
 
 // Components
+import AnimationLayout from "../components/animations/Layout/index";
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
+  // Translation
   const { t } = useTranslation("common");
+
+  // Layout animation
+  const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
+    useState<boolean>(true);
 
   return (
     <>
@@ -45,11 +54,18 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:title" content={t("title")} />
         <meta name="twitter:description" content={t("title")} />
       </Head>
-      <AppContext.Provider value={{}}>
+      <GlobalContext.Provider
+        value={{
+          isLayoutAnimationOpen,
+          setIsLayoutAnimationOpen,
+        }}
+      >
         <main>
-          <Component {...pageProps} />
+          <AnimationLayout>
+            <Component {...pageProps} />
+          </AnimationLayout>
         </main>
-      </AppContext.Provider>
+      </GlobalContext.Provider>
     </>
   );
 }

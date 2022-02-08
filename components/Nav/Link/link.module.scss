@@ -1,0 +1,93 @@
+@import "../../../styles/utilities";
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    position: relative;
+    cursor: pointer;
+    &_svg {
+        margin-right: 9px;
+        &_icon {
+            width: 13px;
+            height: 13px;
+            fill: var(--aqua-100);
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: -9px;
+        }
+        &_chevron {
+            fill: var(--white-200);
+            width: 13px;
+            height: 13px;
+            margin-left: 10px;
+        }
+        &_flag {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &_text {
+        font-family: "Fira Code", monospace;
+        color: var(--white-200);
+        font-size: 0.8rem;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        background-color: var(--aqua-100);
+        height: 1px;
+        width: 0;
+        left: 50%;
+        bottom: -5px;
+        transition: width ease-out 300ms, left ease-out 300ms;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    }
+    @media screen and (max-width: $responsive-nav) {
+        margin-right: 0;
+        &_svg {
+            margin-right: 15px;
+            a {
+                margin-right: -15px;
+            }
+            &_icon,
+            &_chevron {
+                width: 4vw;
+                height: 4vw;
+            }
+            &_flag {
+                width: 7vw;
+                height: 7vw;
+            }
+        }
+        &_text {
+            font-size: 5vw;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        &_svg {
+            &_icon,
+            &_chevron {
+                width: 6vw;
+                height: 6vw;
+            }
+            &_flag {
+                width: 9vw;
+                height: 9vw;
+            }
+        }
+        &_text {
+            font-size: 7vw;
+        }
+    }
+}

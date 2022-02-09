@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 // Variants
 import { svgPathVariants, svgVariants } from "../../animations/variants/svg";
 
-export default function Icon({ _onClick, className }: IconProps) {
+export default function Icon({ _onClick, className, ref }: IconProps) {
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +15,7 @@ export default function Icon({ _onClick, className }: IconProps) {
       className={className}
       onClick={_onClick}
       height="55"
+      ref={ref}
       width="55"
       variants={svgVariants}
       initial="hidden"

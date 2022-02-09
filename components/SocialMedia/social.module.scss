@@ -30,7 +30,7 @@
         height: 20px;
         fill: var(--white-100);
         cursor: pointer;
-        transition: fill ease-out 300ms, transform ease-out 300ms;
+        transition: fill ease-out 100ms, transform ease-out 100ms;
         @media (hover: hover) and (pointer: fine) {
             &:hover {
                 fill: var(--aqua-100);

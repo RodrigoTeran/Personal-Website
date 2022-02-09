@@ -1,0 +1,44 @@
+.code {
+    width: 446px;
+    border-radius: 5px;
+    background-color: var(--black-400);
+    padding: 40px 50px;
+    transition: padding ease-out 300ms, width ease-out 300ms;
+    &_container {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5px;
+        overflow-x: auto;
+        span {
+            font-family: "Fira Code", monospace;
+            font-size: 0.75rem;
+            text-shadow: 0 0 0 var(--black-900); // makes text lighter
+        }
+        div {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transition: 300ms clip-path ease-out var(--delay-number);
+        }
+        &.not {
+            div {
+                clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            }
+        }
+    }
+    @media screen and (max-width: 1220px) {
+        width: 90%;
+    }
+    @media screen and (max-width: 560px) {
+        padding: 40px 20px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 280px) {
+        h2 {
+            font-size: 10vw !important;
+        }
+    }
+}

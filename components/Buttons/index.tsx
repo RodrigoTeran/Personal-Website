@@ -9,6 +9,7 @@ type Props = {
   size: "small" | "medium" | "large";
   isClicked?: boolean;
   className?: string;
+  ref?: any;
 };
 
 export default function Btn({
@@ -19,9 +20,11 @@ export default function Btn({
   size,
   isClicked,
   className,
+  ref,
 }: Props) {
   return (
     <button
+      ref={ref}
       className={`${styles.btn} ${className && className} ${
         withBorder && styles.btn_border
       } ${styles[type]} ${styles[size]} ${

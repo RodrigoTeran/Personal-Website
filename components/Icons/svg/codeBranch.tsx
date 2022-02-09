@@ -1,11 +1,12 @@
 // Types
 import type { IconProps } from "../icons.types";
 
-export default function Icon({ _onClick, className }: IconProps) {
+export default function Icon({ _onClick, className, ref }: IconProps) {
   return (
     <svg
       className={className}
       onClick={_onClick}
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
     >

@@ -15,18 +15,33 @@ export default function Info() {
           database. Also the system allows to sale from the platform.
         </p>
         <ul>
-          <li>React.js / Typescript<Icon.ITagIcon /></li>
-          <li>Node.js<Icon.ITagIcon /></li>
-          <li>Framer Motion<Icon.ITagIcon /></li>
-          <li>MongoDB<Icon.ITagIcon /></li>
+          <li>
+            React.js / Typescript
+            <Icon.ITagIcon />
+          </li>
+          <li>
+            Node.js
+            <Icon.ITagIcon />
+          </li>
+          <li>
+            Framer Motion
+            <Icon.ITagIcon />
+          </li>
+          <li>
+            MongoDB
+            <Icon.ITagIcon />
+          </li>
         </ul>
-        <a
-          href="https://uniformate-bien.vercel.app/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Link <Icon.Link />
-        </a>
+        <span>
+          <a
+            href="https://uniformate-bien.vercel.app/"
+            target="_blank"
+            rel="noreferrer noopener"
+            title="Go to Uniforms website"
+          >
+            Link <Icon.Link />
+          </a>
+        </span>
       </div>
     </div>
   );

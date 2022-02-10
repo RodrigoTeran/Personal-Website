@@ -21,14 +21,36 @@
         font-size: 0.875rem;
     }
     &_mini {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 20%);
         justify-content: space-between;
+        justify-items: center;
         gap: 20px;
+
         &_img {
             aspect-ratio: 464 / 300;
-            height: 80px;
             background-color: var(--black-800);
+            width: 100%;
             border-radius: 5px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+        flex-direction: column;
+        &_ours {
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        &_mini {
+            grid-template-columns: repeat(auto-fit, 25%);
+            gap: 40px;
+        }
+    }
+    @media screen and (max-width: 370px) {
+        &_mini {
+            grid-template-columns: repeat(auto-fit, 40%);
+            gap: 40px;
         }
     }
 }

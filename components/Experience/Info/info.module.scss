@@ -1,4 +1,5 @@
 @import "../experience.module.scss";
+@import "../../animations/Layout/layout.module.scss";
 
 .info {
     width: $width-info;
@@ -22,6 +23,7 @@
             border-radius: 5px;
             margin: 0;
             width: 450px;
+            text-align: right;
         }
     }
     ul {
@@ -34,25 +36,71 @@
             }
         }
     }
-    a {
-        color: var(--white-100);
-        text-decoration: none;
-        background-color: var(--black-500);
-        border-radius: 5px;
-        padding: 5px 10px;
+    span {
+        width: $width-info;
         display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        svg {
-            width: 13px;
-            height: 13px;
-            fill: var(--aqua-100);
-        }
-        @media (hover:hover) and (pointer:fine) {
-            &:hover {
-                background-color: var(--black-600);
+        justify-content: flex-end;
+
+        a {
+            width: fit-content;
+            color: var(--white-100);
+            text-decoration: none;
+            background-color: var(--black-500);
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            svg {
+                width: 13px;
+                height: 13px;
+                fill: var(--aqua-100);
             }
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    background-color: var(--black-600);
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+        div {
+            position: static;
+        }
+        h3 {
+            margin-top: 30px;
+        } 
+        p {
+            width: 420px !important;
+        }
+        ul {
+            max-width: 450px;
+            width: 100%;
+        }
+        li {
+            svg {
+                margin: 0 10px;
+            }
+        }
+        span {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        p {
+            margin: 0 auto !important;
+            width: fit-content !important;
+            max-width: 450px;
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+        div {
+            align-items: center;
         }
     }
 }

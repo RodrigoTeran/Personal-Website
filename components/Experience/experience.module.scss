@@ -9,8 +9,12 @@ $width-gallery: calc(100% - $width-btns);
     &_data {
         margin-top: 44px;
         display: flex;
-        // justify-content: space-between;
         position: relative;
         align-items: flex-start;
+
+        @media screen and (max-width: 1200px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
     }
 }

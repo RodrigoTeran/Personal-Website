@@ -21,8 +21,6 @@ $basic-padding: 25px;
         padding: 0 calc($width-aside + $basic-padding) 0 $basic-padding;
         width: calc(100% - $width-aside);
         max-width: $max-width-wrapper;
-        // background-color: red;
-
         transition: padding ease-out 300ms;
 
         @media screen and (min-width: calc($max-width-wrapper + $width-aside)) {

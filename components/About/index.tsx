@@ -7,6 +7,9 @@ import styles from "./about.module.scss";
 // Hook
 import { useAnimationsScroll } from "../../hooks/useAnimationsScroll";
 
+// Transalation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Code from "./Code/index";
 import Question from "./Questions/index";
@@ -15,7 +18,7 @@ export default function AboutMe() {
   // Ref
   const aboutInfoRef = useRef<any>(null);
 
-  const percentage: number = .65;
+  const percentage: number = 0.65;
   const delay: number = 200;
 
   // Hook animation
@@ -26,8 +29,11 @@ export default function AboutMe() {
         screenPercentage: percentage,
         notAppearClass: styles.not,
       },
-    ]
+    ],
   });
+
+  // Transaltion
+  const { t, lang } = useTranslation("about");
 
   return (
     <section className={styles.about}>
@@ -38,24 +44,31 @@ export default function AboutMe() {
             ["--delay-number" as any]: `${0 * delay}ms`,
           }}
           align="left"
-          question="What I do"
+          question={t("question-1")}
         >
-          <p>
-            I build interactive and powerful web platforms, servers and machine
-            learning models.
-          </p>
+          <p>{t("answer-1")}</p>
         </Question>
         <Question
           style={{
             ["--delay-number" as any]: `${1 * delay}ms`,
           }}
           align="right"
-          question="What is my experience"
+          question={t("question-2")}
         >
           <p>
-            I have 4 years of experience with web technologies working as a
-            freelance and intern software engineer.&nbsp;
-            <span>Go to experience.</span>
+            {lang == "es" && (
+              <>
+                {t("answer-2")}
+                <br />
+                <span>{t("goto-experience")}</span>
+              </>
+            )}
+            {lang == "en" && (
+              <>
+                {t("answer-2")}&nbsp;
+                <span>{t("goto-experience")}</span>
+              </>
+            )}
           </p>
         </Question>
         <Question
@@ -63,11 +76,12 @@ export default function AboutMe() {
             ["--delay-number" as any]: `${2 * delay}ms`,
           }}
           align="left"
-          question="What I've done"
+          question={t("question-3")}
         >
           <p>
-            I have built web e-commerce platforms, sales tracking software,
-            CRMs, AI software, etc.<br/><span>Go to projects.</span>
+            {t("answer-3")}
+            <br />
+            <span>{t("goto-projects")}</span>
           </p>
         </Question>
       </div>

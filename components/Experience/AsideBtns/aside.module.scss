@@ -1,0 +1,14 @@
+@import "../experience.module.scss";
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: $width-btns;
+    span {
+        font-size: 0.7rem;
+        color: var(--white-200);
+        margin-top: 6px;
+    }
+}

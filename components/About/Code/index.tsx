@@ -52,6 +52,7 @@ export default function Code() {
       <HeaderSections
         screenPercentage={percentage + 0.13}
         text={t("nav-link-1")}
+        className={styles.h2}
       />
       <div ref={code} className={`${styles.code_container}`}>
         <div
@@ -77,7 +78,7 @@ export default function Code() {
           <Code_iconPurple icon=")" />
           <Code_semicolon />
         </div>
-        <div></div>
+        <div>&nbsp;</div>
         <div
           style={{
             ["--delay-number" as any]: `${2 * delay}ms`,

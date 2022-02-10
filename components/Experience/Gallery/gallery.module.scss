@@ -1,0 +1,34 @@
+@import "../experience.module.scss";
+
+.gallery {
+    width: $width-gallery;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    &_ours {
+        width: calc(100% - $width-info);
+    }
+    &_main {
+        width: calc(100%);
+        aspect-ratio: 464 / 300;
+        background-color: var(--black-800);
+        border-radius: 5px;
+    }
+    &_text {
+        margin: 15px 0 9px 0;
+        font-size: 0.875rem;
+    }
+    &_mini {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        &_img {
+            aspect-ratio: 464 / 300;
+            height: 80px;
+            background-color: var(--black-800);
+            border-radius: 5px;
+        }
+    }
+}

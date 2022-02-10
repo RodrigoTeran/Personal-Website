@@ -28,7 +28,7 @@
          }
       }
    }
-   @media screen and (max-width: 1220px) {
+   @media screen and (max-width: 1280px) {
       flex-direction: column;
       gap: 40px;
       align-items: center;
@@ -36,7 +36,7 @@
          width: 90%;
       }
    }
-   @media screen and (max-width: 480px) {
+   @media screen and (max-width: 540px) {
       &_info {
          width: calc(100% - 60px);
       }

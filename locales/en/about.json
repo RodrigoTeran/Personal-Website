@@ -1,0 +1,12 @@
+{
+  "question-1": "What I do",
+  "question-2": "What is my experience",
+  "question-3": "What I've done",
+
+  "answer-1": "I build interactive and powerful web platforms, servers and machine learning models.",
+  "answer-2": "I have 4 years of experience with web technologies working as a freelance and intern software engineer.",
+  "answer-3": "I have built web e-commerce platforms, sales tracking software, CRMs, AI software, etc.",
+
+  "goto-experience": "Go to experience.",
+  "goto-projects": "Go to projects."
+}

@@ -1,0 +1,58 @@
+@import "../experience.module.scss";
+
+.info {
+    width: $width-info;
+    z-index: 1;
+    h3 {
+        margin: 0;
+        text-align: right;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+        margin-top: 25px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        p {
+            background-color: var(--black-100);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 0;
+            width: 450px;
+        }
+    }
+    ul {
+        list-style: none;
+        li {
+            text-align: right;
+            line-height: 1.6rem;
+            svg {
+                margin-left: 10px;
+            }
+        }
+    }
+    a {
+        color: var(--white-100);
+        text-decoration: none;
+        background-color: var(--black-500);
+        border-radius: 5px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--aqua-100);
+        }
+        @media (hover:hover) and (pointer:fine) {
+            &:hover {
+                background-color: var(--black-600);
+            }
+        }
+    }
+}

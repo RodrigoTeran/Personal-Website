@@ -2,6 +2,9 @@
 import { CSSProperties } from "react";
 import styles from "./question.module.scss";
 
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 type Props = {
   question: string;
   children: any;
@@ -17,6 +20,9 @@ export default function Question({
   ref,
   style,
 }: Props) {
+  // Translation to verify ¿? icons
+  const { lang } = useTranslation();
+
   return (
     <div
       data-alignment={align}
@@ -25,6 +31,7 @@ export default function Question({
       style={style}
     >
       <h3>
+        {lang == "es" && <span>¿&nbsp;</span>}
         {question}
         &nbsp;
         <span>?</span>

@@ -1,6 +1,12 @@
 @import "../experience.module.scss";
 @import "../../animations/Layout/layout.module.scss";
 
+.diffetentP {
+    background-color: var(--black-100);
+    padding: 20px;
+    width: 450px;
+}
+
 .info {
     width: $width-info;
     z-index: 1;
@@ -17,12 +23,10 @@
         align-items: flex-end;
         position: absolute;
         right: 0;
+        width: $width-info;
         p {
-            background-color: var(--black-100);
-            padding: 20px;
             border-radius: 5px;
             margin: 0;
-            width: 450px;
             text-align: right;
         }
     }
@@ -68,10 +72,11 @@
         width: 100%;
         div {
             position: static;
+            width: 100%;
         }
         h3 {
             margin-top: 30px;
-        } 
+        }
         p {
             width: 420px !important;
         }

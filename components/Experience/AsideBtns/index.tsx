@@ -1,8 +1,11 @@
 // Styles
 import styles from "./aside.module.scss";
 
-// Modules
+// Types
 import { Dispatch, SetStateAction } from "react";
+
+// Translation
+import useTranslation from "next-translate/useTranslation";
 
 // Components
 import Btns from "../ButtonAside/index";
@@ -13,47 +16,50 @@ type Props = {
 };
 
 export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
+  // Translation
+  const { t } = useTranslation("experience");
+
   return (
     <div className={styles.btns}>
       <div>
-        <span>4 years of work experience...</span>
+        <span>{t("span-1")}</span>
         <Btns
           isSelected={projectIndex == 0}
           _callback={() => {
             if (projectIndex != 0) setProjectIndex(0);
           }}
-          text="Drive Clone"
+          text={t("work-1-title")}
         />
         <Btns
           isSelected={projectIndex == 1}
           _callback={() => {
             if (projectIndex != 1) setProjectIndex(1);
           }}
-          text="E-commerce platform"
+          text={t("work-2-title")}
         />
         <Btns
           isSelected={projectIndex == 2}
           _callback={() => {
             if (projectIndex != 2) setProjectIndex(2);
           }}
-          text="Sales tracking software"
+          text={t("work-3-title")}
         />
         <Btns
           isSelected={projectIndex == 3}
           _callback={() => {
             if (projectIndex != 3) setProjectIndex(3);
           }}
-          text="Leadsales internship"
+          text={t("work-4-title")}
         />
       </div>
       <div>
-        <span>Summer 2022, coming soon...</span>
+        <span>{t("span-2")}</span>
         <Btns
           isSelected={projectIndex == 4}
           _callback={() => {
             if (projectIndex != 4) setProjectIndex(4);
           }}
-          text="Facebook internship"
+          text={t("work-5-title")}
         />
       </div>
     </div>

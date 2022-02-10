@@ -1,0 +1,36 @@
+{
+  "work-1-title": "Clon de Drive",
+  "work-2-title": "Web de E-commerce",
+  "work-3-title": "Software de ventas",
+  "work-4-title": "Pasantía en Leadsales",
+  "work-5-title": "Pasantía en Facebook",
+
+  "span-1": "4 años de experiencia...",
+  "span-2": "Verano 2022, muy pronto...",
+
+  "photos": "Galería de fotos:",
+  "open": "Abrir foto",
+
+  "work-1-info-title": "BIMAS SC",
+  "work-1-info-des": "Desarrollé la página web de BIMAS SC, una empresa que ofrece servicios ambientales. Esta empresa necesitaba un sistema como Google Drive para sus clientes, entonces hice un clon de Drive para su uso de empresa.",
+  "work-1-info-li": "Next.js / Typescript,Node.js,Google Cloud,MongoDB",
+  "work-1-info-a": "Ir a la página web de BIMAS SC",
+
+  "work-2-info-title": "DESSILUM",
+  "work-2-info-des": "Desarrollé una plataforma de e-commerce para una empresa mexicana. Esta página es dinámica, en otras palabras, la empresa puede cambiar secciones, títulos, imágenes, etc. solo con presionar un botón.",
+  "work-2-info-li": "Next.js / Typescript,Node.js,Stripe,Framer Motion,Web sockets,Nodemailer,MongoDB",
+  "work-2-info-a": "Ir a la página web de DESSILUM",
+
+  "work-3-info-title": "Uniformes",
+  "work-3-info-des": "Desarrollé un software de ventas para la empresa de una escuela. Este software organiza todas las ventas en tablas y las guarda en una base de datos. También, el sistema permite vender desde la página.",
+  "work-3-info-li": "React.js / Typescript,Node.js,Framer Motion,MongoDB",
+  "work-3-info-a": "Ir a la página web de los Uniformes",
+
+  "work-4-info-title": "Leadsales",
+  "work-4-info-des": "Durante el verano de 2021 estuve en una pasantía como desarrollador frontend en Leadsales. Estuve implementando nuevas características a la plataforma con React.js y Google Firebase.",
+  "work-4-info-li": "Next.js  / Typescript,Firebase",
+  "work-4-info-a": "Ir a la página web de Leadsales",
+
+  "work-5-info-title": "Meta",
+  "work-5-info-des": "muy pronto..."
+}

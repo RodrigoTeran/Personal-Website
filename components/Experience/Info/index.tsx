@@ -1,47 +1,61 @@
 // Styles
 import styles from "./info.module.scss";
 
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Icons
 import Icon from "../../Icons";
 
-export default function Info() {
+type Props = {
+  projectIndex: 0 | 1 | 2 | 3 | 4;
+};
+export default function Info({ projectIndex }: Props) {
+  // Translation
+  const { t } = useTranslation("experience");
+
+  // Links
+  const links: Array<string> = [
+    "https://bimas.com.mx/",
+    "https://www.dessilumindustrial.com/",
+    "https://uniformate-bien.vercel.app/",
+    "https://leadsales.io/",
+  ];
+
   return (
     <div className={styles.info}>
-      <h3>Uniforms</h3>
+      <h3>{t(`work-${projectIndex + 1}-info-title`)}</h3>
       <div>
-        <p>
-          I developed a sales tracking software for a mexican school. The
-          software organizes all the sales in tables and stores them in a
-          database. Also the system allows to sale from the platform.
+        <p className={projectIndex != 4 ? styles.diffetentP : ""}>
+          {t(`work-${projectIndex + 1}-info-des`)}
         </p>
-        <ul>
-          <li>
-            React.js / Typescript
-            <Icon.ITagIcon />
-          </li>
-          <li>
-            Node.js
-            <Icon.ITagIcon />
-          </li>
-          <li>
-            Framer Motion
-            <Icon.ITagIcon />
-          </li>
-          <li>
-            MongoDB
-            <Icon.ITagIcon />
-          </li>
-        </ul>
-        <span>
-          <a
-            href="https://uniformate-bien.vercel.app/"
-            target="_blank"
-            rel="noreferrer noopener"
-            title="Go to Uniforms website"
-          >
-            Link <Icon.Link />
-          </a>
-        </span>
+
+        {projectIndex != 4 && (
+          <>
+            <ul>
+              {t(`work-${projectIndex + 1}-info-li`)
+                .split(",")
+                .map((li: string, index: number) => {
+                  return (
+                    <li key={index}>
+                      {li}
+                      <Icon.ITagIcon />
+                    </li>
+                  );
+                })}
+            </ul>
+            <span>
+              <a
+                href={links[projectIndex]}
+                target="_blank"
+                rel="noreferrer noopener"
+                title={t(`work-${projectIndex + 1}-info-a`)}
+              >
+                Link <Icon.Link />
+              </a>
+            </span>
+          </>
+        )}
       </div>
     </div>
   );

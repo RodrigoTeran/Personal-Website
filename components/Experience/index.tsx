@@ -36,8 +36,8 @@ export default function Experience() {
           projectIndex={projectIndex}
           setProjectIndex={setProjectIndex}
         />
-        <Gallery>
-          <Info />
+        <Gallery projectIndex={projectIndex}>
+          <Info projectIndex={projectIndex} />
         </Gallery>
       </div>
     </section>

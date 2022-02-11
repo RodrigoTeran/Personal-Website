@@ -9,6 +9,7 @@
     z-index: 1;
     &_ours {
         width: calc(100% - $width-info);
+        transition: 250ms opacity ease-out 500ms;
     }
     &_main {
         width: calc(100%);
@@ -81,4 +82,7 @@
             }
         }
     }
+}
+.not {
+    opacity: 0;
 }

@@ -4,8 +4,7 @@ $width-gallery-less-width: 50px;
 $width-gallery: calc(100% - $width-btns);
 
 .experience {
-    // margin-bottom: 100px; // Alwaaaaays
-    margin-bottom: 1000px; // Alwaaaaays
+    margin-bottom: 100px; // Alwaaaaays
     &_data {
         margin-top: 44px;
         display: flex;

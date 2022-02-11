@@ -6,6 +6,7 @@
     align-items: flex-start;
     gap: 14px;
     width: $width-btns;
+    transition: opacity ease-out 250ms, transform ease-out 250ms;
     div {
         display: flex;
         flex-direction: column;
@@ -33,7 +34,6 @@
                 min-width: 180px;
                 width: 45%;
             }
-
         }
     }
     @media screen and (max-width: 450px) {
@@ -43,4 +43,8 @@
             }
         }
     }
+}
+.not {
+    opacity: 0;
+    transform: translateY(30px);
 }

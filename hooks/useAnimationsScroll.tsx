@@ -23,7 +23,7 @@ export const useAnimationsScroll = ({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
   const addClasses = () => {
     try {
       for (let i = 0; i < componentsList.length; i++) {

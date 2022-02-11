@@ -16,7 +16,7 @@
             font-family: "Fira Code", monospace;
             font-size: 0.88rem;
             text-shadow: 0 0 0 var(--black-900); // makes text lighter
-            cursor: pointer;
+            cursor: default;
 
             // I think this looks cool
             @media (hover: hover) and (pointer: fine) {
@@ -49,7 +49,7 @@
 .h2 {
     @media screen and (max-width: 330px) {
         h2 {
-            font-size: 10vw;
+            font-size: 10vw !important;
         }
     }
 }

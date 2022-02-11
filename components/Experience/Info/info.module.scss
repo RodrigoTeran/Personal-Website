@@ -10,6 +10,7 @@
 .info {
     width: $width-info;
     z-index: 1;
+    transition: opacity ease-out 250ms, transform ease-out 250ms;
     h3 {
         margin: 0;
         text-align: right;
@@ -35,8 +36,20 @@
         li {
             text-align: right;
             line-height: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-left: 20px;
+            width: fit-content;
+            margin-left: auto;
+            cursor: default;
             svg {
                 margin-left: 10px;
+            }
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    background-color: var(--black-600);
+                }
             }
         }
     }
@@ -108,4 +121,9 @@
             align-items: center;
         }
     }
+}
+
+.not {
+    opacity: 0;
+    transform: translateY(30px);
 }

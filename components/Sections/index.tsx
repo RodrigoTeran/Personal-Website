@@ -29,7 +29,7 @@ export default function HeaderSections({
         screenPercentage: screenPercentage ? screenPercentage : 0.5,
         notAppearClass: styles.not,
       },
-    ],
+    ]
   });
 
   return (

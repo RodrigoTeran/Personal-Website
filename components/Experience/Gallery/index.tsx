@@ -10,6 +10,9 @@ import styles from "./gallery.module.scss";
 // Translation
 import useTranslation from "next-translate/useTranslation";
 
+// Animations hook
+import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
+
 // Components
 import { ImagesMain, ImagesMini } from "./Images/index";
 
@@ -96,9 +99,23 @@ export default function Gallery({ children, projectIndex }: Props) {
     }
   };
 
+  // Animations scroll
+  // Ref of component
+  const refGalleryOurs = useRef<any>(null);
+
+  useAnimationsScroll({
+    componentsList: [
+      {
+        element: refGalleryOurs,
+        screenPercentage: 0.445,
+        notAppearClass: styles.not,
+      },
+    ]
+  });
+
   return (
     <div className={styles.gallery}>
-      <div className={styles.gallery_ours}>
+      <div className={`${styles.gallery_ours}`} ref={refGalleryOurs}>
         <div
           className={styles.gallery_main}
           ref={refMain}

@@ -1,3 +1,6 @@
+// Modules
+import { useRef } from "react";
+
 // Styles
 import styles from "./info.module.scss";
 
@@ -6,6 +9,9 @@ import useTranslation from "next-translate/useTranslation";
 
 // Icons
 import Icon from "../../Icons";
+
+// Animations hook
+import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 
 type Props = {
   projectIndex: 0 | 1 | 2 | 3 | 4;
@@ -22,8 +28,22 @@ export default function Info({ projectIndex }: Props) {
     "https://leadsales.io/",
   ];
 
+  // Animations scroll
+  // Ref of component
+  const refInfo = useRef<any>(null);
+
+  useAnimationsScroll({
+    componentsList: [
+      {
+        element: refInfo,
+        screenPercentage: 0.445,
+        notAppearClass: styles.not,
+      },
+    ]
+  });
+
   return (
-    <div className={styles.info}>
+    <div className={`${styles.info}`} ref={refInfo}>
       <h3>{t(`work-${projectIndex + 1}-info-title`)}</h3>
       <div>
         <p className={projectIndex != 4 ? styles.diffetentP : ""}>

@@ -27,7 +27,7 @@ export function ImagesMain({
           return (
             <Fragment key={index}>
               <Shimmer
-                src={`/images/work-${projectIndex + 1}.png`}
+                src={`/images/experience/work-${projectIndex + 1}.png`}
                 alt={t(`work-${projectIndex + 1}-info-title`)}
                 width={dimensionsMain_width}
                 height={dimensionsMain_height}
@@ -65,7 +65,7 @@ export function ImagesMini({
           return (
             <Fragment key={index}>
               <Shimmer
-                src={`/images/work-${projectIndex + 1}-mini-${liIndex}.png`}
+                src={`/images/experience/work-${projectIndex + 1}-mini-${liIndex}.png`}
                 alt={t(`work-${projectIndex + 1}-info-title`)}
                 width={dimensionsMinis_width}
                 height={dimensionsMinis_height}

@@ -121,7 +121,7 @@ export default function Gallery({ children, projectIndex }: Props) {
           ref={refMain}
           onClick={() => {
             openImg(
-              `/images/work-${projectIndex + 1}.png`,
+              `/images/experience/work-${projectIndex + 1}.png`,
               t(`work-${projectIndex + 1}-info-title`)
             );
           }}
@@ -142,7 +142,7 @@ export default function Gallery({ children, projectIndex }: Props) {
                 ref={refMini}
                 onClick={() => {
                   openImg(
-                    `/images/work-${projectIndex + 1}-mini-${1}.png`,
+                    `/images/experience/work-${projectIndex + 1}-mini-${1}.png`,
                     t(`work-${projectIndex + 1}-info-title`)
                   );
                 }}
@@ -159,7 +159,7 @@ export default function Gallery({ children, projectIndex }: Props) {
                 className={styles.gallery_mini_img}
                 onClick={() => {
                   openImg(
-                    `/images/work-${projectIndex + 1}-mini-${2}.png`,
+                    `/images/experience/work-${projectIndex + 1}-mini-${2}.png`,
                     t(`work-${projectIndex + 1}-info-title`)
                   );
                 }}
@@ -176,7 +176,7 @@ export default function Gallery({ children, projectIndex }: Props) {
                 className={styles.gallery_mini_img}
                 onClick={() => {
                   openImg(
-                    `/images/work-${projectIndex + 1}-mini-${3}.png`,
+                    `/images/experience/work-${projectIndex + 1}-mini-${3}.png`,
                     t(`work-${projectIndex + 1}-info-title`)
                   );
                 }}
@@ -193,7 +193,7 @@ export default function Gallery({ children, projectIndex }: Props) {
                 className={styles.gallery_mini_img}
                 onClick={() => {
                   openImg(
-                    `/images/work-${projectIndex + 1}-mini-${4}.png`,
+                    `/images/experience/work-${projectIndex + 1}-mini-${4}.png`,
                     t(`work-${projectIndex + 1}-info-title`)
                   );
                 }}

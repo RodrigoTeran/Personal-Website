@@ -8,6 +8,10 @@ import useTranslation from "next-translate/useTranslation";
 interface ValueAppProvider {
   isLayoutAnimationOpen: boolean;
   setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>;
+  isModalImgOpen: boolean;
+  setIsModalImgOpen: Dispatch<SetStateAction<boolean>>;
+  modalImgState: PropsImgModal;
+  setModalImgState: Dispatch<SetStateAction<PropsImgModal>>;
 }
 export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
 
@@ -17,6 +21,12 @@ import "../styles/global.scss";
 // Components
 import AnimationLayout from "../components/animations/Layout/index";
 
+// Modals
+import ImgModal from "../components/Modals/ImgModal/index";
+
+// Types
+import type { Props as PropsImgModal } from "../components/Modals/ImgModal/index";
+
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
   // Translation
   const { t } = useTranslation("common");
@@ -24,6 +34,13 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
   // Layout animation
   const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
     useState<boolean>(true);
+
+  // Modal imgs
+  const [isModalImgOpen, setIsModalImgOpen] = useState<boolean>(false);
+  const [modalImgState, setModalImgState] = useState<PropsImgModal>({
+    src: "",
+    alt: "",
+  });
 
   return (
     <>
@@ -58,8 +75,14 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
         value={{
           isLayoutAnimationOpen,
           setIsLayoutAnimationOpen,
+          isModalImgOpen,
+          setIsModalImgOpen,
+          modalImgState,
+          setModalImgState,
         }}
       >
+        {/* Modal images */}
+        <ImgModal />
         <main>
           <AnimationLayout>
             <Component {...pageProps} />

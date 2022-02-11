@@ -1,7 +1,7 @@
 // Modules
 import Image from "next/image";
 
-const shimmer = (w: number, h: number): string => `
+const shimmer = (w: string | number, h: string | number): string => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <linearGradient id="g">
@@ -24,12 +24,13 @@ const toBase64 = (str: string) =>
 type Props = {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width: string | number;
+  height: string | number;
   priority: boolean;
+  _click?: () => void;
 };
 
-const Shimmer = ({ src, alt, width, height, priority }: Props) => (
+const Shimmer = ({ src, alt, width, height, priority, _click }: Props) => (
   <Image
     alt={alt}
     src={src}
@@ -40,6 +41,7 @@ const Shimmer = ({ src, alt, width, height, priority }: Props) => (
     )}`}
     width={width}
     height={height}
+    onClick={_click}
   />
 );
 

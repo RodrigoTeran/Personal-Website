@@ -16,6 +16,7 @@ $basic-padding: 25px;
     width: 100%;
     position: relative;
     display: flex;
+    z-index: 1;
     &_children {
         z-index: 0;
         padding: 0 calc($width-aside + $basic-padding) 0 $basic-padding;

@@ -13,7 +13,6 @@
     &_main {
         width: calc(100%);
         aspect-ratio: 464 / 300;
-        background-color: var(--black-800);
         border-radius: 5px;
         overflow: hidden;
         display: grid;
@@ -31,7 +30,6 @@
         gap: 20px;
         &_img {
             aspect-ratio: 464 / 300;
-            background-color: var(--black-800);
             width: 100%;
             border-radius: 5px;
             overflow: hidden;

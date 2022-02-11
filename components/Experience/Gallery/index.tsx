@@ -1,8 +1,8 @@
-// Types
-import { useEffect } from "react";
-
 // Modules
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
+
+// Global context
+import { GlobalContext } from "../../../pages/_app";
 
 // Styles
 import styles from "./gallery.module.scss";
@@ -79,10 +79,36 @@ export default function Gallery({ children, projectIndex }: Props) {
     setDimensionsMinis_height(heightMini);
   };
 
+  // Dimensions of window to take ss: 1660 x 1073
+
+  // Context
+  const { setModalImgState, setIsModalImgOpen } = useContext(GlobalContext);
+
+  // Open img
+  const openImg = (src: string, alt: string) => {
+    if (setModalImgState && setIsModalImgOpen) {
+      console.log("xd");
+      setModalImgState({
+        src,
+        alt,
+      });
+      setIsModalImgOpen(true);
+    }
+  };
+
   return (
     <div className={styles.gallery}>
       <div className={styles.gallery_ours}>
-        <div className={styles.gallery_main} ref={refMain}>
+        <div
+          className={styles.gallery_main}
+          ref={refMain}
+          onClick={() => {
+            openImg(
+              `/images/work-${projectIndex + 1}.png`,
+              t(`work-${projectIndex + 1}-info-title`)
+            );
+          }}
+        >
           <ImagesMain
             projectIndex={projectIndex}
             dimensionsMain_width={dimensionsMain_width}
@@ -97,6 +123,12 @@ export default function Gallery({ children, projectIndex }: Props) {
                 title={t("open")}
                 className={styles.gallery_mini_img}
                 ref={refMini}
+                onClick={() => {
+                  openImg(
+                    `/images/work-${projectIndex + 1}-mini-${1}.png`,
+                    t(`work-${projectIndex + 1}-info-title`)
+                  );
+                }}
               >
                 <ImagesMini
                   projectIndex={projectIndex}
@@ -105,7 +137,16 @@ export default function Gallery({ children, projectIndex }: Props) {
                   liIndex={1}
                 />
               </div>
-              <div title={t("open")} className={styles.gallery_mini_img}>
+              <div
+                title={t("open")}
+                className={styles.gallery_mini_img}
+                onClick={() => {
+                  openImg(
+                    `/images/work-${projectIndex + 1}-mini-${2}.png`,
+                    t(`work-${projectIndex + 1}-info-title`)
+                  );
+                }}
+              >
                 <ImagesMini
                   projectIndex={projectIndex}
                   dimensionsMinis_width={dimensionsMinis_width}
@@ -113,7 +154,16 @@ export default function Gallery({ children, projectIndex }: Props) {
                   liIndex={2}
                 />
               </div>
-              <div title={t("open")} className={styles.gallery_mini_img}>
+              <div
+                title={t("open")}
+                className={styles.gallery_mini_img}
+                onClick={() => {
+                  openImg(
+                    `/images/work-${projectIndex + 1}-mini-${3}.png`,
+                    t(`work-${projectIndex + 1}-info-title`)
+                  );
+                }}
+              >
                 <ImagesMini
                   projectIndex={projectIndex}
                   dimensionsMinis_width={dimensionsMinis_width}
@@ -121,7 +171,16 @@ export default function Gallery({ children, projectIndex }: Props) {
                   liIndex={3}
                 />
               </div>
-              <div title={t("open")} className={styles.gallery_mini_img}>
+              <div
+                title={t("open")}
+                className={styles.gallery_mini_img}
+                onClick={() => {
+                  openImg(
+                    `/images/work-${projectIndex + 1}-mini-${4}.png`,
+                    t(`work-${projectIndex + 1}-info-title`)
+                  );
+                }}
+              >
                 <ImagesMini
                   projectIndex={projectIndex}
                   dimensionsMinis_width={dimensionsMinis_width}

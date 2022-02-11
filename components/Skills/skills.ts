@@ -112,7 +112,7 @@ export const servicios = [
     x2: 40,
     y2: 17,
     imgSrc: "ia.png",
-    alt: "Machine_Learning",
+    alt: "Machine Learning",
   },
   {
     x: 42,
@@ -120,7 +120,7 @@ export const servicios = [
     x2: 13,
     y2: 10,
     imgSrc: "google.png",
-    alt: "Google_Cloud",
+    alt: "Google Cloud",
   },
   {
     x: 75.33,

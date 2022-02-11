@@ -57,6 +57,7 @@
         opacity: 0;
         transition: opacity ease-out 300ms, visibility ease-out 300ms;
         text-align: center;
+        white-space: nowrap;
         &::after {
             content: "";
             position: absolute;

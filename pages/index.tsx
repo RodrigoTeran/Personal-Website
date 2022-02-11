@@ -2,6 +2,7 @@
 import Header from "../components/Header/index";
 import About from "../components/About/index";
 import Experience from "../components/Experience/index";
+import Skills from "../components/Skills/index";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <About />
       <Experience />
+      <Skills />
     </>
   );
 }

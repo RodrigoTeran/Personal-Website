@@ -40,6 +40,7 @@ export default function Header() {
           width={250}
           height={250}
           priority
+          quality={75}
         />
       </motion.div>
     </header>

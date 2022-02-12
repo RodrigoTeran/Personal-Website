@@ -1,3 +1,191 @@
+.parent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    @media screen and (max-width: 1280px) {
+        flex-direction: column-reverse;
+    }
+    &.left {
+        @media screen and (max-width: 1280px) {
+            flex-direction: column;
+        }
+    }
+}
+.children {
+    width: 100%;
+    @media screen and (max-width: 1280px) {
+        max-width: 100% !important;
+        margin-top: 45px;
+    }
+}
 .overview {
-    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    &_img {
+        cursor: pointer;
+        position: relative;
+        width: fit-content;
+        margin-bottom: 25px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--aqua-100-55);
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: 300ms opacity ease-out;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            &:hover::after {
+                opacity: 1;
+            }
+        }
+    }
+    h4 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
+        font-size: 1.25rem;
+        text-align: right;
+        width: 100%;
+        &.left {
+            text-align: left;
+        }
+    }
+    &_links {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        width: 100%;
+        svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--aqua-100-55);
+        }
+        span {
+            color: var(--aqua-100-55);
+        }
+        a {
+            color: var(--aqua-100);
+            text-decoration: none;
+        }
+        div {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            cursor: default;
+            &.yes {
+                cursor: pointer;
+                svg {
+                    fill: var(--aqua-100);
+                }
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    &_p {
+        margin: 0;
+        margin-bottom: 25px;
+        width: 100%;
+        text-align: right;
+        padding: 0;
+        p {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            color: var(--aqua-100);
+            text-decoration: none;
+            font-weight: bold;
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        &.left {
+            text-align: left;
+        }
+    }
+    &_tech_title {
+        font-weight: bold;
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: right;
+    }
+    &_ul_container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 40px;
+        width: 100%;
+        ul {
+            margin: 0;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 7px;
+            li {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                cursor: default;
+                padding-left: 10px;
+                padding-right: 0;
+                gap: 7px;
+                width: fit-content;
+                margin-left: auto;
+                white-space: nowrap;
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: var(--black-600);
+                    }
+                }
+            }
+        }
+    }
+    &.left {
+        .overview {
+            &_ul_container {
+                justify-content: flex-start;
+                ul {
+                    li {
+                        justify-content: flex-start;
+                        padding-right: 10px;
+                        padding-left: 0;
+                        margin: 0;
+                    }
+                }
+            }
+            &_tech_title {
+                text-align: left;
+            }
+            &_links {
+                justify-content: flex-start;
+            }
+        }
+    }
+    @media screen and (max-width: 1280px) {
+        width: 100% !important;
+        align-items: center;
+    }
 }

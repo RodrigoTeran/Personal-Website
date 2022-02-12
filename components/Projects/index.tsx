@@ -11,6 +11,13 @@ import Menu from "./Menu/index";
 // Translation
 import useTranslation from "next-translate/useTranslation";
 
+// Projects
+import LearnToDrive from "./Projects/LearnToDrive/index";
+import Diet from "./Projects/Food/index";
+import DogFinder from "./Projects/Dog/index";
+import DarkProgrammingLanguage from "./Projects/Dark/index";
+import Fourier from "./Projects/Fourier/index";
+
 export default function Projects() {
   // Animations
   const percentage: number = 0.45;
@@ -29,11 +36,17 @@ export default function Projects() {
           screenPercentage={percentage + 0.13}
         />
       </div>
-      <div  className={styles.projects_container}>
+      <div className={styles.projects_container}>
         <Menu
           choosenProject={choosenProject}
           setChoosenProject={setChoosenProject}
         />
+        {/* Proyectos... */}
+        <LearnToDrive choosenProject={choosenProject} />
+        <Diet choosenProject={choosenProject} />
+        <DogFinder choosenProject={choosenProject} />
+        <DarkProgrammingLanguage choosenProject={choosenProject} />
+        <Fourier choosenProject={choosenProject} />
       </div>
     </section>
   );

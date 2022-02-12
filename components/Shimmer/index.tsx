@@ -30,6 +30,7 @@ type Props = {
   _click?: () => void;
   className?: string;
   objectFit?: "contain" | "cover";
+  quality?: number;
 };
 
 const Shimmer = ({
@@ -41,6 +42,7 @@ const Shimmer = ({
   _click,
   className,
   objectFit,
+  quality = 100,
 }: Props) => (
   <Image
     alt={alt}
@@ -55,6 +57,7 @@ const Shimmer = ({
     onClick={_click}
     className={className}
     objectFit={objectFit}
+    quality={quality}
   />
 );
 

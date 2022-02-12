@@ -1,3 +1,49 @@
 .des {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 45px;
+    &_container {
+        h5 {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            span {
+                font-weight: bold;
+                color: var(--aqua-100);
+            }
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 7px;
+            li {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 7px;
+                width: fit-content;
+                cursor: default;
+                padding-right: 10px;
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: var(--black-600);
+                    }
+                }
+            }
+        }
+    }
 }

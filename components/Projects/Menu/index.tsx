@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Styles
 import styles from "./menu.module.scss";
 
@@ -11,6 +14,9 @@ type Props = {
 };
 
 export default function Menu({ choosenProject, setChoosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/overview");
+
   return (
     <nav className={styles.nav}>
       <div>
@@ -18,7 +24,7 @@ export default function Menu({ choosenProject, setChoosenProject }: Props) {
           callback={() => {
             setChoosenProject(0);
           }}
-          text="Machine learning"
+          text={t("header-1")}
           withBorder
           type="black"
           size="small"
@@ -30,7 +36,7 @@ export default function Menu({ choosenProject, setChoosenProject }: Props) {
           callback={() => {
             setChoosenProject(1);
           }}
-          text="Data science"
+          text={t("header-2")}
           withBorder
           type="black"
           size="small"
@@ -42,7 +48,7 @@ export default function Menu({ choosenProject, setChoosenProject }: Props) {
           callback={() => {
             setChoosenProject(2);
           }}
-          text="Web development"
+          text={t("header-3")}
           withBorder
           type="black"
           size="small"
@@ -54,7 +60,7 @@ export default function Menu({ choosenProject, setChoosenProject }: Props) {
           callback={() => {
             setChoosenProject(3);
           }}
-          text="Algorithms"
+          text={t("header-4")}
           withBorder
           type="black"
           size="small"

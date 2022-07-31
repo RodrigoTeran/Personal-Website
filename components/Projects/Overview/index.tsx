@@ -57,6 +57,7 @@ export default function Overview({
 
   //   Translation
   const { t } = useTranslation("experience");
+  const { t: t_overview } = useTranslation("projects/overview");
 
   // Styles
   const gap: number = 54;
@@ -103,10 +104,10 @@ export default function Overview({
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Link to the project
+                {t_overview("link-project")}
               </a>
             )}
-            {!linkProject && <span>Link to the project</span>}
+            {!linkProject && <span>{t_overview("link-project")}</span>}
           </div>
           <div className={linkRepository && styles.yes}>
             <Icon.CodeBranch />
@@ -117,16 +118,16 @@ export default function Overview({
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Link to the repository
+                {t_overview("link-repository")}
               </a>
             )}
-            {!linkRepository && <span>Link to the repository</span>}
+            {!linkRepository && <span>{t_overview("link-repository")}</span>}
           </div>
         </div>
         <div className={`${styles.overview_p} ${isLeft && styles.left}`}>
           {maintenance()}
         </div>
-        <div className={styles.overview_tech_title}>Technologies used:</div>
+        <div className={styles.overview_tech_title}>{t_overview("tech-stack")}</div>
         <div className={styles.overview_ul_container}>
           <ul>
             {arrayTech

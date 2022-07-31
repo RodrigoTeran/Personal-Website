@@ -29,9 +29,11 @@ export const useAnimationsScroll = ({
       for (let i = 0; i < componentsList.length; i++) {
         const { element, notAppearClass }: ArrayElement = componentsList[i];
         const htmlElement = element.current;
-        if (htmlElement) {
-          htmlElement.classList.add(notAppearClass);
-        }
+        
+        console.log("htmlElement: ", htmlElement);
+        if (!htmlElement) continue;
+        console.log("not appear")
+        htmlElement.classList.add(notAppearClass);
       }
     } catch {}
   };
@@ -49,23 +51,25 @@ export const useAnimationsScroll = ({
           percentage = 0.5;
         }
 
-        if (htmlElement) {
-          if (
+        if (!htmlElement) continue;
+
+        if (
+          !(
             document.scrollingElement &&
             document.scrollingElement.scrollTop >=
               top - window.innerHeight * percentage
-          ) {
-            // Element is visble
-            // Remove class notAppear
-            htmlElement.classList.remove(notAppearClass);
-          } else {
-            // Element is not visble
-            if (isBothSides) {
-              // Add class notAppear
-              htmlElement.classList.add(notAppearClass);
-            }
+          )
+        ) {
+          // Element is not visible
+          if (isBothSides) {
+            // Add class notAppear
+            htmlElement.classList.add(notAppearClass);
           }
+          continue;
         }
+        // Element is visible
+        // Remove class notAppear
+        htmlElement.classList.remove(notAppearClass);
       }
     } catch {}
   };

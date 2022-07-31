@@ -2,6 +2,13 @@
   "locales": ["en", "es"],
   "defaultLocale": "es",
   "pages": {
-    "/": ["common", "header", "about", "experience"]
+    "/": [
+      "common",
+      "header",
+      "about",
+      "experience",
+      "projects/overview",
+      "projects/learnToDrive"
+    ]
   }
 }

@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Overview from "../../Overview/index";
 import Description from "../../Description/index";
@@ -7,22 +10,25 @@ type Props = {
 };
 
 export default function LearnToDrive({ choosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/learnToDrive");
+
   return (
     <>
       {/* Only when project is Machine Learning */}
       {choosenProject == 0 && (
         <>
           <Overview
-            nameOfProject="01. Learn to drive"
+            nameOfProject={t("learnToDrive-nameOfProject")}
             srcImg="/images/projects/learnToDrive.png"
             linkProject={undefined}
             linkRepository="https://github.com/RodrigoTeran/Machine-Learning-with-Pygame"
             maintenance={() => {
               return (
                 <p>
-                  This software is not mantained in a server.
+                  {t("learnToDrive-maintenance-1")}
                   <br />
-                  So it can't be used.
+                  {t("learnToDrive-maintenance-2")}
                 </p>
               );
             }}
@@ -35,31 +41,33 @@ export default function LearnToDrive({ choosenProject }: Props) {
               description={() => {
                 return (
                   <p>
-                    I developed a 2D driving simulator that&nbsp;
-                    <span>operates by itself</span>.
+                    {t("learnToDrive-description-1")}
+                    &nbsp;
+                    <span>{t("learnToDrive-description-2")}</span>.
                   </p>
                 );
               }}
               challenges={() => {
                 return (
                   <p>
-                    This project was difficult to make because I needed to
-                    establish how <span>sensitive</span> the car would have to
-                    be to make <span>decisions</span>.
+                    {t("learnToDrive-challenges-1")}&nbsp;
+                    <span>{t("learnToDrive-challenges-2")}</span>&nbsp;
+                    {t("learnToDrive-challenges-3")}&nbsp;
+                    <span>{t("learnToDrive-challenges-4")}</span>.
                   </p>
                 );
               }}
               solution={() => {
                 return (
                   <p>
-                    I needed to generate many car generations with&nbsp;
-                    <span>different variables</span>. Also, I generate a
-                    function that measures the efficiency of each car,
-                    called&nbsp;<span>fitness</span>.
+                    {t("learnToDrive-solution-1")}&nbsp;
+                    <span>{t("learnToDrive-solution-2")}</span>
+                    {t("learnToDrive-solution-3")}&nbsp;
+                    <span>{t("learnToDrive-solution-4")}</span>.
                   </p>
                 );
               }}
-              arrayFeatures={["Dynamic map generation"]}
+              arrayFeatures={[t("learnToDrive-features-1")]}
             />
           </Overview>
         </>

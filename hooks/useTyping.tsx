@@ -58,16 +58,17 @@ export const useTyping = ({
     var counter = 0;
     setIsWriting(true);
     const interval = setInterval(() => {
-      if (isTyping()) {
-        // Save letter
-        saveWord(currentWordDifference);
-      } else {
+      if (!isTyping()) {
         setIsWriting(false);
         if (isAdd) checkToFinishAdding(counter, interval);
         if (!isAdd) checkToFinishDeleting(counter, interval);
 
-        counter = counter + 1;
+        counter += 1;
+        return;
       }
+
+      // Save letter
+      saveWord(currentWordDifference);
     }, intervalTiming);
   };
 
@@ -103,10 +104,10 @@ export const useTyping = ({
   };
 
   const changeWordToWrite = (): void => {
-    if (words.length - 1 == currentWordIndex.current) {
-      currentWordIndex.current = 0;
-    } else {
+    if (words.length - 1 != currentWordIndex.current) {
       currentWordIndex.current = currentWordIndex.current + 1;
+      return;
     }
+    currentWordIndex.current = 0;
   };
 };

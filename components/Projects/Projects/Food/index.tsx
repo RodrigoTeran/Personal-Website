@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Overview from "../../Overview/index";
 import Description from "../../Description/index";
@@ -7,6 +10,9 @@ type Props = {
 };
 
 export default function Diet({ choosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/diet");
+
   return (
     <>
       {/* Only when project is Data Science */}

@@ -19,21 +19,21 @@ export default function Diet({ choosenProject }: Props) {
       {choosenProject == 1 && (
         <>
           <Overview
-            nameOfProject="01. Diet modelling"
+            nameOfProject={t("diet-nameOfProject")}
             srcImg="/images/projects/diet.png"
             linkProject="https://colab.research.google.com/drive/1SkcMnMptugo4Q_wCwjcszIrgDPDY1ge_?usp=sharing"
             linkRepository={undefined}
             maintenance={() => {
               return (
                 <p>
-                  This software is mantained in&nbsp;
+                  {t("diet-maintenance-1")}&nbsp;
                   <a
                     href="https://colab.research.google.com/"
                     target="_blank"
                     rel="noreferrer noopener"
-                    title="Google Colab"
+                    title={t("diet-maintenance-2")}
                   >
-                    Google Colab
+                    {t("diet-maintenance-2")}
                   </a>
                   .
                 </p>
@@ -48,30 +48,29 @@ export default function Diet({ choosenProject }: Props) {
               description={() => {
                 return (
                   <p>
-                    I developed this mathematical model using linear regression
-                    for estimating the quantity of calories that any food
-                    aports&nbsp;<span>based on its nutrients</span>.
+                    {t("diet-description-1")}&nbsp;
+                    <span>{t("diet-description-2")}</span>.
                   </p>
                 );
               }}
               challenges={() => {
                 return (
                   <p>
-                    This project was difficult to make because I needed to&nbsp;
-                    <span>collect all the data</span>.
+                    {t("diet-challenges-1")}&nbsp;
+                    <span>{t("diet-challenges-2")}</span>.
                   </p>
                 );
               }}
               solution={() => {
                 return (
                   <p>
-                    I collected <span>3 months</span> worth of data of my daily
-                    diet and store them in Excel. Then, I cleaned the data so I
-                    can start making the mathematical model.
+                    {t("diet-solution-1")}&nbsp;
+                    <span>{t("diet-solution-2")}</span>&nbsp;
+                    {t("diet-solution-3")}
                   </p>
                 );
               }}
-              arrayFeatures={["Cleaning of data", "Visualization of data"]}
+              arrayFeatures={[t("diet-features-1"), t("diet-features-2")]}
             />
           </Overview>
         </>

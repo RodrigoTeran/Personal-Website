@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Overview from "../../Overview/index";
 import Description from "../../Description/index";
@@ -7,20 +10,23 @@ type Props = {
 };
 
 export default function DogFinder({ choosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/dog");
+
   return (
     <>
       {/* Only when project is Web development */}
       {choosenProject == 2 && (
         <>
           <Overview
-            nameOfProject="01. Dog Finder"
+            nameOfProject={t("dog-nameOfProject")}
             srcImg="/images/projects/dogFinder.png"
             linkProject="https://dogfinder.com.mx"
             linkRepository={undefined}
             maintenance={() => {
               return (
                 <p>
-                  This software is mantained in a free&nbsp;
+                  {t("dog-maintenance-1")}&nbsp;
                   <a
                     href="https://www.heroku.com/"
                     target="_blank"
@@ -29,7 +35,7 @@ export default function DogFinder({ choosenProject }: Props) {
                   >
                     Heroku
                   </a>
-                  &nbsp;server, so it might take a few seconds to load.
+                  &nbsp;{t("dog-maintenance-2")}
                 </p>
               );
             }}
@@ -42,7 +48,7 @@ export default function DogFinder({ choosenProject }: Props) {
               "Stripe",
               "Puppeteer",
               "Google Maps",
-              "Sass",
+              "Sass"
             ]}
             isLeft
             width={460}
@@ -52,39 +58,38 @@ export default function DogFinder({ choosenProject }: Props) {
               description={() => {
                 return (
                   <p>
-                    I am created Dog Finder, a web platform that helps find lost
-                    pets with&nbsp;<span>artificial intelligence</span>.
+                    {t("dog-description-1")}&nbsp;
+                    <span>{t("dog-description-2")}</span>.
                   </p>
                 );
               }}
               challenges={() => {
                 return (
                   <p>
-                    This project taught me how to structure the architecture of
-                    a full stack project. How to implement&nbsp;
-                    <span>different APIs</span>, databases and functionalities;
-                    like google maps, stripe, artificial intelligence, bots,
-                    etc.
+                    {t("dog-challenges-1")}&nbsp;
+                    <span>{t("dog-challenges-2")}</span>
+                    {t("dog-challenges-3")}
                   </p>
                 );
               }}
               solution={() => {
                 return (
                   <p>
-                    For this project, I first made a very detailed structure of
-                    the entire platform. Including all the APIs, how and when
-                    they would <span>connect</span> with the&nbsp;
-                    <span>frontend</span>.
+                    {t("dog-solution-1")}
+                    &nbsp;<span>{t("dog-solution-2")}</span>&nbsp;
+                    {t("dog-solution-3")}
+                    &nbsp;
+                    <span>{t("dog-solution-4")}</span>.
                   </p>
                 );
               }}
               arrayFeatures={[
-                "OAuth with Google",
-                "OAuth with Facebook",
-                "Bots",
-                "Google Maps",
-                "Computer vision",
-                "Stripe",
+                t("dog-features-1"),
+                t("dog-features-2"),
+                t("dog-features-3"),
+                t("dog-features-4"),
+                t("dog-features-5"),
+                t("dog-features-6")
               ]}
             />
           </Overview>

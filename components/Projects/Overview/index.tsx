@@ -1,11 +1,14 @@
 // Modules
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 
 // Context
 import { GlobalContext } from "../../../pages/_app";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
+
+// Hooks
+import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 
 // Styles
 import styles from "./overview.module.scss";
@@ -39,7 +42,7 @@ export default function Overview({
   isLeft,
   width,
   height,
-  children,
+  children
 }: Props) {
   // Context
   const { setIsModalImgOpen, setModalImgState } = useContext(GlobalContext);
@@ -49,7 +52,7 @@ export default function Overview({
     if (setIsModalImgOpen && setModalImgState) {
       setModalImgState({
         src: srcImg,
-        alt: nameOfProject,
+        alt: nameOfProject
       });
       setIsModalImgOpen(true);
     }
@@ -62,12 +65,25 @@ export default function Overview({
   // Styles
   const gap: number = 54;
 
+  // Hook animation
+  const overview = useRef<any>(null);
+
+  useAnimationsScroll({
+    componentsList: [
+      {
+        element: overview,
+        screenPercentage: 0.4,
+        notAppearClass: styles.not
+      }
+    ]
+  });
+
   return (
-    <div className={`${styles.parent} ${isLeft && styles.left}`}>
+    <div ref={overview} className={`${styles.parent} ${isLeft && styles.left}`}>
       {!isLeft && (
         <div
           style={{
-            maxWidth: `calc(100% - ${width}px - ${gap}px`,
+            maxWidth: `calc(100% - ${width}px - ${gap}px`
           }}
           className={styles.children}
         >
@@ -77,7 +93,7 @@ export default function Overview({
       <div
         className={`${styles.overview} ${isLeft && styles.left}`}
         style={{
-          width: `${width}px`,
+          width: `${width}px`
         }}
       >
         <h4 className={`${isLeft && styles.left}`}>{nameOfProject}</h4>
@@ -127,7 +143,9 @@ export default function Overview({
         <div className={`${styles.overview_p} ${isLeft && styles.left}`}>
           {maintenance()}
         </div>
-        <div className={styles.overview_tech_title}>{t_overview("tech-stack")}</div>
+        <div className={styles.overview_tech_title}>
+          {t_overview("tech-stack")}
+        </div>
         <div className={styles.overview_ul_container}>
           <ul>
             {arrayTech
@@ -160,7 +178,7 @@ export default function Overview({
       {isLeft && (
         <div
           style={{
-            maxWidth: `calc(100% - ${width}px - ${gap}px`,
+            maxWidth: `calc(100% - ${width}px - ${gap}px`
           }}
           className={`${styles.children}`}
         >

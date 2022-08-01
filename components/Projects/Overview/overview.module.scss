@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 100px;
+    transition: opacity ease-out 250ms;
     @media screen and (max-width: 1280px) {
         flex-direction: column-reverse;
     }
@@ -188,4 +189,7 @@
         width: 100% !important;
         align-items: center;
     }
+}
+.not {
+    opacity: 0;
 }

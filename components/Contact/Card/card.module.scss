@@ -1,0 +1,19 @@
+.card {
+  width: 380px;
+  border: 2px solid var(--black-500);
+  border-radius: 5px;
+  padding: 40px 25px;
+  &_title {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+  }
+}
+.btn {
+  border-radius: 5px;
+}

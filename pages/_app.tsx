@@ -1,8 +1,10 @@
 // Modules
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useRef, useState } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+
+export type Refs = "about-me" | "experience" | "skills" | "projects" | "contact-me";
 
 // App Context
 interface ValueAppProvider {
@@ -12,6 +14,14 @@ interface ValueAppProvider {
   setIsModalImgOpen: Dispatch<SetStateAction<boolean>>;
   modalImgState: PropsImgModal;
   setModalImgState: Dispatch<SetStateAction<PropsImgModal>>;
+  aboutMeRef: any;
+  experienceRef: any;
+  skillsRef: any;
+  projectsRef: any;
+  contactMeRef: any;
+  goTo: (
+    place: Refs
+  ) => void
 }
 export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
 
@@ -41,6 +51,52 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
     src: "",
     alt: "",
   });
+
+  // Go-to
+  // Refs
+  const aboutMeRef = useRef<any>(null);
+  const experienceRef = useRef<any>(null);
+  const skillsRef = useRef<any>(null);
+  const projectsRef = useRef<any>(null);
+  const contactMeRef = useRef<any>(null);
+
+  const getTop = (component: any): number => {
+    // It computes the distance that exista bewteen a component and the top of the whole website
+    try {
+      if (!document) return 0;
+      if (!document.scrollingElement) return 0;
+
+      return parseInt(
+        component.getBoundingClientRect().top +
+          document.scrollingElement.scrollTop
+      );
+    } catch {
+      // Error
+      return 0;
+    }
+  };
+
+  const goTo = (place: Refs): void => {
+    /**
+     * Is substract 100 beacuse that is the height of the nav
+     * So, the nav doesnt interfer
+     */
+    const places: any = {
+      "about-me": aboutMeRef,
+      "experience": experienceRef,
+      "skills": skillsRef,
+      "projects": projectsRef,
+      "contact-me": contactMeRef
+    }
+
+    const top = getTop(places[place].current) - 100;
+    // No Error
+    window.scroll({
+      top: top,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <>
@@ -79,6 +135,12 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
           setIsModalImgOpen,
           modalImgState,
           setModalImgState,
+          aboutMeRef,
+          experienceRef,
+          skillsRef,
+          projectsRef,
+          contactMeRef,
+          goTo
         }}
       >
         {/* Modal images */}

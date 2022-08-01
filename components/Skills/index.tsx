@@ -1,5 +1,6 @@
 // Modules
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./skills.module.scss";
@@ -18,6 +19,8 @@ import { useAnimationsScroll } from "../../hooks/useAnimationsScroll";
 import { frontend, backend, servicios } from "./skills";
 
 export default function Skills() {
+  const { skillsRef } = useContext(GlobalContext);
+
   // Animations
   const percentage: number = 0.45;
 
@@ -29,16 +32,16 @@ export default function Skills() {
       {
         element: refMountains,
         screenPercentage: percentage,
-        notAppearClass: styles.not,
-      },
-    ],
+        notAppearClass: styles.not
+      }
+    ]
   });
 
   // Translation
   const { t } = useTranslation("common");
 
   return (
-    <section className={styles.skills}>
+    <section ref={skillsRef} className={styles.skills}>
       <div>
         <HeaderSections
           text={t("nav-link-3")}

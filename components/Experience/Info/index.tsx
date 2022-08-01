@@ -26,6 +26,7 @@ export default function Info({ projectIndex }: Props) {
     "https://www.dessilumindustrial.com/",
     "https://uniformate-bien.vercel.app/",
     "https://leadsales.io/",
+    "https://teamplace.netlify.app/"
   ];
 
   // Animations scroll
@@ -37,8 +38,8 @@ export default function Info({ projectIndex }: Props) {
       {
         element: refInfo,
         screenPercentage: 0.445,
-        notAppearClass: styles.not,
-      },
+        notAppearClass: styles.not
+      }
     ]
   });
 
@@ -46,36 +47,31 @@ export default function Info({ projectIndex }: Props) {
     <div className={`${styles.info}`} ref={refInfo}>
       <h3>{t(`work-${projectIndex + 1}-info-title`)}</h3>
       <div>
-        <p className={projectIndex != 4 ? styles.diffetentP : ""}>
+        <p className={styles.diffetentP}>
           {t(`work-${projectIndex + 1}-info-des`)}
         </p>
-
-        {projectIndex != 4 && (
-          <>
-            <ul>
-              {t(`work-${projectIndex + 1}-info-li`)
-                .split(",")
-                .map((li: string, index: number) => {
-                  return (
-                    <li key={index}>
-                      {li}
-                      <Icon.ITagIcon />
-                    </li>
-                  );
-                })}
-            </ul>
-            <span>
-              <a
-                href={links[projectIndex]}
-                target="_blank"
-                rel="noreferrer noopener"
-                title={t(`work-${projectIndex + 1}-info-a`)}
-              >
-                Link <Icon.Link />
-              </a>
-            </span>
-          </>
-        )}
+        <ul>
+          {t(`work-${projectIndex + 1}-info-li`)
+            .split(",")
+            .map((li: string, index: number) => {
+              return (
+                <li key={index}>
+                  {li}
+                  <Icon.ITagIcon />
+                </li>
+              );
+            })}
+        </ul>
+        <span>
+          <a
+            href={links[projectIndex]}
+            target="_blank"
+            rel="noreferrer noopener"
+            title={t(`work-${projectIndex + 1}-info-a`)}
+          >
+            Link <Icon.Link />
+          </a>
+        </span>
       </div>
     </div>
   );

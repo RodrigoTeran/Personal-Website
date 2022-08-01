@@ -34,8 +34,8 @@ export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
       {
         element: refAside,
         screenPercentage: 0.445,
-        notAppearClass: styles.not,
-      },
+        notAppearClass: styles.not
+      }
     ]
   });
 
@@ -43,6 +43,20 @@ export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
     <div className={`${styles.btns} ${styles.not}`} ref={refAside}>
       <div>
         <span>{t("span-1")}</span>
+        <Btns
+          isSelected={projectIndex == 4}
+          _callback={() => {
+            if (projectIndex != 4) setProjectIndex(4);
+          }}
+          text={t("work-5-title")}
+        />
+        <Btns
+          isSelected={projectIndex == 3}
+          _callback={() => {
+            if (projectIndex != 3) setProjectIndex(3);
+          }}
+          text={t("work-4-title")}
+        />
         <Btns
           isSelected={projectIndex == 0}
           _callback={() => {
@@ -63,23 +77,6 @@ export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
             if (projectIndex != 2) setProjectIndex(2);
           }}
           text={t("work-3-title")}
-        />
-        <Btns
-          isSelected={projectIndex == 3}
-          _callback={() => {
-            if (projectIndex != 3) setProjectIndex(3);
-          }}
-          text={t("work-4-title")}
-        />
-      </div>
-      <div>
-        <span>{t("span-2")}</span>
-        <Btns
-          isSelected={projectIndex == 4}
-          _callback={() => {
-            if (projectIndex != 4) setProjectIndex(4);
-          }}
-          text={t("work-5-title")}
         />
       </div>
     </div>

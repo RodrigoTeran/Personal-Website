@@ -1,5 +1,6 @@
 // Modules
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./experience.module.scss";
@@ -14,17 +15,19 @@ import HeaderSection from "../Sections/index";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Experience() {
+  const { experienceRef } = useContext(GlobalContext);
+
   // Animations
   const percentage: number = 0.45;
 
   // State
-  const [projectIndex, setProjectIndex] = useState<0 | 1 | 2 | 3 | 4>(0);
+  const [projectIndex, setProjectIndex] = useState<0 | 1 | 2 | 3 | 4>(4);
 
   // Translation
   const { t } = useTranslation("common");
 
   return (
-    <section className={styles.experience}>
+    <section ref={experienceRef} className={styles.experience}>
       <div className={styles.experience_h2}>
         <HeaderSection
           text={t("nav-link-2")}

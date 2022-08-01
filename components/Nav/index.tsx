@@ -1,6 +1,7 @@
 // Modules
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext, Refs } from "../../pages/_app";
 
 // Styles
 import styles from "./nav.module.scss";
@@ -17,9 +18,9 @@ import useTranslation from "next-translate/useTranslation";
 // Hooks
 import { useAnimatedNav } from "../../hooks/useAnimatedNav";
 
-type Refs = "about" | "experience" | "skills" | "projects" | "contact";
-
 export default function Nav() {
+  const { goTo } = useContext(GlobalContext);
+
   // Lang
   const { t } = useTranslation("common");
 
@@ -28,6 +29,7 @@ export default function Nav() {
 
   const goto = (link: Refs) => {
     setIsResponsiveOpen(false);
+    if (goTo) goTo(link);
   };
 
   // Hook state
@@ -38,13 +40,13 @@ export default function Nav() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className={`${styles.nav} ${
-        !isNavOpen && !isResponsiveOpen && styles.close
-      }`}
+      className={`${styles.nav} ${!isNavOpen &&
+        !isResponsiveOpen &&
+        styles.close}`}
     >
       <div
         onClick={() => {
-          setIsResponsiveOpen((prev) => !prev);
+          setIsResponsiveOpen(prev => !prev);
         }}
         className={`${styles.nav_hamburger} ${isResponsiveOpen && styles.open}`}
       >
@@ -58,7 +60,7 @@ export default function Nav() {
           linkType="about"
           text={t("nav-link-1")}
           goto={() => {
-            goto("about");
+            goto("about-me");
           }}
         />
         <LinkNav
@@ -86,7 +88,7 @@ export default function Nav() {
           linkType="contact"
           text={t("nav-link-5")}
           goto={() => {
-            goto("contact");
+            goto("contact-me");
           }}
         />
       </div>

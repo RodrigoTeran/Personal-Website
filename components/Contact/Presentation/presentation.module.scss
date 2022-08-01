@@ -22,8 +22,6 @@
       }
     }
     &_text {
-      &_white {
-      }
       &_aqua {
         color: var(--aqua-100);
       }
@@ -31,6 +29,37 @@
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         background-color: var(--black-600);
+      }
+    }
+  }
+  @media screen and (max-width: 1330px) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 1255px) {
+    flex-direction: column;
+    &_title {
+      text-align: center;
+    }
+    &_subtitle {
+      text-align: center;
+    }
+    &_me {
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    &_title {
+      font-size: 9vw;
+    }
+    &_me {
+      font-size: 2.5vw;
+      &_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
   }

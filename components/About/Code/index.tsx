@@ -87,7 +87,7 @@ export default function Code() {
           <Code_property name="Rodrigo" property="age" />
           &nbsp;
           <Code_equal />
-          <Code_superGreen number="19" />
+          <Code_superGreen number="20" />
           <Code_semicolon />
         </div>
         <div

@@ -1,5 +1,6 @@
 // Modules
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./about.module.scss";
@@ -15,6 +16,8 @@ import Code from "./Code/index";
 import Question from "./Questions/index";
 
 export default function AboutMe() {
+  const { aboutMeRef, goTo } = useContext(GlobalContext);
+
   // Ref
   const aboutInfoRef = useRef<any>(null);
 
@@ -27,21 +30,21 @@ export default function AboutMe() {
       {
         element: aboutInfoRef,
         screenPercentage: percentage,
-        notAppearClass: styles.not,
-      },
-    ],
+        notAppearClass: styles.not
+      }
+    ]
   });
 
   // Transaltion
   const { t, lang } = useTranslation("about");
 
   return (
-    <section className={styles.about}>
+    <section ref={aboutMeRef} className={styles.about}>
       <Code />
       <div ref={aboutInfoRef} className={`${styles.about_info}`}>
         <Question
           style={{
-            ["--delay-number" as any]: `${0 * delay}ms`,
+            ["--delay-number" as any]: `${0 * delay}ms`
           }}
           align="left"
           question={t("question-1")}
@@ -50,7 +53,7 @@ export default function AboutMe() {
         </Question>
         <Question
           style={{
-            ["--delay-number" as any]: `${1 * delay}ms`,
+            ["--delay-number" as any]: `${1 * delay}ms`
           }}
           align="right"
           question={t("question-2")}
@@ -60,20 +63,32 @@ export default function AboutMe() {
               <>
                 {t("answer-2")}
                 <br />
-                <span>{t("goto-experience")}</span>
+                <span
+                  onClick={() => {
+                    if (goTo) goTo("experience");
+                  }}
+                >
+                  {t("goto-experience")}
+                </span>
               </>
             )}
             {lang == "en" && (
               <>
                 {t("answer-2")}&nbsp;
-                <span>{t("goto-experience")}</span>
+                <span
+                  onClick={() => {
+                    if (goTo) goTo("experience");
+                  }}
+                >
+                  {t("goto-experience")}
+                </span>
               </>
             )}
           </p>
         </Question>
         <Question
           style={{
-            ["--delay-number" as any]: `${2 * delay}ms`,
+            ["--delay-number" as any]: `${2 * delay}ms`
           }}
           align="left"
           question={t("question-3")}
@@ -81,7 +96,13 @@ export default function AboutMe() {
           <p>
             {t("answer-3")}
             <br />
-            <span>{t("goto-projects")}</span>
+            <span
+              onClick={() => {
+                if (goTo) goTo("projects");
+              }}
+            >
+              {t("goto-projects")}
+            </span>
           </p>
         </Question>
       </div>

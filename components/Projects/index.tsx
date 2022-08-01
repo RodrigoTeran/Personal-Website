@@ -1,5 +1,6 @@
 // Modules
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./projects.module.scss";
@@ -19,6 +20,8 @@ import DarkProgrammingLanguage from "./Projects/Dark/index";
 import Fourier from "./Projects/Fourier/index";
 
 export default function Projects() {
+  const { projectsRef } = useContext(GlobalContext);
+
   // Animations
   const percentage: number = 0.45;
 
@@ -29,7 +32,7 @@ export default function Projects() {
   const [choosenProject, setChoosenProject] = useState<0 | 1 | 2 | 3>(0);
 
   return (
-    <section className={styles.projects}>
+    <section ref={projectsRef} className={styles.projects}>
       <div>
         <HeaderSections
           text={t("nav-link-4")}

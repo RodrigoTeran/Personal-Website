@@ -131,7 +131,7 @@ export default function Gallery({ children, projectIndex }: Props) {
             dimensionsMain_height={dimensionsMain_height}
           />
         </div>
-        {projectIndex != 4 && projectIndex != 3 && (
+        {projectIndex != 3 && (
           <>
             <div className={styles.gallery_text}>{t("photos")}</div>
             <div className={styles.gallery_mini}>

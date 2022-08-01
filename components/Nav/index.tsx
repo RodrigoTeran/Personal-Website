@@ -1,72 +1,97 @@
-import { useEffect, useState } from "react";
+// Modules
 import { motion } from "framer-motion";
-
-// Variants
-import { containerVariants } from "../Variants/StaggerChildren";
-
-// Hooks
-import { useAnimatedNav } from "../../hooks/useAnimatedNav";
+import { useState, useContext } from "react";
+import { GlobalContext, Refs } from "../../pages/_app";
 
 // Styles
 import styles from "./nav.module.scss";
 
-// Functions
-import { goto } from "../../functions/goTo";
-
 // Components
-import Links from "./Links/index";
-import Responsive from "./Responsive/index";
+import LinkNav from "./Link/index";
 
-// Nav
+// Variants
+import { containerVariants } from "../animations/variants/stagger";
+
+// Lang
+import useTranslation from "next-translate/useTranslation";
+
+// Hooks
+import { useAnimatedNav } from "../../hooks/useAnimatedNav";
+
 export default function Nav() {
-  /**
-   * Is Responsive Nav Open or not
-   */
-  const [responsiveNav, setResponsiveNav] = useState(false);
+  const { goTo } = useContext(GlobalContext);
 
-  /**
-   * When the screen is very wide, the responsive mode closes immediately
-   * And the variable responsiveNav also changes, so that when the screen gets smaller
-   * it doesnt appear as responsive mode
-   */
+  // Lang
+  const { t } = useTranslation("common");
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
-  const handleResize = () => {
-    if (window.innerWidth > 650) {
-      /**
-       * 650px is the max-width: 650px in styles
-       */
-      setResponsiveNav(false);
-    }
-  };
-  const _goto = (where: any) => {
-    setResponsiveNav(false);
-    if (where) {
-      goto(where);
-    }
+  // State
+  const [isResponsiveOpen, setIsResponsiveOpen] = useState(false);
+
+  const goto = (link: Refs) => {
+    setIsResponsiveOpen(false);
+    if (goTo) goTo(link);
   };
 
-  const isNavOpen = useAnimatedNav(10, 50);
+  // Hook state
+  const isNavOpen = useAnimatedNav({});
 
   return (
     <motion.nav
-      variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className={`${styles.nav} ${isNavOpen ? "" : styles.close}`}
+      variants={containerVariants}
+      className={`${styles.nav} ${!isNavOpen &&
+        !isResponsiveOpen &&
+        styles.close}`}
     >
-      <Links goto={_goto} />
-      <Responsive
-        responsiveNav={responsiveNav}
-        setResponsiveNav={setResponsiveNav}
+      <div
+        onClick={() => {
+          setIsResponsiveOpen(prev => !prev);
+        }}
+        className={`${styles.nav_hamburger} ${isResponsiveOpen && styles.open}`}
       >
-        <Links isResponsive goto={_goto} />
-      </Responsive>
+        <div className={styles.nav_hamburger_1}></div>
+        <div className={styles.nav_hamburger_2}></div>
+        <div className={styles.nav_hamburger_3}></div>
+      </div>
+      <div className={`${styles.nav_links} ${isResponsiveOpen && styles.open}`}>
+        <LinkNav linkType="lang" />
+        <LinkNav
+          linkType="about"
+          text={t("nav-link-1")}
+          goto={() => {
+            goto("about-me");
+          }}
+        />
+        <LinkNav
+          linkType="experience"
+          text={t("nav-link-2")}
+          goto={() => {
+            goto("experience");
+          }}
+        />
+        <LinkNav
+          linkType="skills"
+          text={t("nav-link-3")}
+          goto={() => {
+            goto("skills");
+          }}
+        />
+        <LinkNav
+          linkType="projects"
+          text={t("nav-link-4")}
+          goto={() => {
+            goto("projects");
+          }}
+        />
+        <LinkNav
+          linkType="contact"
+          text={t("nav-link-5")}
+          goto={() => {
+            goto("contact-me");
+          }}
+        />
+      </div>
     </motion.nav>
   );
 }

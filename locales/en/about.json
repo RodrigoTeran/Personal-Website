@@ -1,22 +1,12 @@
 {
-  "title": "About me",
+  "question-1": "What I do",
+  "question-2": "What is my experience",
+  "question-3": "What I've done",
 
-  "left-presentation": "Hello, my name is Rodrigo Terán. I live in Querétaro, Mexico.",
-  "left-quote": "If you can imagine it, you can code it",
+  "answer-1": "I build interactive and powerful web platforms, servers and machine learning models.",
+  "answer-2": "I have 3 years of experience with web technologies working as a freelance and intern software engineer.",
+  "answer-3": "I have built web e-commerce platforms, sales tracking software, CRMs, AI software, etc.",
 
-  "right-section-1": "Interests",
-  "right-section-1-p-1": "I am passionate about technology, especially",
-  "right-section-1-p-ai": "Artificial Intelligence.",
-  "right-section-1-p-2": "I love solving problems with the use of technology. Engineering has drawn my attention all my life.",
-
-  "right-section-2": "Education",
-  "right-section-2-p": "I am currently studying the career of Engineering in Computational Technologies at the",
-  "right-section-2-a": "College of Tec de Monterrey.",
-
-  "right-section-3": "Hobbies",
-  "right-section-3-p": "Apart from programming, I like ...",
-  "right-section-3-li-1": "doing",
-  "right-section-3-li-1-a": "calisthenics",
-  "right-section-3-li-2": "cooking desserts",
-  "right-section-3-li-3": "and reading"
+  "goto-experience": "Go to experience.",
+  "goto-projects": "Go to projects."
 }

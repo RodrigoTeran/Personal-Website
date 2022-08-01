@@ -1,8 +1,13 @@
 {
   "nav-link-1": "Acerca de mí",
   "nav-link-2": "Experiencia",
-  "nav-link-3": "Proyectos",
-  "nav-link-4": "Contáctame",
+  "nav-link-3": "Tecnologías",
+  "nav-link-4": "Proyectos",
+  "nav-link-5": "Contáctame",
 
-  "title": "Desarrollador de Software | Rodrigo Terán Hernández."
+  "title-a": "Cambiar idioma",
+
+  "title": "Desarrollador de Software | Rodrigo Terán Hernández",
+
+  "close": "Cerrar"
 }

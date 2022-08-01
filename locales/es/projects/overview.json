@@ -1,0 +1,15 @@
+{
+  "header-1": "Inteligencia artificial",
+  "header-2": "Ciencia de datos",
+  "header-3": "Desarrollo web",
+  "header-4": "Algoritmos",
+
+  "description": "Descripción",
+  "challenges": "Retos",
+  "solutions": "Solución",
+  "features": "Características",
+
+  "link-project": "Link al proyecto",
+  "link-repository": "Link al repositorio",
+  "tech-stack": "Tecnologías empleadas:"
+}

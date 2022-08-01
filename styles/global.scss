@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+:root {
+    font-size: 16px;
+
+    --black-100: #000000;
+    --black-100-3: #0000004d;
+    --black-100-8: #000000cc;
+    --black-200: #141414;
+    --black-300: #1d1d1d;
+    --black-300-9: #1d1d1de6;
+    --black-400: #202020;
+    --black-500: #242424;
+    --black-600: #363636;
+    --black-700: #3c3c3c;
+    --black-800: #505050;
+    --black-900: #828282;
+
+    --aqua-100: #43f7d5;
+    --aqua-100-55: #43f7d58c;
+    --blue-100: #3a36f2;
+
+    --white-100: #ffffff;
+    --white-200: #dddddd;
+
+    --brown-100: #d7a25c;
+
+    --info-100: #0c8797;
+    --info-200: #cef9ff;
+
+    --warning-100: #d12828;
+    --warning-200: #e9adad;
+
+    --success-100: #26572a;
+    --success-200: #a6d6aa;
+
+    --code-string: #9bf0c0;
+    --code-string-quotes: #58f279;
+    --code-prototype: #7fdbc3;
+    --code-new: #08aeec;
+    --code-equal: #00bff9;
+    --code-object-name: #75b6f4;
+    --code-const: #1bacf9;
+    --code-parenthesis: #9c83e1;
+
+    --mountain-1: #00b69c;
+    --mountain-2: #00a189;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--black-600);
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background-color: var(--black-800);
+        }
+        &:active {
+            background-color: var(--black-700);
+        }
+    }
+}
+::-webkit-scrollbar-track-piece {
+    background-color: var(--black-300);
+}
+::selection {
+    background-color: var(--aqua-100);
+    color: var(--black-300);
+}
+html {
+    min-height: 100%;
+    width: 100vw;
+    position: relative;
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--black-300);
+    color: var(--white-100);
+}
+input,
+button {
+    outline: none;
+    border-style: none;
+}

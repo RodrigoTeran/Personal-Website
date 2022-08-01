@@ -1,8 +1,9 @@
 // Components
 import Header from "../components/Header/index";
 import About from "../components/About/index";
-import Work from "../components/Work/index";
-import Proyects from "../components/Proyects/index";
+import Experience from "../components/Experience/index";
+import Skills from "../components/Skills/index";
+import Projects from "../components/Projects/index";
 import Contact from "../components/Contact/index";
 
 export default function Home() {
@@ -10,8 +11,9 @@ export default function Home() {
     <>
       <Header />
       <About />
-      <Work />
-      <Proyects />
+      <Experience />
+      <Skills />
+      <Projects />
       <Contact />
     </>
   );

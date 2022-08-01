@@ -1,13 +1,17 @@
+// Modules
 import { motion } from "framer-motion";
 
-// Languages
+// Translate
 import useTranslation from "next-translate/useTranslation";
+
+// Variants
+import {
+  containerVariants,
+  elementVariants,
+} from "../../animations/variants/stairs";
 
 // Styles
 import styles from "./title.module.scss";
-
-// Variants
-import { sentenceVariants, letterVariants } from "../../Variants/Sentence";
 
 export default function Title() {
   // Languages
@@ -17,7 +21,7 @@ export default function Title() {
   const title2 = "Terán";
   return (
     <motion.h1
-      variants={sentenceVariants}
+      variants={containerVariants}
       initial="hidden"
       animate="visible"
       className={styles.h1}
@@ -27,7 +31,7 @@ export default function Title() {
           return (
             <motion.span
               whileHover={{ y: -30 }}
-              variants={letterVariants}
+              variants={elementVariants}
               key={index}
               style={{
                 marginRight: index == 2 ? "20px" : "",
@@ -43,7 +47,7 @@ export default function Title() {
           return (
             <motion.span
               whileHover={{ y: -30 }}
-              variants={letterVariants}
+              variants={elementVariants}
               key={index}
             >
               {char}

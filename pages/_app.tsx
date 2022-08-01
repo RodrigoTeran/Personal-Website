@@ -1,72 +1,102 @@
+// Modules
+import { createContext, Dispatch, SetStateAction, useRef, useState } from "react";
+import type { AppProps } from "next/app";
 import Head from "next/head";
-import {
-  createContext,
-  useState,
-  useRef,
-  Dispatch,
-  SetStateAction,
-  MutableRefObject,
-  Fragment,
-} from "react";
-import { AnimatePresence, motion } from "framer-motion";
-
-// Languages
 import useTranslation from "next-translate/useTranslation";
+
+export type Refs = "about-me" | "experience" | "skills" | "projects" | "contact-me";
 
 // App Context
 interface ValueAppProvider {
-  isLayoutMsg: boolean;
-  setIsLayoutMsg: Dispatch<SetStateAction<boolean>>;
-  layoutMsgData: MutableRefObject<LayoutMsgData>;
-  aboutRef: any;
+  isLayoutAnimationOpen: boolean;
+  setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>;
+  isModalImgOpen: boolean;
+  setIsModalImgOpen: Dispatch<SetStateAction<boolean>>;
+  modalImgState: PropsImgModal;
+  setModalImgState: Dispatch<SetStateAction<PropsImgModal>>;
+  aboutMeRef: any;
   experienceRef: any;
-  workRef: any;
-  contactRef: any;
-  setIsModalLoading: Dispatch<SetStateAction<boolean>>;
+  skillsRef: any;
+  projectsRef: any;
+  contactMeRef: any;
+  goTo: (
+    place: Refs
+  ) => void
 }
-
-export const AppContext = createContext<Partial<ValueAppProvider>>({});
-
-// Type LayotuMsg Data
-type LayoutMsgData = {
-  type: "info" | "success" | "warning";
-  title: string;
-  msg: string;
-};
+export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
 
 // Styles
-import "../styles/globals.scss";
-
-// Variants
-import { layoutVariants } from "../components/Variants/Layout";
+import "../styles/global.scss";
 
 // Components
-import Layout from "../components/Layout/index";
-import Nav from "../components/Nav/index";
-import SocialMedia from "../components/SocialMedia/index";
-import WindowModalLoading from "../components/Loader/LayoutLoader/index";
-import Msgs from "../components/Msgs/index";
+import AnimationLayout from "../components/animations/Layout/index";
 
-export default function PortfolioApp({ Component, pageProps }) {
-  // Layout Msgs
-  const [isLayoutMsg, setIsLayoutMsg] = useState(false); // Appear or not appear
-  const layoutMsgData = useRef<LayoutMsgData>({
-    type: "info",
-    title: "",
-    msg: "",
-  });
+// Modals
+import ImgModal from "../components/Modals/ImgModal/index";
 
-  // Languages
+// Types
+import type { Props as PropsImgModal } from "../components/Modals/ImgModal/index";
+
+export default function PortfolioApp({ Component, pageProps }: AppProps) {
+  // Translation
   const { t } = useTranslation("common");
 
-  // LayoutLoader
-  const [isModalLoading, setIsModalLoading] = useState(true);
+  // Layout animation
+  const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
+    useState<boolean>(true);
 
+  // Modal imgs
+  const [isModalImgOpen, setIsModalImgOpen] = useState<boolean>(false);
+  const [modalImgState, setModalImgState] = useState<PropsImgModal>({
+    src: "",
+    alt: "",
+  });
+
+  // Go-to
   // Refs
-  const aboutRef = useRef(null); // About Page Ref
-  const workRef = useRef(null); // Work Page Ref
-  const experienceRef = useRef(null); // Experience Page Ref
-  const contactRef = useRef(null); // Contact Page Ref
+  const aboutMeRef = useRef<any>(null);
+  const experienceRef = useRef<any>(null);
+  const skillsRef = useRef<any>(null);
+  const projectsRef = useRef<any>(null);
+  const contactMeRef = useRef<any>(null);
+
+  const getTop = (component: any): number => {
+    // It computes the distance that exista bewteen a component and the top of the whole website
+    try {
+      if (!document) return 0;
+      if (!document.scrollingElement) return 0;
+
+      return parseInt(
+        component.getBoundingClientRect().top +
+          document.scrollingElement.scrollTop
+      );
+    } catch {
+      // Error
+      return 0;
+    }
+  };
+
+  const goTo = (place: Refs): void => {
+    /**
+     * Is substract 100 beacuse that is the height of the nav
+     * So, the nav doesnt interfer
+     */
+    const places: any = {
+      "about-me": aboutMeRef,
+      "experience": experienceRef,
+      "skills": skillsRef,
+      "projects": projectsRef,
+      "contact-me": contactMeRef
+    }
+
+    const top = getTop(places[place].current) - 100;
+    // No Error
+    window.scroll({
+      top: top,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <>
@@ -81,14 +111,14 @@ export default function PortfolioApp({ Component, pageProps }) {
         />
         <meta
           property="og:image:secure_url"
-          content="https://www.teran-dev.com/images/logo.png"
+          content="https://www.rodrigoteran.dev/images/logo.png"
         />
-        <meta property="og:url" content="https://www.teran-dev.com" />
+        <meta property="og:url" content="https://www.rodrigoteran.dev" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={t("title")} />
         <meta
           name="twitter:image"
-          content="https://www.teran-dev.com/images/logo.png"
+          content="https://www.rodrigoteran.dev/images/logo.png"
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content="Rodrigo Terán" />
@@ -97,60 +127,30 @@ export default function PortfolioApp({ Component, pageProps }) {
         <meta name="twitter:title" content={t("title")} />
         <meta name="twitter:description" content={t("title")} />
       </Head>
-      <AppContext.Provider
+      <GlobalContext.Provider
         value={{
-          // Layout Msgs
-          isLayoutMsg,
-          setIsLayoutMsg,
-          layoutMsgData,
-
-          // Refs
-          aboutRef,
+          isLayoutAnimationOpen,
+          setIsLayoutAnimationOpen,
+          isModalImgOpen,
+          setIsModalImgOpen,
+          modalImgState,
+          setModalImgState,
+          aboutMeRef,
           experienceRef,
-          workRef,
-          contactRef,
-
-          // Loader
-          setIsModalLoading,
+          skillsRef,
+          projectsRef,
+          contactMeRef,
+          goTo
         }}
       >
-        <AnimatePresence exitBeforeEnter>
-          {isLayoutMsg ? (
-            <Fragment key="layoutmsgs">
-              <Msgs
-                toggle={setIsLayoutMsg}
-                type={layoutMsgData.current.type}
-                title={layoutMsgData.current.title}
-                msg={layoutMsgData.current.msg}
-              ></Msgs>
-            </Fragment>
-          ) : null}
-        </AnimatePresence>
-        <AnimatePresence exitBeforeEnter>
-          {isModalLoading ? (
-            <Fragment key="layoutLoader">
-              <WindowModalLoading></WindowModalLoading>
-            </Fragment>
-          ) : (
-            <motion.div
-              key="content"
-              variants={layoutVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <Layout></Layout>
-              <Nav></Nav>
-              <div className="layout" key="layout">
-                <SocialMedia></SocialMedia>
-                <main className="layout_content">
-                  <Component {...pageProps} />
-                </main>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </AppContext.Provider>
+        {/* Modal images */}
+        <ImgModal />
+        <main>
+          <AnimationLayout>
+            <Component {...pageProps} />
+          </AnimationLayout>
+        </main>
+      </GlobalContext.Provider>
     </>
   );
 }

@@ -1,4 +1,4 @@
-This is [my personal Portfolio](https://rodrigo-teran.vercel.app/)
+This is [my personal Portfolio](https://www.rodrigoteran.dev/)
 
 ## Visit my website
 

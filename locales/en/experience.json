@@ -1,0 +1,38 @@
+{
+  "work-1-title": "Drive Clone",
+  "work-2-title": "E-commerce platform",
+  "work-3-title": "Sales tracking software",
+  "work-4-title": "Leadsales Internship",
+  "work-5-title": "Facebook Internship",
+
+  "span-1": "3 years of work experience...",
+  "span-2": "Summer 2022, coming soon...",
+
+  "photos": "Photo Gallery:",
+  "open": "Open photo",
+
+  "work-1-info-title": "BIMAS SC",
+  "work-1-info-des": "I developed the website of BIMAS SC, a company that offers services on environmental issues. This company needed a drive system for their clients, so I made a drive clone just for their enterprise use.",
+  "work-1-info-li": "Next.js,Typescript,Node.js,Google Storage,MongoDB",
+  "work-1-info-a": "Go to BIMAS SC website",
+
+  "work-2-info-title": "DESSILUM",
+  "work-2-info-des": "I developed an e-commerce platform for a mexican company. This platform is dynamic, in other words, the company can change many sections, titles, images, etc. of the website just by clicking a button.",
+  "work-2-info-li": "Next.js,Typescript,Node.js,Stripe,Google Maps,Framer Motion,Web sockets,Nodemailer,MongoDB",
+  "work-2-info-a": "Go to DESSILUM website",
+
+  "work-3-info-title": "Uniforms",
+  "work-3-info-des": "I developed a sales tracking software for a mexican school. The software organizes all the sales in tables and stores them in a database. Also the system allows to sale from the platform.",
+  "work-3-info-li": "React.js,Typescript,Node.js,jsPDF,xlsx,Framer Motion,MongoDB",
+  "work-3-info-a": "Go to Uniforms website",
+
+  "work-4-info-title": "Leadsales",
+  "work-4-info-des": "During the 2021 summer I was in a frontend development internship at Leadsales. I was implementing new features to the platform using React.js and Google Firebase.",
+  "work-4-info-li": "Next.js,Typescript,Firebase",
+  "work-4-info-a": "Go to Leadsales website",
+
+  "work-5-info-title": "Meta U",
+  "work-5-info-des": "During Meta Universisty Internship I created Teamplace, a tool to allow communication between companies and their clients.",
+  "work-5-info-li": "Next.js,Typescript,SQL, Cloud, Bots",
+  "work-5-info-a": "Go to Teamplace"
+}

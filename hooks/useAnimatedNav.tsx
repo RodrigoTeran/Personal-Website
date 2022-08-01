@@ -1,13 +1,20 @@
+// Modules
 import { useEffect, useRef, useState } from "react";
 
 interface AnimetedNav {
-  (
-    sensible: number, // 10 is recommened
-    minimumTop: number // 50 is recommened
-  ): boolean;
+  ({
+    sensible,
+    minimumTop,
+  }: {
+    sensible?: number;
+    minimumTop?: number;
+  }): boolean;
 }
 
-export const useAnimatedNav: AnimetedNav = (sensible, minimumTop) => {
+export const useAnimatedNav: AnimetedNav = ({
+  sensible = 10,
+  minimumTop = 50,
+}) => {
   const [openNav, setOpenNav] = useState<boolean>(true);
   const isScrollGoingDown = useRef<boolean>(false);
   const lastPositionScroll = useRef<number>(0);
@@ -22,7 +29,10 @@ export const useAnimatedNav: AnimetedNav = (sensible, minimumTop) => {
   });
 
   const handleScroll = (): void => {
-    if (document.scrollingElement.scrollTop >= lastPositionScroll.current) {
+    if (
+      document.scrollingElement &&
+      document.scrollingElement.scrollTop >= lastPositionScroll.current
+    ) {
       /**
        * The scroll bar goes down
        */
@@ -46,9 +56,14 @@ export const useAnimatedNav: AnimetedNav = (sensible, minimumTop) => {
     /**
      * The lastPositionScroll is updated
      */
-    lastPositionScroll.current = document.scrollingElement.scrollTop;
+    lastPositionScroll.current = document.scrollingElement
+      ? document.scrollingElement.scrollTop
+      : 0;
 
-    if (document.scrollingElement.scrollTop <= minimumTop) {
+    if (
+      document.scrollingElement &&
+      document.scrollingElement.scrollTop <= minimumTop
+    ) {
       /**
        * We have a minimum top, so no matter how much scoreDown and scoreUp
        * refs values are... from 0 to this minimun top the nav is going

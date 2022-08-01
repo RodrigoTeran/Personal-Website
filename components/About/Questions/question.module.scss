@@ -1,0 +1,77 @@
+.question {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    transition: clip-path ease-out 400ms, transform ease-out 150ms;
+    cursor: default;
+    position: relative;
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+        span {
+            color: var(--aqua-100);
+        }
+    }
+    p {
+        max-width: 400px;
+        span {
+            color: var(--aqua-100);
+            font-weight: bold;
+            cursor: pointer;
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: calc(100% - 60px);
+        width: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        z-index: 1;
+        background-color: var(--aqua-100);
+        transition: opacity ease-out 150ms;
+    }
+}
+.left {
+    align-items: flex-start;
+    p,
+    h3 {
+        text-align: left;
+    }
+    &::after {
+        left: -30px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            transform: translateX(10px);
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+.right {
+    align-items: flex-end;
+    p,
+    h3 {
+        text-align: right;
+    }
+    &::after {
+        right: -30px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            transform: translateX(-10px);
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -6,9 +6,14 @@
       "common",
       "header",
       "about",
-      "work",
-      "proyects",
-      "contact"
+      "experience",
+      "contact",
+      "projects/overview",
+      "projects/learnToDrive",
+      "projects/diet",
+      "projects/dog",
+      "projects/dark",
+      "projects/fourier"
     ]
   }
 }

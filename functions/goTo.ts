@@ -1,10 +1,14 @@
 export const getTop = (component: any): number => {
   // It computes the distance that exista bewteen a component and the top of the whole website
   try {
-    return parseInt(
-      component.getBoundingClientRect().top +
-        document.scrollingElement.scrollTop
-    );
+    if (document.scrollingElement) {
+      return parseInt(
+        component.getBoundingClientRect().top +
+          document.scrollingElement.scrollTop
+      );
+    } else {
+      return 0;
+    }
   } catch {
     // Error
     return 0;

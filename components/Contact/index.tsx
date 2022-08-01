@@ -1,32 +1,55 @@
-import { useContext } from "react";
-
-// Languages
-import useTranslation from "next-translate/useTranslation";
+import { useRef, useContext } from "react";
+import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./contact.module.scss";
-import stylesWork from "../Work/work.module.scss";
-
-// App Context
-import { AppContext } from "../../pages/_app";
 
 // Components
-import LeftContact from "./Left/index";
-import RightContact from "./Right/index";
+import HeaderSection from "../Sections/index";
 
-export default function Contact() {
-  const { contactRef } = useContext(AppContext);
+// Translation
+import useTranslation from "next-translate/useTranslation";
 
-  // Languages
-  const { t } = useTranslation("contact");
+// Hooks
+import { useAnimationsScroll } from "../../hooks/useAnimationsScroll";
+
+// Components
+import Presentation from "./Presentation/index";
+import Card from "./Card/index";
+
+export default function ContactMe() {
+  const { contactMeRef } = useContext(GlobalContext);
+
+  // Animations
+  const percentage: number = 0.45;
+
+  // Translation
+  const { t } = useTranslation("common");
+
+  const formData = useRef<any>(null);
+
+  useAnimationsScroll({
+    componentsList: [
+      {
+        element: formData,
+        notAppearClass: styles.not,
+        screenPercentage: 0.5
+      }
+    ]
+  });
 
   return (
-    <article className={`${styles.contact} sections`} ref={contactRef}>
-      <h2 className={`${stylesWork.work_h2}`}>{t("title")}</h2>
-      <div className={styles.sections}>
-        <LeftContact />
-        <RightContact />
+    <section ref={contactMeRef} className={styles.contact}>
+      <div className={styles.contact_h2}>
+        <HeaderSection
+          text={t("nav-link-5")}
+          screenPercentage={percentage + 0.13}
+        />
       </div>
-    </article>
+      <div ref={formData} className={styles.contact_data}>
+        <Presentation />
+        <Card />
+      </div>
+    </section>
   );
 }

@@ -1,0 +1,16 @@
+{
+  "learnToDrive-nameOfProject": "01. Aprendiendo a manejar",
+  "learnToDrive-maintenance-1": "Este software no está mantenido en un servidor.",
+  "learnToDrive-maintenance-2": "Por lo tanto, no se puede usar.",
+  "learnToDrive-description-1": "Desarrollé un simulador de manejo en 2D que",
+  "learnToDrive-description-2": "se opera por sí mismo",
+  "learnToDrive-challenges-1": "Este proyecto fue difícil de hacer porque necesitaba establecer",
+  "learnToDrive-challenges-2": "qué tan sensible",
+  "learnToDrive-challenges-3": "el carro necesitaba ser para",
+  "learnToDrive-challenges-4": "tomar decisiones",
+  "learnToDrive-solution-1": "Necesité crear muchas generaciones de carros con",
+  "learnToDrive-solution-2": "diferentes variables",
+  "learnToDrive-solution-3": ". También, creé una función que medía el rendimiento de cada carro, llamada",
+  "learnToDrive-solution-4": "fitness",
+  "learnToDrive-features-1": "Generación dinámica de mapas"
+}

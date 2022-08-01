@@ -1,10 +1,21 @@
 .contact {
-  margin-bottom: 75px;
-}
-.sections {
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: 1350px) {
-    flex-direction: column;
+  margin-bottom: 100px; // Alwaaaaays
+  &_data {
+    margin-top: 44px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease-out 600ms;
+
+    @media screen and (max-width: 1330px) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 60px;
+    }
   }
+}
+.not {
+  transform: translateY(-30px);
+  opacity: 0;
 }

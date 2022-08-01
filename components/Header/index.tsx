@@ -1,88 +1,48 @@
-import { useContext } from "react";
-import Image from "next/image";
+// Modules
 import { motion } from "framer-motion";
-
-// Languages
-import useTranslation from "next-translate/useTranslation";
-
-// App Context
-import { AppContext } from "../../pages/_app";
-
-// Variants
-import {
-  buttonsContainerVariants,
-  imageVariants,
-  buttonVariants,
-} from "../Variants/Header";
-
-// Images
-import profilePic from "../../public/images/me.jpg";
 
 // Styles
 import styles from "./header.module.scss";
 
-// Functions
-import { goto } from "../../functions/goTo";
-
 // Components
 import Title from "./Title/index";
 import Typing from "./Typing/index";
-import Responsive from "./Responsive/index";
-import GradientButton from "../Buttons/Gradients/Click/index";
-import GradientLink from "../Buttons/Gradients/Link/index";
+import Buttons from "./Btns/index";
+import ImageShimmer from "../Shimmer/index";
+
+export const imageVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { type: "tween", delay: 0.5, duration: 1.2 },
+  },
+};
 
 export default function Header() {
-  const { contactRef } = useContext(AppContext);
-
-  // Languages
-	const { t } = useTranslation("header");
-
   return (
     <header className={styles.header}>
-      <Responsive>
-        <div className={styles.header_info}>
-          <Title />
-          <Typing />
-          <motion.div
-            variants={buttonsContainerVariants}
-            initial="hidden"
-            animate="visible"
-            className={styles.header_info_buttons}
-          >
-            <GradientButton
-              onClickFunction={() => {
-                goto(contactRef);
-              }}
-              text={t("btn-1")}
-              addedClasses={styles.header_info_buttons_gradient}
-              isGradient
-              variants={buttonVariants}
-            />
-            <GradientLink
-              addedClasses={styles.header_info_buttons_blank}
-              link="/Profile.pdf"
-              text={t("btn-2")}
-              target="_blank"
-              variants={buttonVariants}
-            />
-          </motion.div>
-        </div>
-        <motion.div
-          variants={imageVariants}
-          initial="hidden"
-          animate="visible"
-          className={styles.header_img}
-        >
-          <Image
-            src={profilePic}
-            alt="Rodrigo Terán"
-            width={250}
-            height={250}
-            priority
-            className={styles.img}
-          />
-        </motion.div>
-      </Responsive>
+      <div className={styles.header_left}>
+        <Title />
+        <Typing />
+        <Buttons />
+      </div>
+      <motion.div
+        variants={imageVariants}
+        initial="hidden"
+        animate="visible"
+        className={styles.header_right}
+      >
+        <ImageShimmer
+          src="/images/me.jpg"
+          alt="Rodrigo Terán"
+          width={250}
+          height={250}
+          priority
+          quality={75}
+        />
+      </motion.div>
     </header>
   );
 }

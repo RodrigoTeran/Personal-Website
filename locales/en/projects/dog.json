@@ -1,0 +1,20 @@
+{
+  "dog-nameOfProject": "01. Dog Finder",
+  "dog-maintenance-1": "This software is mantained in a free",
+  "dog-maintenance-2": "server, so it might take a few seconds to load.",
+  "dog-description-1": "I created Dog Finder, a web platform that helps find lost pets with",
+  "dog-description-2": "artificial intelligence",
+  "dog-challenges-1": "This project taught me how to structure the architecture of a full stack project. How to implement",
+  "dog-challenges-2": "different APIs",
+  "dog-challenges-3": ", databases and functionalities; like google maps, stripe, artificial intelligence, bots, etc.",
+  "dog-solution-1": "For this project, I first made a very detailed structure of the entire platform. Including all the APIs, how and when they would",
+  "dog-solution-2": "connect",
+  "dog-solution-3": "with the",
+  "dog-solution-4": "frontend",
+  "dog-features-1": "OAuth with Google",
+  "dog-features-2": "OAuth with Facebook",
+  "dog-features-3": "Bots",
+  "dog-features-4": "Google Maps",
+  "dog-features-5": "Computer vision",
+  "dog-features-6": "Stripe"
+}

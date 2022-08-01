@@ -1,3 +1,4 @@
+// Modules
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -5,7 +6,7 @@ import { motion } from "framer-motion";
 import useTranslation from "next-translate/useTranslation";
 
 // Variants
-import { imageVariants } from "../../Variants/Header";
+import { imageVariants } from "../index";
 
 // Styles
 import styles from "./type.module.scss";
@@ -18,21 +19,14 @@ export default function Typing() {
   const [isWriting, setIsWriting] = useState<boolean>(true);
 
   // Languages
-	const { t } = useTranslation("header");
+  const { t } = useTranslation("header");
 
-  useTyping(
-    [
-      t("typing-1"),
-      t("typing-2"),
-      t("typing-3"),
-    ],
+  useTyping({
+    words: [t("typing-1"), t("typing-2"), t("typing-3")],
     setWord,
     setIsWriting,
-    100,
-    60,
-    10,
-    40
-  );
+  });
+
   return (
     <motion.div
       variants={imageVariants}

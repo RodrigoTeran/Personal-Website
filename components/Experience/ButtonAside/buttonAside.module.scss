@@ -1,0 +1,24 @@
+.btn {
+    background-color: var(--black-500);
+    font-size: 0.875rem;
+    height: 40px;
+    padding: 10px 13px;
+    border-radius: 5px;
+    text-align: center;
+    color: var(--white-100);
+    cursor: pointer;
+    transition: background-color ease-out 200ms;
+    @media (hover:hover) and (pointer:fine) {
+        &:hover {
+            background-color: var(--black-600);            
+        }
+    }
+    &_selected {
+        background-color: var(--aqua-100-55);
+        @media (hover:hover) and (pointer:fine) {
+            &:hover {
+                background-color: var(--mountain-2);            
+            }
+        }
+    }
+}

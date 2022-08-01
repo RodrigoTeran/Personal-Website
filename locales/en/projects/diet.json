@@ -1,0 +1,14 @@
+{
+  "diet-nameOfProject": "01. Diet modelling",
+  "diet-maintenance-1": "This software is mantained in",
+  "diet-maintenance-2": "Google Colab",
+  "diet-description-1": "I developed this mathematical model using linear regression for estimating the quantity of calories that any food aports",
+  "diet-description-2": "based on its nutrients",
+  "diet-challenges-1": "This project was difficult to make because I needed to",
+  "diet-challenges-2": "collect all the data",
+  "diet-solution-1": "I collected",
+  "diet-solution-2": "3 months",
+  "diet-solution-3": "worth of data of my daily diet and store them in Excel. Then, I cleaned the data so I can start making the mathematical model.",
+  "diet-features-1": "Cleaning of data",
+  "diet-features-2": "Visualization of data"
+}

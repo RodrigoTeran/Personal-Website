@@ -1,0 +1,27 @@
+.nav {
+  width: 100%;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  column-gap: 20px;
+  row-gap: 30px;
+  justify-content: space-between;
+  &_div {
+    transition-delay: calc(10ms * var(--delay));
+    transition-duration: 150ms;
+    transition-property: all;
+    transition-timing-function: ease-out;
+  }
+  @media screen and (max-width: 544px) {
+    grid-template-columns: repeat(auto-fill, 100%);
+    div {
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+.not {
+  opacity: 0;
+  transform: translateY(10px);
+}

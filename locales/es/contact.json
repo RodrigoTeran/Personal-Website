@@ -1,22 +1,13 @@
 {
-  "title": "Contáctame",
+  "presentation-title": "Hola,-cuéntame sobre-tu proyecto",
+  "presentation-subtitle": "Vamos a crear algo juntos",
+  "presentation-contact-1": "Recuerda que también me puedes contactar",
+  "presentation-contact-2": "en mis redes sociales",
 
-  "left-hi-1": "Hola,",
-  "left-hi-2": "cuéntame sobre tu proyecto",
-  "left-create": "Vamos a crear algo juntos 🤟",
-  "left-remember-1": "Recuerda que también puedes contactarme",
-  "left-remember-2": "en mis redes sociales",
-
-  "right-email-success-title": "Mensaje",
-  "right-email-success-msg": "Mensaje enviado con éxito!",
-
-  "right-email-warning-1-msg": "El mensaje no se pudo enviar :(",
-  "right-email-warning-2-msg": "Llena todos los datos requeridos antes de enviar el mensaje",
-
-  "right-msg-title": "Envíame un mensaje 🚀",
-  "right-msg-name": "Nombre Completo",
-  "right-msg-email": "Correo Electrónico",
-  "right-msg-theme": "Asunto",
-  "right-msg-text-title": "Cuéntame más del asunto",
-  "right-msg-btn": "Mandar mensaje"
+  "card-1": "Mándame un mensaje",
+  "card-2": "Nombre completo",
+  "card-3": "Correo electrónico",
+  "card-4": "Tema",
+  "card-5": "Cuéntame un poco más del tema",
+  "card-6": "Enviar mensaje"
 }

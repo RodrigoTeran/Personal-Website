@@ -1,18 +1,29 @@
+// Modules
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 const getNewWord = (currentWord: string, position: number): string => {
   return currentWord.substring(0, position);
 };
 
-export const useTyping = (
-  words: string[],
-  setWord: Dispatch<SetStateAction<string>>,
-  setIsWriting: Dispatch<SetStateAction<boolean>>,
-  milisecondsToWrite: number, // 100 is best
-  milisecondsToDelete: number, // 60 is best
-  milisecondsBeforeStartToTypeAgain: number, // 10 is best
-  milisecondsBeforeStartToDeleteWord: number // 40 is best
-) => {
+type Params = {
+  words: string[];
+  setWord: Dispatch<SetStateAction<string>>;
+  setIsWriting: Dispatch<SetStateAction<boolean>>;
+  milisecondsToWrite?: number;
+  milisecondsToDelete?: number;
+  milisecondsBeforeStartToTypeAgain?: number;
+  milisecondsBeforeStartToDeleteWord?: number;
+};
+
+export const useTyping = ({
+  words,
+  setWord,
+  setIsWriting,
+  milisecondsToWrite = 100,
+  milisecondsToDelete = 60,
+  milisecondsBeforeStartToTypeAgain = 10,
+  milisecondsBeforeStartToDeleteWord = 40,
+}: Params) => {
   const [isAdding, setIsAdding] = useState<boolean>(true);
   const currentWordIndex = useRef<number>(0);
   const currentLetterIndex = useRef<number>(0);
@@ -47,16 +58,17 @@ export const useTyping = (
     var counter = 0;
     setIsWriting(true);
     const interval = setInterval(() => {
-      if (isTyping()) {
-        // Save letter
-        saveWord(currentWordDifference);
-      } else {
+      if (!isTyping()) {
         setIsWriting(false);
         if (isAdd) checkToFinishAdding(counter, interval);
         if (!isAdd) checkToFinishDeleting(counter, interval);
 
-        counter = counter + 1;
+        counter += 1;
+        return;
       }
+
+      // Save letter
+      saveWord(currentWordDifference);
     }, intervalTiming);
   };
 
@@ -92,10 +104,10 @@ export const useTyping = (
   };
 
   const changeWordToWrite = (): void => {
-    if (words.length - 1 == currentWordIndex.current) {
-      currentWordIndex.current = 0;
-    } else {
+    if (words.length - 1 != currentWordIndex.current) {
       currentWordIndex.current = currentWordIndex.current + 1;
+      return;
     }
+    currentWordIndex.current = 0;
   };
 };

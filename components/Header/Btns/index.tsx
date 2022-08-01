@@ -70,7 +70,9 @@ export default function ButtonsHeader() {
       </motion.div>
       <motion.div variants={buttonVariants}>
         <Btn
-          callback={() => {}}
+          callback={() => {
+            window.open("/resume.pdf", "_blank");
+          }}
           text={t("btn-2")}
           withBorder
           type="white"

@@ -1,0 +1,17 @@
+{
+  "fourier-nameOfProject": "02. Complex numbers in canvas",
+  "fourier-maintenance": "This software is mantained in",
+  "fourier-description-1": "I developed this",
+  "fourier-description-2": "Fourier Series",
+  "fourier-description-3": "viewer. On this page you can make the drawing you want, and then the Fourier series that draw that drawing you made are calculated.",
+  "fourier-challenges-1": "This project was difficult as it needed to handle",
+  "fourier-challenges-2": "complex",
+  "fourier-challenges-3": "numbers, integrals and being able to draw on the canvas in a",
+  "fourier-challenges-4": "fast and efficient way",
+  "fourier-solution-1": "That's why I used TypeScript, since with variable types it is",
+  "fourier-solution-2": "safer to write code",
+  "fourier-solution-3": ", and thus no calculation goes wrong.",
+  "fourier-features-1": "Canvas for drawing",
+  "fourier-features-2": "Vector animations",
+  "fourier-tech": "lot of math..."
+}

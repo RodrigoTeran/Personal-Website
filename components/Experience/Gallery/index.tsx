@@ -90,7 +90,6 @@ export default function Gallery({ children, projectIndex }: Props) {
   // Open img
   const openImg = (src: string, alt: string) => {
     if (setModalImgState && setIsModalImgOpen) {
-      console.log("xd");
       setModalImgState({
         src,
         alt,

@@ -30,9 +30,7 @@ export const useAnimationsScroll = ({
         const { element, notAppearClass }: ArrayElement = componentsList[i];
         const htmlElement = element.current;
         
-        console.log("htmlElement: ", htmlElement);
         if (!htmlElement) continue;
-        console.log("not appear")
         htmlElement.classList.add(notAppearClass);
       }
     } catch {}

@@ -1,0 +1,19 @@
+{
+  "dark-nameOfProject": "01. Lenguaje de programación",
+  "dark-maintenance": "Este software está mantenido en",
+  "dark-description-1": "Desarrollé DARK, un nuevo",
+  "dark-description-2": "lenguaje de programación",
+  "dark-description-3": "que puede usarse desde el navegador. Su sintáxis está inspirada en JavaScript y Python",
+  "dark-challenges-1": "Este proyecto me enseñó a crear un lenguaje de programación desde cero. Cómo crear",
+  "dark-challenges-2": "estructuras de datos",
+  "dark-challenges-3": ", y el porqué los lenguajes profesionales son como son...",
+  "dark-solution-1": "Para este proyecto, tuve que aprender a",
+  "dark-solution-2": "analizar texto",
+  "dark-solution-3": "que el usuario escribe, para poder convertirlo en un lenguaje que la computadora entiende. La parte más retadora fue el implementar funcionalidades que no existen en el lenguaje que usé para crear este lenguaje.",
+  "dark-features-1": "IDE en el navegador",
+  "dark-features-2": "Documentación del lenguaje",
+  "dark-features-3": "Bucles",
+  "dark-features-4": "Condicionales",
+  "dark-features-5": "Estructuras de datos",
+  "dark-features-6": "Programación funcional"
+}

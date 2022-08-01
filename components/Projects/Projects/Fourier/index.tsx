@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Overview from "../../Overview/index";
 import Description from "../../Description/index";
@@ -7,20 +10,23 @@ type Props = {
 };
 
 export default function Fourier({ choosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/fourier");
+
   return (
     <>
       {/* Only when project is Algorithms */}
       {choosenProject == 3 && (
         <>
           <Overview
-            nameOfProject="02. Complex numbers in canvas"
+            nameOfProject={t("fourier-nameOfProject")}
             srcImg="/images/projects/fourier.png"
             linkProject="https://fourier-transforms-canvas.vercel.app"
             linkRepository="https://github.com/RodrigoTeran/Fourier-Transforms-Canvas"
             maintenance={() => {
               return (
                 <p>
-                  This software is mantained in&nbsp;
+                  {t("fourier-maintenance")}&nbsp;
                   <a
                     href="https://vercel.com"
                     target="_blank"
@@ -33,7 +39,7 @@ export default function Fourier({ choosenProject }: Props) {
                 </p>
               );
             }}
-            arrayTech={["React.js", "Typescript", "Sass", "lot of math..."]}
+            arrayTech={["React.js", "Typescript", "Sass", t("fourier-tech")]}
             width={460}
             height={250}
           >
@@ -41,32 +47,35 @@ export default function Fourier({ choosenProject }: Props) {
               description={() => {
                 return (
                   <p>
-                    I developed this <span>Fourier Series</span> viewer. On this
-                    page you can make the drawing you want, and then the Fourier
-                    series that draw that drawing you made are calculated.
+                    {t("fourier-description-1")}
+                    &nbsp;<span>{t("fourier-description-2")}</span>
+                    &nbsp;{t("fourier-description-3")}
                   </p>
                 );
               }}
               challenges={() => {
                 return (
                   <p>
-                    This project was difficult as it needed to handle&nbsp;
-                    <span>complex</span>&nbsp;numbers, integrals and being able
-                    to draw on the canvas in a&nbsp;
-                    <span>fast and efficient way</span>.
+                    {t("fourier-challenges-1")}
+                    &nbsp;
+                    <span>{t("fourier-challenges-2")}</span>&nbsp;
+                    {t("fourier-challenges-3")}
+                    &nbsp;
+                    <span>{t("fourier-challenges-4")}</span>.
                   </p>
                 );
               }}
               solution={() => {
                 return (
                   <p>
-                    That's why I used TypeScript, since with variable types it
-                    is <span>safer to write code</span>, and thus no calculation
-                    goes wrong.
+                    {t("fourier-solution-1")}
+                    &nbsp;
+                    <span>{t("fourier-solution-2")}</span>
+                    {t("fourier-solution-3")}
                   </p>
                 );
               }}
-              arrayFeatures={["Canvas for drawing", "Vector animations"]}
+              arrayFeatures={[t("fourier-features-1"), t("fourier-features-2")]}
             />
           </Overview>
         </>

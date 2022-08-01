@@ -1,3 +1,6 @@
+// Translation
+import useTranslation from "next-translate/useTranslation";
+
 // Components
 import Overview from "../../Overview/index";
 import Description from "../../Description/index";
@@ -7,20 +10,23 @@ type Props = {
 };
 
 export default function DarkProgrammingLanguage({ choosenProject }: Props) {
+  // Language
+  const { t } = useTranslation("projects/dark");
+
   return (
     <>
       {/* Only when project is Algorithms */}
       {choosenProject == 3 && (
         <>
           <Overview
-            nameOfProject="01. Programming language"
+            nameOfProject={t("dark-nameOfProject")}
             srcImg="/images/projects/dark.png"
             linkProject="https://dark-language.vercel.app"
             linkRepository="https://github.com/RodrigoTeran/Dark-Programming-Language"
             maintenance={() => {
               return (
                 <p>
-                  This software is mantained in&nbsp;
+                  {t("dark-maintenance")}&nbsp;
                   <a
                     href="https://vercel.com"
                     target="_blank"
@@ -42,40 +48,38 @@ export default function DarkProgrammingLanguage({ choosenProject }: Props) {
               description={() => {
                 return (
                   <p>
-                    I developed DARK, a new <span>programming language</span>
-                    &nbsp;that can be used from the browser. Its syntax is
-                    inspired by javascript and python.
+                    {t("dark-description-1")}&nbsp;
+                    <span>{t("dark-description-2")}</span>
+                    &nbsp;
+                    {t("dark-description-3")}
                   </p>
                 );
               }}
               challenges={() => {
                 return (
                   <p>
-                    This project taught me how to create a programming language
-                    from scratch. How to create <span>data structures</span>,
-                    and why professional languages are the way they are...
+                    {t("dark-challenges-1")}&nbsp;
+                    <span>{t("dark-challenges-2")}</span>
+                    {t("dark-challenges-3")}
                   </p>
                 );
               }}
               solution={() => {
                 return (
                   <p>
-                    For this project, I had to learn how to&nbsp;
-                    <span>analyze the text</span>&nbsp;that the user writes, and
-                    thus be able to convert it to language that the machine
-                    understands. The most difficult thing was to implement
-                    functionalities that do not exist in the language that I
-                    used to code this programming language.
+                    {t("dark-solution-1")}&nbsp;
+                    <span>{t("dark-solution-2")}</span>&nbsp;
+                    {t("dark-solution-3")}
                   </p>
                 );
               }}
               arrayFeatures={[
-                "IDE in the browser",
-                "Language documentation",
-                "Loops",
-                "Conditionals",
-                "Data structures",
-                "Functional programming",
+                t("dark-features-1"),
+                t("dark-features-2"),
+                t("dark-features-3"),
+                t("dark-features-4"),
+                t("dark-features-5"),
+                t("dark-features-6")
               ]}
             />
           </Overview>

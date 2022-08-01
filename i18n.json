@@ -10,7 +10,9 @@
       "projects/overview",
       "projects/learnToDrive",
       "projects/diet",
-      "projects/dog"
+      "projects/dog",
+      "projects/dark",
+      "projects/fourier"
     ]
   }
 }

@@ -1,8 +1,8 @@
 This is [my personal Portfolio](https://www.rodrigoteran.dev/)
 
-## Visit my website
+## Personal portfolio
 
-To see my main projects
+You can visit my website to see my main projects
 
 Or...
 

@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export type Refs = "about-me" | "experience" | "skills" | "projects" | "contact-me";
 
-// App Context
+// App Interface
 interface ValueAppProvider {
   isLayoutAnimationOpen: boolean;
   setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>;

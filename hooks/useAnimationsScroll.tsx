@@ -9,7 +9,7 @@ type ArrayElement = {
 
 type Params = {
   componentsList: Array<ArrayElement>;
-  isBothSides?: boolean;
+  isBothSides?: boolean; // Reload animation
 };
 
 export const useAnimationsScroll = ({

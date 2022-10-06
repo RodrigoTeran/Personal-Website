@@ -23,7 +23,7 @@ export default function SocialMedia() {
     >
       <motion.a
         variants={elementVariants}
-        href="https://www.facebook.com/rodrigo.teran.127/"
+        href="https://www.facebook.com/rodrigo.teran.127"
         target="_blank"
         rel="noreferrer noopener"
         title="Facebook"

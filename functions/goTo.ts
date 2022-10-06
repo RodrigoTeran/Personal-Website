@@ -6,9 +6,9 @@ export const getTop = (component: any): number => {
         component.getBoundingClientRect().top +
           document.scrollingElement.scrollTop
       );
-    } else {
-      return 0;
-    }
+    };
+    
+    return 0;
   } catch {
     // Error
     return 0;

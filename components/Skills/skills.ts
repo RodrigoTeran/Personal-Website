@@ -65,27 +65,35 @@ export const frontend = [
 
 export const backend = [
   {
-    x: 36.33,
+    x: 30.33,
     y: 4,
-    x2: 37,
+    x2: 30,
     imgSrc: "nodejs.png",
     alt: "Node.js",
   },
   {
-    x: 63.33,
+    x: 58,
     y: 10,
-    x2: 65,
-    y2: 18,
+    x2: 60,
+    y2: 10,
     imgSrc: "mongo.jpg",
     alt: "MongoDB",
   },
   {
-    x: 50,
+    x: 42,
     x2: 14,
-    y: 22,
+    y: 20,
     y2: 16,
     imgSrc: "python.png",
     alt: "Python",
+  },
+  {
+    x: 60,
+    x2: 72,
+    y: 30,
+    y2: 25,
+    imgSrc: "pg.png",
+    alt: "PostgreSQL",
   },
 ];
 

@@ -4,6 +4,7 @@ import { GlobalContext } from "../../pages/_app";
 
 // Styles
 import styles from "./experience.module.scss";
+import {INDEXES} from "./experience.types";
 
 // Components
 import AsideBtns from "./AsideBtns/index";
@@ -21,7 +22,7 @@ export default function Experience() {
   const percentage: number = 0.45;
 
   // State
-  const [projectIndex, setProjectIndex] = useState<0 | 1 | 2 | 3 | 4>(4);
+  const [projectIndex, setProjectIndex] = useState<INDEXES>(5);
 
   // Translation
   const { t } = useTranslation("common");

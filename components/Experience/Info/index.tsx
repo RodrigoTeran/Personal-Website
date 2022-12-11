@@ -3,6 +3,7 @@ import { useRef } from "react";
 
 // Styles
 import styles from "./info.module.scss";
+import {INDEXES} from "../experience.types";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
@@ -14,7 +15,7 @@ import Icon from "../../Icons";
 import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
 
 type Props = {
-  projectIndex: 0 | 1 | 2 | 3 | 4;
+  projectIndex: INDEXES;
 };
 export default function Info({ projectIndex }: Props) {
   // Translation
@@ -26,7 +27,8 @@ export default function Info({ projectIndex }: Props) {
     "https://www.dessilumindustrial.com/",
     "https://uniformate-bien.vercel.app/",
     "https://leadsales.io/",
-    "https://teamplace.netlify.app/"
+    "https://teamplace.netlify.app/",
+    "https://www.evolutel.com.mx/",
   ];
 
   // Animations scroll

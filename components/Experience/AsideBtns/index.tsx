@@ -1,11 +1,12 @@
 // Modules
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 // Styles
 import styles from "./aside.module.scss";
 
 // Types
 import { Dispatch, SetStateAction } from "react";
+import { INDEXES, arrIndexes } from "../experience.types";
 
 // Animations hook
 import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
@@ -17,8 +18,8 @@ import useTranslation from "next-translate/useTranslation";
 import Btns from "../ButtonAside/index";
 
 type Props = {
-  projectIndex: 0 | 1 | 2 | 3 | 4;
-  setProjectIndex: Dispatch<SetStateAction<0 | 1 | 2 | 3 | 4>>;
+  projectIndex: INDEXES;
+  setProjectIndex: Dispatch<SetStateAction<INDEXES>>;
 };
 
 export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
@@ -43,41 +44,19 @@ export default function AsideBtns({ projectIndex, setProjectIndex }: Props) {
     <div className={`${styles.btns} ${styles.not}`} ref={refAside}>
       <div>
         <span>{t("span-1")}</span>
-        <Btns
-          isSelected={projectIndex == 4}
-          _callback={() => {
-            if (projectIndex != 4) setProjectIndex(4);
-          }}
-          text={t("work-5-title")}
-        />
-        <Btns
-          isSelected={projectIndex == 3}
-          _callback={() => {
-            if (projectIndex != 3) setProjectIndex(3);
-          }}
-          text={t("work-4-title")}
-        />
-        <Btns
-          isSelected={projectIndex == 0}
-          _callback={() => {
-            if (projectIndex != 0) setProjectIndex(0);
-          }}
-          text={t("work-1-title")}
-        />
-        <Btns
-          isSelected={projectIndex == 1}
-          _callback={() => {
-            if (projectIndex != 1) setProjectIndex(1);
-          }}
-          text={t("work-2-title")}
-        />
-        <Btns
-          isSelected={projectIndex == 2}
-          _callback={() => {
-            if (projectIndex != 2) setProjectIndex(2);
-          }}
-          text={t("work-3-title")}
-        />
+        {[...arrIndexes].reverse().map((position: any) => {
+          return (
+            <React.Fragment key={position}>
+              <Btns
+                isSelected={projectIndex == position}
+                _callback={() => {
+                  if (projectIndex != position) setProjectIndex(position);
+                }}
+                text={t(`work-${position + 1}-title`)}
+              />
+            </React.Fragment>
+          )
+        })}
       </div>
     </div>
   );

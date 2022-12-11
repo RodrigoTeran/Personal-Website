@@ -6,6 +6,7 @@ import { GlobalContext } from "../../../pages/_app";
 
 // Styles
 import styles from "./gallery.module.scss";
+import { INDEXES, arrIndexesImages } from "../experience.types";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
@@ -18,7 +19,7 @@ import { ImagesMain, ImagesMini } from "./Images/index";
 
 type Props = {
   children: any;
-  projectIndex: 0 | 1 | 2 | 3 | 4;
+  projectIndex: INDEXES;
 };
 
 export default function Gallery({ children, projectIndex }: Props) {
@@ -45,8 +46,8 @@ export default function Gallery({ children, projectIndex }: Props) {
     return () => {
       window.removeEventListener("resize", handleDimensions);
     };
-  }, []);
-
+  }, [projectIndex]);
+  
   const handleDimensions = (): void => {
     handleDimensionsOnlyData();
 
@@ -62,22 +63,21 @@ export default function Gallery({ children, projectIndex }: Props) {
     const objectMain: any = refMain.current;
     const objectMini: any = refMini.current;
 
-    // If one of them is null
-    if (!objectMain || !objectMini) return;
-
     // Main
+    if (!objectMain) {
+      return;
+    }
     let widthMain = objectMain.clientWidth;
     let heightMain = objectMain.clientHeight;
-
-    // Mini
-    let widthMini = objectMini.clientWidth;
-    let heightMini = objectMini.clientHeight;
-
-    // Main
     setDimensionsMain_width(widthMain);
     setDimensionsMain_height(heightMain);
 
     // Mini
+    if (!objectMini) {
+      return;
+    }
+    let widthMini = objectMini.clientWidth;
+    let heightMini = objectMini.clientHeight;
     setDimensionsMinis_width(widthMini);
     setDimensionsMinis_height(heightMini);
   };
@@ -131,79 +131,33 @@ export default function Gallery({ children, projectIndex }: Props) {
             dimensionsMain_height={dimensionsMain_height}
           />
         </div>
-        {projectIndex != 3 && (
+        {(projectIndex != 3 && projectIndex != 5) && (
           <>
             <div className={styles.gallery_text}>{t("photos")}</div>
             <div className={styles.gallery_mini}>
-              <div
-                title={t("open")}
-                className={styles.gallery_mini_img}
-                ref={refMini}
-                onClick={() => {
-                  openImg(
-                    `/images/experience/work-${projectIndex + 1}-mini-${1}.png`,
-                    t(`work-${projectIndex + 1}-info-title`)
-                  );
-                }}
-              >
-                <ImagesMini
-                  projectIndex={projectIndex}
-                  dimensionsMinis_width={dimensionsMinis_width}
-                  dimensionsMinis_height={dimensionsMinis_height}
-                  liIndex={1}
-                />
-              </div>
-              <div
-                title={t("open")}
-                className={styles.gallery_mini_img}
-                onClick={() => {
-                  openImg(
-                    `/images/experience/work-${projectIndex + 1}-mini-${2}.png`,
-                    t(`work-${projectIndex + 1}-info-title`)
-                  );
-                }}
-              >
-                <ImagesMini
-                  projectIndex={projectIndex}
-                  dimensionsMinis_width={dimensionsMinis_width}
-                  dimensionsMinis_height={dimensionsMinis_height}
-                  liIndex={2}
-                />
-              </div>
-              <div
-                title={t("open")}
-                className={styles.gallery_mini_img}
-                onClick={() => {
-                  openImg(
-                    `/images/experience/work-${projectIndex + 1}-mini-${3}.png`,
-                    t(`work-${projectIndex + 1}-info-title`)
-                  );
-                }}
-              >
-                <ImagesMini
-                  projectIndex={projectIndex}
-                  dimensionsMinis_width={dimensionsMinis_width}
-                  dimensionsMinis_height={dimensionsMinis_height}
-                  liIndex={3}
-                />
-              </div>
-              <div
-                title={t("open")}
-                className={styles.gallery_mini_img}
-                onClick={() => {
-                  openImg(
-                    `/images/experience/work-${projectIndex + 1}-mini-${4}.png`,
-                    t(`work-${projectIndex + 1}-info-title`)
-                  );
-                }}
-              >
-                <ImagesMini
-                  projectIndex={projectIndex}
-                  dimensionsMinis_width={dimensionsMinis_width}
-                  dimensionsMinis_height={dimensionsMinis_height}
-                  liIndex={4}
-                />
-              </div>
+              {arrIndexesImages.map((element: any) => {
+                return (
+                  <div
+                    key={element}
+                    title={t("open")}
+                    className={styles.gallery_mini_img}
+                    ref={element === 1 ? refMini : null}
+                    onClick={() => {
+                      openImg(
+                        `/images/experience/work-${projectIndex + 1}-mini-${element}.png`,
+                        t(`work-${projectIndex + 1}-info-title`)
+                      );
+                    }}
+                  >
+                    <ImagesMini
+                      projectIndex={projectIndex}
+                      dimensionsMinis_width={dimensionsMinis_width}
+                      dimensionsMinis_height={dimensionsMinis_height}
+                      liIndex={1}
+                    />
+                  </div>
+                )
+              })}
             </div>
           </>
         )}

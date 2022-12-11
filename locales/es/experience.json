@@ -4,6 +4,7 @@
   "work-3-title": "Software de ventas",
   "work-4-title": "Pasantía en Leadsales",
   "work-5-title": "Pasantía en Facebook",
+  "work-6-title": "Ingeniero en Evolutel",
 
   "span-1": "4 años de experiencia...",
   "span-2": "Verano 2022, muy pronto...",
@@ -34,5 +35,10 @@
   "work-5-info-title": "Meta U",
   "work-5-info-des": "Durante la pasantía en Meta creé Teamplace, una herramienta que permite la comunicación entre las empresas y sus clientes.",
   "work-5-info-li": "Next.js,Typescript,SQL, Cloud, Bots",
-  "work-5-info-a": "Ir a Teamplace"
+  "work-5-info-a": "Ir a Teamplace",
+
+  "work-6-info-title": "Evolutel",
+  "work-6-info-des": "Soy un ingeniero de software junior en Evolutel. Estoy creando un CRM para el sector inmobiliario.",
+  "work-6-info-li": "React.js,Typescript,SQL,Flask,Sockets",
+  "work-6-info-a": "Ir a Evolutel"
 }

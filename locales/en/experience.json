@@ -4,6 +4,7 @@
   "work-3-title": "Sales tracking software",
   "work-4-title": "Leadsales Internship",
   "work-5-title": "Facebook Internship",
+  "work-6-title": "Engineer in Evolutel",
 
   "span-1": "4 years of work experience...",
   "span-2": "Summer 2022, coming soon...",
@@ -33,6 +34,11 @@
 
   "work-5-info-title": "Meta U",
   "work-5-info-des": "During Meta Universisty Internship I created Teamplace, a tool to allow communication between companies and their clients.",
-  "work-5-info-li": "Next.js,Typescript,SQL, Cloud, Bots",
-  "work-5-info-a": "Go to Teamplace"
+  "work-5-info-li": "Next.js,Typescript,SQL,Cloud,Bots",
+  "work-5-info-a": "Go to Teamplace",
+
+  "work-6-info-title": "Evolutel",
+  "work-6-info-des": "I'm a Junior Software Engineer in Evolutel. I'm developing a CRM for real estate companies.",
+  "work-6-info-li": "React.js,Typescript,SQL,Flask,Sockets",
+  "work-6-info-a": "Go to Evolutel"
 }

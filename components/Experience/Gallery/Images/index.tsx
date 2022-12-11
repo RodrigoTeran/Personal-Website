@@ -1,12 +1,13 @@
 // Shimmer image
 import Shimmer from "../../../Shimmer/index";
+import { INDEXES, arrIndexes, INDEXES_IMAGES } from "../../experience.types";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
 import { Fragment } from "react";
 
 type PropsMain = {
-  projectIndex: 0 | 1 | 2 | 3 | 4;
+  projectIndex: INDEXES;
   dimensionsMain_width: number;
   dimensionsMain_height: number;
 };
@@ -22,7 +23,7 @@ export function ImagesMain({
   return (
     <>
       {/* So change is instant */}
-      {[0, 1, 2, 3, 4].map((element: number, index: number) => {
+      {arrIndexes.map((element: number, index: number) => {
         if (element == projectIndex) {
           return (
             <Fragment key={index}>
@@ -42,10 +43,10 @@ export function ImagesMain({
 }
 
 type PropsMini = {
-  projectIndex: 0 | 1 | 2 | 3 | 4;
+  projectIndex: INDEXES;
   dimensionsMinis_width: number;
   dimensionsMinis_height: number;
-  liIndex: 1 | 2 | 3 | 4;
+  liIndex: INDEXES_IMAGES;
 };
 
 export function ImagesMini({
@@ -60,7 +61,7 @@ export function ImagesMini({
   return (
     <>
       {/* So change is instant */}
-      {[0, 1, 2, 3, 4].map((element: number, index: number) => {
+      {arrIndexes.map((element: number, index: number) => {
         if (element == projectIndex) {
           return (
             <Fragment key={index}>

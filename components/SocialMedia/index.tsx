@@ -32,7 +32,7 @@ export default function SocialMedia() {
       </motion.a>
       <motion.a
         variants={elementVariants}
-        href="https://www.linkedin.com/in/rodrigo-ter%C3%A1n-hern%C3%A1ndez-5618871b5"
+        href="https://www.linkedin.com/in/rodrigoteranhdz"
         target="_blank"
         rel="noreferrer noopener"
         title="Linkedin"

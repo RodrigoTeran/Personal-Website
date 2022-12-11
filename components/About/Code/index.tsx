@@ -98,7 +98,7 @@ export default function Code() {
           <Code_property name="Rodrigo" property="major" />
           &nbsp;
           <Code_equal />
-          <Code_completeString text="BS. Computer Sciene" />
+          <Code_completeString text="BS. Computer Science" />
           <Code_semicolon />
         </div>
         <div

@@ -153,7 +153,7 @@ export default function Gallery({ children, projectIndex }: Props) {
                       projectIndex={projectIndex}
                       dimensionsMinis_width={dimensionsMinis_width}
                       dimensionsMinis_height={dimensionsMinis_height}
-                      liIndex={1}
+                      liIndex={element}
                     />
                   </div>
                 )

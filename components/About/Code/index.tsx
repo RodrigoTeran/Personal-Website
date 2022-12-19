@@ -6,6 +6,7 @@ import styles from "./code.module.scss";
 
 // Hook
 import { useAnimationsScroll } from "../../../hooks/useAnimationsScroll";
+import { getAge } from "../../../functions/age";
 
 // Translations
 import useTranslation from "next-translate/useTranslation";
@@ -87,7 +88,7 @@ export default function Code() {
           <Code_property name="Rodrigo" property="age" />
           &nbsp;
           <Code_equal />
-          <Code_superGreen number="20" />
+          <Code_superGreen number={getAge().toString()} />
           <Code_semicolon />
         </div>
         <div

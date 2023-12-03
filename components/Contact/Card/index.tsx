@@ -1,3 +1,6 @@
+import {useContext} from "react";
+import {MessagesContext} from "../../../context/Messages.context";
+
 // Translation
 import useTranslation from "next-translate/useTranslation";
 
@@ -14,6 +17,8 @@ import Button from "../../Buttons/index";
 import Loader from "../../Loader/index";
 
 const Card = () => {
+  const {addStaticMsg} = useContext(MessagesContext);
+
   // Language
   const { t } = useTranslation("contact");
 

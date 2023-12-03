@@ -31,6 +31,9 @@ import "../styles/global.scss";
 // Components
 import AnimationLayout from "../components/animations/Layout/index";
 
+// Context
+import MessagesContext from "../context/Messages.context";
+
 // Modals
 import ImgModal from "../components/Modals/ImgModal/index";
 
@@ -68,7 +71,7 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
 
       return parseInt(
         component.getBoundingClientRect().top +
-          document.scrollingElement.scrollTop
+        document.scrollingElement.scrollTop
       );
     } catch {
       // Error
@@ -143,13 +146,15 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
           goTo
         }}
       >
-        {/* Modal images */}
-        <ImgModal />
-        <main>
-          <AnimationLayout>
-            <Component {...pageProps} />
-          </AnimationLayout>
-        </main>
+        <MessagesContext>
+          {/* Modal images */}
+          <ImgModal />
+          <main>
+            <AnimationLayout>
+              <Component {...pageProps} />
+            </AnimationLayout>
+          </main>
+        </MessagesContext>
       </GlobalContext.Provider>
     </>
   );

@@ -29,6 +29,7 @@ export default function Info({ projectIndex }: Props) {
     "https://leadsales.io/",
     "https://teamplace.netlify.app/",
     "https://www.evolutel.com.mx/",
+    "https://www.microsoft.com/"
   ];
 
   // Animations scroll

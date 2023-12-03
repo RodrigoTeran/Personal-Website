@@ -5,6 +5,7 @@
   "work-4-title": "Pasantía en Leadsales",
   "work-5-title": "Pasantía en Facebook",
   "work-6-title": "Ingeniero en Evolutel",
+  "work-7-title": "Pasantía en Microsoft",
 
   "span-1": "4 años de experiencia...",
   "span-2": "Verano 2022, muy pronto...",
@@ -40,5 +41,10 @@
   "work-6-info-title": "Evolutel",
   "work-6-info-des": "Soy un ingeniero de software junior en Evolutel. Estoy creando un CRM para el sector inmobiliario.",
   "work-6-info-li": "React.js,Typescript,SQL,Flask,Sockets",
-  "work-6-info-a": "Ir a Evolutel"
+  "work-6-info-a": "Ir a Evolutel",
+
+  "work-7-info-title": "Microsoft",
+  "work-7-info-des": "Durante el verano de 2023 estuve en una pasantía en Microsoft mejorando el tiempo de carga de Microsoft Word en la Web.",
+  "work-7-info-li": "TypeScript,KQL,C#",
+  "work-7-info-a": "Ir a Microsoft"
 }

@@ -22,7 +22,7 @@ export default function Experience() {
   const percentage: number = 0.45;
 
   // State
-  const [projectIndex, setProjectIndex] = useState<INDEXES>(5);
+  const [projectIndex, setProjectIndex] = useState<INDEXES>(6);
 
   // Translation
   const { t } = useTranslation("common");

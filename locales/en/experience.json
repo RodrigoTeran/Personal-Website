@@ -5,6 +5,7 @@
   "work-4-title": "Leadsales Internship",
   "work-5-title": "Facebook Internship",
   "work-6-title": "Engineer in Evolutel",
+  "work-7-title": "Microsoft Internship",
 
   "span-1": "4 years of work experience...",
   "span-2": "Summer 2022, coming soon...",
@@ -40,5 +41,10 @@
   "work-6-info-title": "Evolutel",
   "work-6-info-des": "I'm a Junior Software Engineer in Evolutel. I'm developing a CRM for real estate companies.",
   "work-6-info-li": "React.js,Typescript,SQL,Flask,Sockets",
-  "work-6-info-a": "Go to Evolutel"
+  "work-6-info-a": "Go to Evolutel",
+
+  "work-7-info-title": "Microsoft",
+  "work-7-info-des": "During the summer of 2023 I interned at Microsoft improving the boot time of Microsoft Word web.",
+  "work-7-info-li": "TypeScript,KQL,C#",
+  "work-7-info-a": "Go to Microsoft"
 }

@@ -9,5 +9,8 @@
   "card-3": "Correo electrónico",
   "card-4": "Tema",
   "card-5": "Cuéntame un poco más del tema",
-  "card-6": "Enviar mensaje"
+  "card-6": "Enviar mensaje",
+  
+  "send-sucess": "Mensaje enviado con éxito!",
+  "send-bad": "Se produjo un error al enviar el mensaje..."
 }

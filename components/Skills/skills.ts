@@ -54,18 +54,26 @@ export const frontend = [
     alt: "JQuery",
   },
   {
-    x: 50,
+    x: 60,
     y: 50,
     x2: 47,
     y2: 39,
     imgSrc: "sass.png",
     alt: "Sass",
   },
+  {
+    x: 40,
+    y: 50,
+    x2: 60,
+    y2: 52,
+    imgSrc: "swift.jpeg",
+    alt: "Swift",
+  },
 ];
 
 export const backend = [
   {
-    x: 30.33,
+    x: 36,
     y: 4,
     x2: 30,
     imgSrc: "nodejs.png",
@@ -73,27 +81,35 @@ export const backend = [
   },
   {
     x: 58,
-    y: 10,
+    y: 7,
     x2: 60,
     y2: 10,
     imgSrc: "mongo.jpg",
     alt: "MongoDB",
   },
   {
-    x: 42,
+    x: 29,
     x2: 14,
-    y: 20,
+    y: 17,
     y2: 16,
     imgSrc: "python.png",
     alt: "Python",
   },
   {
-    x: 60,
+    x: 70,
     x2: 72,
-    y: 30,
+    y: 25,
     y2: 25,
     imgSrc: "pg.png",
     alt: "PostgreSQL",
+  },
+  {
+    x: 50,
+    y: 24,
+    x2: 42,
+    y2: 18,
+    imgSrc: "CSharp.png",
+    alt: "C#",
   },
 ];
 

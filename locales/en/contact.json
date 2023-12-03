@@ -9,5 +9,8 @@
   "card-3": "Email",
   "card-4": "Subject",
   "card-5": "Tell me more about it",
-  "card-6": "Send message"
+  "card-6": "Send message",
+
+  "send-sucess": "Message sent successfully!",
+  "send-bad": "An error occurred while sending the message..."
 }

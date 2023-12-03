@@ -1,5 +1,5 @@
-import {useContext} from "react";
-import {MessagesContext} from "../../../context/Messages.context";
+import { useContext } from "react";
+import { MessagesContext } from "../../../context/Messages.context";
 
 // Translation
 import useTranslation from "next-translate/useTranslation";
@@ -17,7 +17,7 @@ import Button from "../../Buttons/index";
 import Loader from "../../Loader/index";
 
 const Card = () => {
-  const {addStaticMsg} = useContext(MessagesContext);
+  const { addStaticMsg } = useContext(MessagesContext);
 
   // Language
   const { t } = useTranslation("contact");
@@ -60,7 +60,7 @@ const Card = () => {
           (_result: any) => {
             // Cool
             setIsLoading(false);
-            // TODO: SUCESS MSG
+            addStaticMsg(t("send-sucess"), "success");
             setNameClient("");
             setEmailClient("");
             setSubjectClient("");
@@ -70,12 +70,11 @@ const Card = () => {
             // Error
             setIsLoading(false);
             console.error(error);
-            // TODO: DANGER MSG
+            addStaticMsg(t("send-bad"), "danger");
           }
         );
     } else {
       setIsLoading(false);
-      // TODO: DANGER MSG
     }
   };
 
@@ -122,7 +121,7 @@ const Card = () => {
           isTextarea
         />
         <Button
-          callback={() => {}}
+          callback={() => { }}
           text={t("card-6")}
           type="gradient"
           size="small"

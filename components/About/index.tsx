@@ -49,7 +49,7 @@ export default function AboutMe() {
           align="left"
           question={t("question-1")}
         >
-          <p>{t("answer-1")}</p>
+          <p>{t("answer-1")} <a href="https://notifications.google.com/g/p/ANiao5qquGwXCTP-2S9yluc7qyAhoygb75M4t9Rb6VI9WuFTf9gy9LBbgtymc85xe5HXmOcZOPiOO22h9cdgKlQxQtmG6MK4AALq_mmJdsD3ARIDex_QKb0wlkBZLcH6xrmoqbB_BwEz3NWe3oevOuJifc-e5qjCIcVTeLOIvAjW1e_PHXkKt3WdLqqoWO7gmX4mVCqg72clolSQLraT">LOL</a></p>
         </Question>
         <Question
           style={{

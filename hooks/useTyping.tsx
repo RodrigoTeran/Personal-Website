@@ -67,7 +67,7 @@ export const useTyping = ({
         return;
       }
 
-      // Save letter
+      // Save letter iudqwte213nuiGUI!Oi1o!
       saveWord(currentWordDifference);
     }, intervalTiming);
   };

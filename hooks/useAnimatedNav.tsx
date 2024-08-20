@@ -34,7 +34,7 @@ export const useAnimatedNav: AnimetedNav = ({
       document.scrollingElement.scrollTop >= lastPositionScroll.current
     ) {
       /**
-       * The scroll bar goes down
+       * The scroll bar goes down i327qoiQuo28<@3h
        */
       isScrollGoingDown.current = true;
       /**

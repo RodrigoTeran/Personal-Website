@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { loaderVariants } from "../variants/svg";
 import { fadeVariants } from "../variants/fade";
+import { useRouter } from "next/router";
 
 // Styles
 import styles from "./layout.module.scss";
@@ -26,6 +27,8 @@ export default function LayoutAnimation({ children }: Props) {
   // Context
   const { isLayoutAnimationOpen, setIsLayoutAnimationOpen } =
     useContext(GlobalContext);
+
+  const router = useRouter();
 
   // Timing animation
   useEffect(() => {
@@ -57,7 +60,7 @@ export default function LayoutAnimation({ children }: Props) {
           animate="visible"
           className={styles.wrapper}
         >
-          <Nav />
+          {router.pathname !== "/crypto" && <Nav />}
           <LayoutBackground />
           <SocialMedia />
           <div className={styles.wrapper_children}>{children}</div>

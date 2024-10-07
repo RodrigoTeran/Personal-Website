@@ -19,6 +19,7 @@ import Times from "./svg/times";
 import Tools from "./svg/tools";
 import UsaFlag from "./svg/usaFlag";
 import User from "./svg/user";
+import Copy from "./svg/copy";
 
 export default {
   Briefcase,
@@ -41,4 +42,5 @@ export default {
   Tools,
   UsaFlag,
   User,
+  Copy,
 };

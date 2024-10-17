@@ -14,6 +14,9 @@
       "projects/dog",
       "projects/dark",
       "projects/fourier"
+    ],
+    "/crypto": [
+      "common"
     ]
   }
 }

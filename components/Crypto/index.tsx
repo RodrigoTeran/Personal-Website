@@ -108,7 +108,7 @@ export default function Body() {
         }
     };
 
-    const copyToClipboard = (): void => {
+/*     const copyToClipboard = (): void => {
         if (output === null) {
             addStaticMsg("Error while copying to clipboard", "danger");
             return;
@@ -116,7 +116,7 @@ export default function Body() {
         navigator.clipboard.writeText(output);
         addStaticMsg("Copied to clipboard", "success");
 
-    }
+    } */
 
     return (
         <div className={styles.wrapper}>
@@ -174,9 +174,6 @@ export default function Body() {
 
             {output !== null && (
                 <code className={styles.output}>
-                    <div onClick={copyToClipboard} className={styles.copy}>
-                        <span>Copy</span> <Icons.Copy />
-                    </div>
                     {output}
                 </code>
             )}

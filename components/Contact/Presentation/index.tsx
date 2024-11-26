@@ -33,7 +33,7 @@ const Presentation = () => {
         <div className={styles.present_me}>
           <div className={styles.present_me_img}>
             <ImageShimmer
-              src="/images/me.jpg"
+              src="/images/me.png"
               alt="Rodrigo Terán"
               width={43}
               height={43}

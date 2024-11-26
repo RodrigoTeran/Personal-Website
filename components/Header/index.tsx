@@ -35,7 +35,7 @@ export default function Header() {
         className={styles.header_right}
       >
         <ImageShimmer
-          src="/images/me.jpg"
+          src="/images/me.png"
           alt="Rodrigo Terán"
           width={250}
           height={250}

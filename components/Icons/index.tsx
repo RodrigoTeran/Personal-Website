@@ -20,6 +20,8 @@ import Tools from "./svg/tools";
 import UsaFlag from "./svg/usaFlag";
 import User from "./svg/user";
 import Copy from "./svg/copy";
+import Instagram from "./svg/instagram";
+import Youtube from "./svg/youtube";
 
 export default {
   Briefcase,
@@ -43,4 +45,6 @@ export default {
   UsaFlag,
   User,
   Copy,
+  Instagram,
+  Youtube,
 };

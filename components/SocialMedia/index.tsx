@@ -23,12 +23,21 @@ export default function SocialMedia() {
     >
       <motion.a
         variants={elementVariants}
-        href="https://www.facebook.com/rodrigoteranhdz/"
+        href="https://www.instagram.com/rodrigoteranhdz"
         target="_blank"
         rel="noreferrer noopener"
-        title="Facebook"
+        title="Instagram"
       >
-        <Icon.Facebook />
+        <Icon.Instagram />
+      </motion.a>
+      <motion.a
+        variants={elementVariants}
+        href="https://www.youtube.com/@rodrigoteranhdz"
+        target="_blank"
+        rel="noreferrer noopener"
+        title="YouTube"
+      >
+        <Icon.Youtube />
       </motion.a>
       <motion.a
         variants={elementVariants}

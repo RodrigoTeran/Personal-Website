@@ -42,3 +42,13 @@
       }
    }
 }
+.link_to_click {
+   color: var(--aqua-100);
+   font-weight: bold;
+   cursor: pointer;
+   @media (hover: hover) and (pointer: fine) {
+       &:hover {
+           text-decoration: underline;
+       }
+   }
+}

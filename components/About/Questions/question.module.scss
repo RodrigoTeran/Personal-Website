@@ -15,16 +15,6 @@
     }
     p {
         max-width: 400px;
-        span {
-            color: var(--aqua-100);
-            font-weight: bold;
-            cursor: pointer;
-            @media (hover: hover) and (pointer: fine) {
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
     }
     &::after {
         content: "";

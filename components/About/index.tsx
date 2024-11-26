@@ -61,27 +61,32 @@ export default function AboutMe() {
           <p>
             {lang == "es" && (
               <>
-                {t("answer-2")}
-                <br />
-                <span
+                <div>
+                  {t("answer-2")}
+                </div>
+                <div
+                  className={styles.link_to_click}
                   onClick={() => {
                     if (goTo) goTo("experience");
                   }}
                 >
                   {t("goto-experience")}
-                </span>
+                </div>
               </>
             )}
             {lang == "en" && (
               <>
-                {t("answer-2")}&nbsp;
-                <span
+                <div>
+                  {t("answer-2")}&nbsp;
+                </div>
+                <div
+                  className={styles.link_to_click}
                   onClick={() => {
                     if (goTo) goTo("experience");
                   }}
                 >
                   {t("goto-experience")}
-                </span>
+                </div>
               </>
             )}
           </p>
@@ -94,15 +99,17 @@ export default function AboutMe() {
           question={t("question-3")}
         >
           <p>
-            {t("answer-3")}
-            <br />
-            <span
+            <div>
+              {t("answer-3")}
+            </div>
+            <div
+              className={styles.link_to_click}
               onClick={() => {
                 if (goTo) goTo("projects");
               }}
             >
               {t("goto-projects")}
-            </span>
+            </div>
           </p>
         </Question>
       </div>

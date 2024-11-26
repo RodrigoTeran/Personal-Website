@@ -111,10 +111,10 @@ export default function Code() {
           &nbsp;
           <Code_equal />
           <Code_iconPurple icon="[" />
-          <Code_completeString text="Web" />
+          <Code_completeString text="Entrepreneurship" />
           <Code_semicolon specify="," />
           &nbsp;
-          <Code_completeString text="Machine Learning" />
+          <Code_completeString text="AI" />
           <Code_iconPurple icon="]" />
           <Code_semicolon />
         </div>

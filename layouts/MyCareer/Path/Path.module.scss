@@ -15,6 +15,8 @@
     right: 0px;
     z-index: 0;
     padding-right: 150px;
+    transition: clip-path ease-out 7500ms;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
     &_small {
       display: none;
@@ -26,11 +28,12 @@
   position: absolute;
   left: 0;
   z-index: 1;
-  transition: transform ease-out 300ms;
+  opacity: 1;
+  transition: transform ease-out 300ms, opacity ease-out 300ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      transform: translateY(-20px) scale(1.05);
+      transform: translateY(-20px);
     }
   }
 }
@@ -238,4 +241,14 @@
     left: -20px !important;
     top: -20px !important;
   }
+}
+
+// Animations
+.notPath {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.notRow {
+  transform: translateY(-50px);
+  opacity: 0;
 }

@@ -2,7 +2,9 @@ import styles from './Path.module.scss'
 import { experienceStyles, IExperience, IParagraph } from './coords.styles'
 import Image from '@image'
 import useTranslation from 'next-translate/useTranslation'
+import { useAnimationsScroll, ArrayElement } from '@hooks/useAnimationsScroll'
 import { carsLongPath, carsSmallPath } from '@image-links'
+import { useEffect, useRef } from 'react'
 
 const DIMENSION_LONG_X = 1776
 const DIMENSION_LONG_Y = 1569.6
@@ -12,6 +14,42 @@ const DIMENSION_SMALL_Y = 2009
 
 export default function Path() {
   const { t } = useTranslation('career')
+  const longPathRef = useRef<HTMLDivElement | null>(null)
+  const { animate } = useAnimationsScroll()
+
+  const getRowElements = (): ArrayElement[] => {
+    const rows: ArrayElement[] = []
+
+    for (let i = 0; i < experienceStyles.length; i++) {
+      const rowTagId = `tag-row-${i}`
+      const row: Element | null = document.querySelector(
+        `[extra-css=${rowTagId}]`
+      )
+
+      if (row === null) continue
+
+      rows.push({
+        element: row,
+        notAppearClass: styles.notRow,
+        screenPercentage: 0.45,
+      })
+    }
+
+    return rows
+  }
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: longPathRef.current,
+          screenPercentage: 0.45,
+          notAppearClass: styles.notPath,
+        },
+        ...getRowElements(),
+      ],
+    })
+  }, [])
 
   return (
     <div
@@ -25,7 +63,8 @@ export default function Path() {
           width: `${DIMENSION_LONG_X}px`,
           height: `${DIMENSION_LONG_Y}px`,
         }}
-        className={styles.path_image}
+        className={`${styles.path_image} ${styles.notPath}`}
+        ref={longPathRef}
       >
         <Image
           width={DIMENSION_LONG_X}
@@ -50,15 +89,11 @@ export default function Path() {
         return (
           <div
             key={index}
-            className={styles.row}
+            className={`${styles.row} ${styles.notRow}`}
             extra-css={`tag-row-${index}`}
             style={element.row.styles}
           >
-            <div
-              className={styles.display}
-              style={element.display.styles}
-              extra-css={`tag-id-${index}`}
-            >
+            <div className={styles.display} style={element.display.styles}>
               <div className={styles.display_img}>
                 <Image
                   width={306}
@@ -72,22 +107,14 @@ export default function Path() {
               </div>
             </div>
 
-            <div
-              className={styles.title_wrapper}
-              style={element.title.styles}
-              extra-css={`tag-id-${index}`}
-            >
+            <div className={styles.title_wrapper} style={element.title.styles}>
               <div className={styles.title}>
                 <div className={styles.title_stick}></div>
                 <div className={styles.title_sign}>{t(element.title.text)}</div>
               </div>
             </div>
 
-            <div
-              className={styles.car}
-              style={element.car.styles}
-              extra-css={`tag-id-${index}`}
-            >
+            <div className={styles.car} style={element.car.styles}>
               <Image
                 width={85}
                 height={99}
@@ -102,7 +129,6 @@ export default function Path() {
                   className={styles.paragraph}
                   style={paragraph.styles}
                   key={pIndex}
-                  extra-css={`tag-id-${index}`}
                 >
                   {t(paragraph.text)}
                 </div>

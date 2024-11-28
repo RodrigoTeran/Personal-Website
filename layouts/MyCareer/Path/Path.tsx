@@ -2,12 +2,31 @@ import styles from './Path.module.scss'
 import { experienceStyles, IExperience, IParagraph } from './coords.styles'
 import Image from '@image'
 import useTranslation from 'next-translate/useTranslation'
+import { carsLongPath } from '@image-links'
+
+const DIMENSION_X = 1776
+const DIMENSION_Y = 1569.6
 
 export default function Path() {
   const { t } = useTranslation('career')
 
   return (
-    <div className={styles.path}>
+    <div
+      className={styles.path}
+      style={{
+        height: `${DIMENSION_Y}px`,
+      }}
+    >
+      <div
+        style={{
+          width: `${DIMENSION_X}px`,
+          height: `${DIMENSION_Y}px`,
+        }}
+        className={styles.path_image}
+      >
+        <Image width={DIMENSION_X} height={DIMENSION_Y} src={carsLongPath} />
+      </div>
+
       {experienceStyles.map((element: IExperience, index: number) => {
         return (
           <div key={index} className={styles.row}>

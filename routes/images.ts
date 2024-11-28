@@ -10,5 +10,6 @@ export const metaCar = '/images/cars/car-meta.png'
 export const msft1Car = '/images/cars/car-msft-1.png'
 export const googleCar = '/images/cars/car-google.png'
 export const msft2Car = '/images/cars/car-msft-2.png'
+export const carsLongPath = '/images/cars/path.png'
 export const metaExperience = '/images/experiences/meta.png'
 export const logoMetaTag = `${ownProdUrl}${logo}`

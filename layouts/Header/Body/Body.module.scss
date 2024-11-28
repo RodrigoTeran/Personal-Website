@@ -7,6 +7,12 @@
 
   &_left {
     justify-content: flex-end;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: translateX(-25px);
+      }
+    }
+
     &_mobile {
       display: none !important;
     }
@@ -46,7 +52,7 @@
     align-items: center;
     opacity: 1;
 
-    transition: opacity ease-out 1200ms, transform ease-out 1200ms;
+    transition: opacity ease-out 600ms, transform ease-out 600ms;
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -58,6 +64,11 @@
   &_right {
     justify-content: flex-start;
     align-items: flex-end;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: translateX(25px);
+      }
+    }
     div {
       text-align: right;
     }
@@ -73,7 +84,7 @@
   font-size: 1.2rem;
   opacity: 1;
 
-  transition: opacity ease-out 1200ms, transform ease-out 1200ms;
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
   &_text {
     display: block;
     width: fit-content;

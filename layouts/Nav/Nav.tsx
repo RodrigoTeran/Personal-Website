@@ -6,6 +6,8 @@ import { youtube, blog } from '@links'
 import Link from 'next/link'
 import { RightArrow, YouTube, Blog } from '@icon'
 import { logo } from '@image-links'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
+import { useEffect, useRef } from 'react'
 
 interface NavLinkProps {
   href: string
@@ -36,12 +38,36 @@ function NavLink({ href, children, icon }: NavLinkProps) {
 }
 
 export default function Nav() {
+  const { animate } = useAnimationsScroll()
+  const leftNavRef = useRef<HTMLDivElement | null>(null)
+  const rightNavRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: leftNavRef.current,
+          screenPercentage: 0.2,
+          notAppearClass: styles.notLeftNav,
+        },
+        {
+          element: rightNavRef.current,
+          screenPercentage: 0.2,
+          notAppearClass: styles.notRightNav,
+        },
+      ],
+    })
+  }, [])
+
   return (
     <nav className={styles.nav}>
       <div className={styles.nav_top}></div>
       <div className={`${styles.nav_content} ${wrapperStyles.wrapper}`}>
         <Link href={home}>
-          <div className={styles.nav_content_logo}>
+          <div
+            ref={leftNavRef}
+            className={`${styles.nav_content_logo} ${styles.notLeftNav}`}
+          >
             <Image
               src={logo}
               alt="Rodrigo Terán"
@@ -55,7 +81,10 @@ export default function Nav() {
             </div>
           </div>
         </Link>
-        <div className={styles.nav_content_links}>
+        <div
+          ref={rightNavRef}
+          className={`${styles.nav_content_links} ${styles.notRightNav}`}
+        >
           <NavLink icon="youtube" href={youtube}>
             YouTube
           </NavLink>

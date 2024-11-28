@@ -9,7 +9,7 @@
     justify-content: flex-end;
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        transform: translateX(-25px);
+        transform: translateX(-15px);
       }
     }
 
@@ -66,7 +66,7 @@
     align-items: flex-end;
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        transform: translateX(25px);
+        transform: translateX(15px);
       }
     }
     div {

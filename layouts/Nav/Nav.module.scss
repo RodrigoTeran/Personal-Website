@@ -27,6 +27,8 @@
       align-items: center;
       gap: 15px;
       cursor: pointer;
+
+      transition: transform ease-out 600ms, opacity ease-out 600ms;
       &_text {
         font-size: 1.5rem;
         display: flex;
@@ -38,6 +40,8 @@
       display: flex;
       align-items: center;
       gap: 64px;
+      transition: transform ease-out 600ms, opacity ease-out 600ms;
+
       &_link {
         display: flex;
         align-items: center;
@@ -69,4 +73,14 @@
       }
     }
   }
+}
+
+// Animations
+.notLeftNav {
+  transform: translateX(50px);
+  opacity: 0;
+}
+.notRightNav {
+  transform: translateX(-50px);
+  opacity: 0;
 }

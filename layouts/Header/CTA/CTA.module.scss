@@ -2,6 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
+
   button {
     font-size: 1.2rem;
   }
@@ -21,4 +23,11 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+// Animations
+.notCta {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px);
 }

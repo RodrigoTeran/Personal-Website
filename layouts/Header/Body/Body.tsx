@@ -4,18 +4,21 @@ import Image from '@image'
 import { Github, Instagram, LinkedIn, YouTube } from '@icon'
 import { imageHeader, neoJausText } from '@image-links'
 import { youtube, github, linkedin, instagram } from '@links'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
+import { MutableRefObject, useEffect, useRef } from 'react'
 
 interface BlockProps {
   textRef: string
   children: JSX.Element
   className: string
+  _ref: MutableRefObject<HTMLDivElement | null>
 }
 
-function Block({ textRef, children, className }: BlockProps) {
+function Block({ textRef, children, className, _ref }: BlockProps) {
   const { t } = useTranslation('header')
 
   return (
-    <div className={`${className} ${styles.block}`}>
+    <div ref={_ref} className={`${className} ${styles.block}`}>
       <div className={styles.block_text}>
         {t(textRef)
           .split(';')
@@ -31,12 +34,17 @@ function Block({ textRef, children, className }: BlockProps) {
 
 interface LeftBlockProps {
   viewMode: 'pc' | 'mobile'
+  className: string
+  _ref: MutableRefObject<HTMLDivElement | null>
 }
 
-function LeftBlock({ viewMode }: LeftBlockProps) {
+function LeftBlock({ viewMode, _ref, className }: LeftBlockProps) {
   return (
     <Block
-      className={`${styles.body_left} ${styles[`body_left_${viewMode}`]}`}
+      _ref={_ref}
+      className={`${styles.body_left} ${className} ${
+        styles[`body_left_${viewMode}`]
+      }`}
       textRef="left-description"
     >
       <div className={styles.body_left_icons}>
@@ -58,10 +66,50 @@ function LeftBlock({ viewMode }: LeftBlockProps) {
 }
 
 export default function Body() {
+  const { animate } = useAnimationsScroll()
+  const leftBlockRef = useRef<HTMLDivElement | null>(null)
+  const leftMobileBlockRef = useRef<HTMLDivElement | null>(null)
+  const rightBlockRef = useRef<HTMLDivElement | null>(null)
+  const imageRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: leftBlockRef.current,
+          screenPercentage: 0.4,
+          notAppearClass: styles.notBlockLeft,
+        },
+        {
+          element: leftMobileBlockRef.current,
+          screenPercentage: 0.4,
+          notAppearClass: styles.notBlockLeft,
+        },
+        {
+          element: rightBlockRef.current,
+          screenPercentage: 0.4,
+          notAppearClass: styles.notBlockRight,
+        },
+        {
+          element: imageRef.current,
+          screenPercentage: 0.4,
+          notAppearClass: styles.notImage,
+        },
+      ],
+    })
+  }, [])
+
   return (
     <div className={styles.body}>
-      <LeftBlock viewMode="pc" />
-      <div className={styles.body_center}>
+      <LeftBlock
+        className={styles.notBlockLeft}
+        _ref={leftBlockRef}
+        viewMode="pc"
+      />
+      <div
+        ref={imageRef}
+        className={`${styles.body_center} ${styles.notImage}`}
+      >
         <Image
           src={imageHeader}
           alt="Rodrigo Terán"
@@ -70,8 +118,16 @@ export default function Body() {
           priority
         />
       </div>
-      <LeftBlock viewMode="mobile" />
-      <Block className={styles.body_right} textRef="right-description">
+      <LeftBlock
+        className={styles.notBlockLeft}
+        _ref={leftMobileBlockRef}
+        viewMode="mobile"
+      />
+      <Block
+        _ref={rightBlockRef}
+        className={`${styles.body_right} ${styles.notBlockRight}`}
+        textRef="right-description"
+      >
         <Image
           src={neoJausText}
           alt="NeoJaus"

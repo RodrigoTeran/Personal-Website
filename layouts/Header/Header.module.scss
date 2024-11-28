@@ -12,6 +12,7 @@
 }
 @media screen and (max-width: 1000px) {
   .header {
+    overflow: hidden;
     height: fit-content;
     padding-top: 150px;
     gap: 60px;

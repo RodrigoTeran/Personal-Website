@@ -5,6 +5,7 @@
     display: flex;
     gap: 4px;
     flex-direction: column;
+    transition: opacity ease-out 600ms, transform ease-out 600ms;
   }
   &_underline {
     width: 78px;
@@ -16,4 +17,11 @@
   .title {
     font-size: 3rem;
   }
+}
+
+// Animations
+.notTitle {
+  transform: translateX(-100px);
+  opacity: 0;
+  visibility: hidden;
 }

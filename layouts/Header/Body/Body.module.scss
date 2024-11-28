@@ -19,6 +19,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        transition: transform ease-out 100ms;
+
+        svg {
+          transition: fill ease-out 100ms;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            transform: scale(1.2);
+          }
+          &:hover svg {
+            fill: var(--lavender-intense);
+          }
+        }
       }
     }
   }
@@ -29,6 +44,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+
+    transition: opacity ease-out 600ms, transform ease-out 600ms;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transition: transform ease-out 300ms;
+        transform: scale(1.05);
+      }
+    }
   }
   &_right {
     justify-content: flex-start;
@@ -46,6 +71,9 @@
   flex-direction: column;
   overflow: visible;
   font-size: 1.2rem;
+  opacity: 1;
+
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
   &_text {
     display: block;
     width: fit-content;
@@ -56,6 +84,8 @@
     max-width: 750px;
     background-color: transparent;
     border-bottom: 1.5px dashed var(--black);
+
+    transition: width ease-out 1000ms, opacity ease-out 1000ms;
   }
 }
 
@@ -87,4 +117,26 @@
       max-width: 290px;
     }
   }
+}
+
+// Animations
+.notBlockLeft {
+  opacity: 0;
+  transform: translateX(100px);
+  .block_dash {
+    width: 100px;
+    opacity: 0;
+  }
+}
+.notBlockRight {
+  opacity: 0;
+  transform: translateX(-100px);
+  .block_dash {
+    width: 100px;
+    opacity: 0;
+  }
+}
+.notImage {
+  transform: scale(0.8);
+  opacity: 0;
 }

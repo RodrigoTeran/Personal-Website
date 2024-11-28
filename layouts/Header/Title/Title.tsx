@@ -16,13 +16,17 @@ export default function Title() {
       >
         <div>
           {title1.split('').map((char, index) => {
+            if (index === 7) {
+              return <br key={index} className={styles.brakeTitle} />
+            }
+
             return (
               <motion.span
                 whileHover={{ y: -30 }}
                 variants={elementVariants}
                 key={index}
                 style={{
-                  marginRight: index == 7 ? '20px' : '',
+                  marginLeft: index == 8 ? '20px' : '',
                 }}
               >
                 {char}

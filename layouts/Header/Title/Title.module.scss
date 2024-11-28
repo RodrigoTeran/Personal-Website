@@ -20,9 +20,20 @@
     background-color: var(--black);
   }
 }
+.brakeTitle {
+  display: none;
+}
 @media screen and (max-width: 1000px) {
   .title_wrapper {
     width: 100%;
+  }
+}
+@media screen and (max-width: 630px) {
+  .brakeTitle {
+    display: block;
+  }
+  .title_wrapper span {
+    margin-left: 0 !important;
   }
 }
 @media screen and (max-width: 350px) {

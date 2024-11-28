@@ -5,11 +5,17 @@ import {
   useEffect,
   useRef,
   useState,
+  useContext,
 } from 'react'
 import styles from './Card.module.scss'
 import { Plus } from '@icon'
+import { AppContext } from '@app'
+import { Refs } from '@store/refs/refs.types'
+import { goto } from '@lib/goto'
 
 type CARDS = 'career' | 'entrepreneurship' | 'content-creation'
+const cardTypesMapRef = new Map<CARDS, Refs>()
+cardTypesMapRef.set('career', 'my-career-info')
 
 const coords = new Map<CARDS, CSSProperties>()
 coords.set('career', {
@@ -41,6 +47,7 @@ export default function Card({
   cardsRef,
   ...props
 }: Props) {
+  const { refsState } = useContext(AppContext)
   const [x, setX] = useState<number>(-100)
   const [y, setY] = useState<number>(-100)
   const refOfCard = useRef<HTMLDivElement | null>(null)
@@ -91,6 +98,14 @@ export default function Card({
     return myCoords
   }
 
+  const onClick = (): void => {
+    const refType: Refs | undefined = cardTypesMapRef.get(cardType)
+    if (refType === undefined) return
+    const refElement: MutableRefObject<any> | undefined = refsState.get(refType)
+    if (refElement === undefined) return
+    goto(refElement)
+  }
+
   return (
     <div
       className={styles.card_wrapper}
@@ -99,7 +114,7 @@ export default function Card({
       ref={refOfCard}
     >
       <div className={styles.card_shadow}></div>
-      <button {...props} className={styles.card}>
+      <button {...props} className={styles.card} onClick={onClick}>
         <div
           style={{
             left: `${x}px`,

@@ -4,11 +4,24 @@ import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 import CommonLayout from '@layouts/Common/Common'
 import Nav from '@layouts/Nav/Nav'
+import { initialRefs, refsReducer } from '@store/refs/refs'
+import { IMapRef, REF_REDUCER_ACTION } from '@store/refs/refs.types'
 import { logoMetaTag } from '@image-links'
 import { ownProdUrl } from '@routes'
+import { createContext, Dispatch, useReducer } from 'react'
+
+export const AppContext = createContext<IAppContext>({} as IAppContext)
+
+interface IAppContext {
+  refsState: IMapRef
+
+  refsDispatch: Dispatch<REF_REDUCER_ACTION>
+}
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
   const { t } = useTranslation('common')
+
+  const [refsState, refsDispatch] = useReducer(refsReducer, initialRefs)
 
   return (
     <>
@@ -33,10 +46,18 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:title" content={t('title')} />
         <meta name="twitter:description" content={t('title')} />
       </Head>
-      <Nav />
-      <CommonLayout>
-        <Component {...pageProps} />
-      </CommonLayout>
+      <AppContext.Provider
+        value={{
+          refsState,
+
+          refsDispatch,
+        }}
+      >
+        <Nav />
+        <CommonLayout>
+          <Component {...pageProps} />
+        </CommonLayout>
+      </AppContext.Provider>
     </>
   )
 }

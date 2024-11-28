@@ -4,14 +4,27 @@ import useTranslation from 'next-translate/useTranslation'
 import Card from './Card/Card'
 import { shadowAboutMe } from '@image-links'
 import Image from '@image'
-import { useRef } from 'react'
+import { useRef, useContext, useEffect } from 'react'
+import { AppContext } from '@app'
 
 export default function AboutMe() {
+  const { refsDispatch } = useContext(AppContext)
   const { t } = useTranslation('about-me')
+  const aboutMeRef = useRef<HTMLDivElement | null>(null)
   const cardsRef = useRef<HTMLDivElement | null>(null)
 
+  useEffect(() => {
+    refsDispatch({
+      type: 'action-add-ref',
+      payload: {
+        key: 'about-me',
+        ref: aboutMeRef,
+      },
+    })
+  }, [])
+
   return (
-    <section className={styles.section}>
+    <section ref={aboutMeRef} className={styles.section}>
       <Title>{t('title')}</Title>
       <div ref={cardsRef} className={styles.cards}>
         <Card cardsRef={cardsRef} cardType="career">

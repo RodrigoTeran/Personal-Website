@@ -19,9 +19,12 @@
       "@layouts/*": ["layouts/*"],
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
+      "@lib/*": ["lib/*"],
       "@styles/*": ["styles/*"],
+      "@store/*": ["store/*"],
       "@routes": ["routes/routes"],
       "@links": ["routes/outside"],
+      "@app": ["pages/_app"],
       "@image-links": ["routes/images"],
       "@image": ["components/Image/Image"],
       "@icon": ["icons/index"]

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { getTop } from '@lib/goto'
 
 export type ArrayElement = {
   element: HTMLDivElement | Element | null
@@ -15,21 +16,6 @@ interface IuseAnimationsScroll {
 type Params = {
   componentsList: ArrayElement[]
   isBothSides?: boolean // Reload animation
-}
-
-const getTop = (component: any): number => {
-  try {
-    if (document.scrollingElement) {
-      return parseInt(
-        component.getBoundingClientRect().top +
-          document.scrollingElement.scrollTop
-      )
-    }
-
-    return 0
-  } catch {
-    return 0
-  }
 }
 
 export const useAnimationsScroll: IuseAnimationsScroll = () => {

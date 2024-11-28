@@ -214,7 +214,7 @@ export const experienceStyles: IExperience[] = [
       src: msft2Car,
       styles: {
         top: '50px',
-        left: '0',
+        left: '70px',
         transform: 'scale(3.5)',
       },
     },

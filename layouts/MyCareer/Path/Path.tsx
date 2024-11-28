@@ -2,10 +2,13 @@ import styles from './Path.module.scss'
 import { experienceStyles, IExperience, IParagraph } from './coords.styles'
 import Image from '@image'
 import useTranslation from 'next-translate/useTranslation'
-import { carsLongPath } from '@image-links'
+import { carsLongPath, carsSmallPath } from '@image-links'
 
-const DIMENSION_X = 1776
-const DIMENSION_Y = 1569.6
+const DIMENSION_LONG_X = 1776
+const DIMENSION_LONG_Y = 1569.6
+
+const DIMENSION_SMALL_X = 183.1
+const DIMENSION_SMALL_Y = 2009
 
 export default function Path() {
   const { t } = useTranslation('career')
@@ -14,19 +17,35 @@ export default function Path() {
     <div
       className={styles.path}
       style={{
-        height: `${DIMENSION_Y}px`,
+        height: `${DIMENSION_LONG_Y}px`,
       }}
     >
       <div
         style={{
-          width: `${DIMENSION_X}px`,
-          height: `${DIMENSION_Y}px`,
+          width: `${DIMENSION_LONG_X}px`,
+          height: `${DIMENSION_LONG_Y}px`,
         }}
         className={styles.path_image}
       >
-        <Image width={DIMENSION_X} height={DIMENSION_Y} src={carsLongPath} />
+        <Image
+          width={DIMENSION_LONG_X}
+          height={DIMENSION_LONG_Y}
+          src={carsLongPath}
+        />
       </div>
-
+      <div
+        style={{
+          width: `${DIMENSION_SMALL_X}px`,
+          height: `${DIMENSION_SMALL_Y}px`,
+        }}
+        className={styles.path_image_small}
+      >
+        <Image
+          width={DIMENSION_SMALL_X}
+          height={DIMENSION_SMALL_Y}
+          src={carsSmallPath}
+        />
+      </div>
       {experienceStyles.map((element: IExperience, index: number) => {
         return (
           <div

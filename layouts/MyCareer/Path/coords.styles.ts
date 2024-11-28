@@ -1,10 +1,13 @@
 import { CSSProperties } from 'react'
 import {
   metaCar,
-  metaExperience,
   msft1Car,
   googleCar,
   msft2Car,
+  metaExperience,
+  googleExperience,
+  msft1Experience,
+  msft2Experience,
 } from '@image-links'
 
 export interface IParagraph {
@@ -100,7 +103,7 @@ export const experienceStyles: IExperience[] = [
     },
     display: {
       text: 'msft-1-display',
-      src: metaExperience,
+      src: msft1Experience,
       styles: {
         left: '50px',
         top: '0px',
@@ -151,7 +154,7 @@ export const experienceStyles: IExperience[] = [
     },
     display: {
       text: 'google-display',
-      src: metaExperience,
+      src: googleExperience,
       styles: {
         top: '120px',
         right: '0px',
@@ -204,7 +207,7 @@ export const experienceStyles: IExperience[] = [
     },
     display: {
       text: 'msft-2-display',
-      src: metaExperience,
+      src: msft2Experience,
       styles: {
         top: '150px',
         left: '350px',
@@ -222,7 +225,7 @@ export const experienceStyles: IExperience[] = [
       {
         text: 'msft-2-p-1',
         styles: {
-          top: '250px',
+          top: '200px',
           left: '700px',
           width: '305px',
         },
@@ -230,7 +233,7 @@ export const experienceStyles: IExperience[] = [
       {
         text: 'msft-2-p-2',
         styles: {
-          top: '350px',
+          top: '300px',
           left: '700px',
           width: '337px',
         },

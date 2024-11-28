@@ -156,6 +156,13 @@
   }
   .display {
     width: 60vw;
+    &_img {
+      height: calc(0.64 * 60vw);
+      span {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
   }
   .title_wrapper {
     position: absolute;
@@ -179,6 +186,9 @@
   }
   .display {
     width: 50vw !important;
+    &_img {
+      height: calc(0.64 * 50vw);
+    }
   }
   .paragraph {
     width: 50vw !important;
@@ -193,6 +203,9 @@
   }
   .display {
     width: 70vw !important;
+    &_img {
+      height: calc(0.64 * 70vw);
+    }
   }
   .paragraph {
     width: 70vw !important;
@@ -213,6 +226,9 @@
   }
   .display {
     width: 100% !important;
+    &_img {
+      height: 175px;
+    }
   }
   .paragraph {
     width: 100% !important;

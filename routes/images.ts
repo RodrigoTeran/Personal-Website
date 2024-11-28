@@ -13,4 +13,7 @@ export const msft2Car = '/images/cars/car-msft-2.png'
 export const carsLongPath = '/images/cars/path.png'
 export const carsSmallPath = '/images/cars/smallPath.png'
 export const metaExperience = '/images/experiences/meta.png'
+export const googleExperience = '/images/experiences/google.png'
+export const msft1Experience = '/images/experiences/msft1.png'
+export const msft2Experience = '/images/experiences/msft2.png'
 export const logoMetaTag = `${ownProdUrl}${logo}`

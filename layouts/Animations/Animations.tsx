@@ -3,84 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useContext, useEffect } from 'react'
 import styles from './Animations.module.scss'
 import { AppContext } from '@app'
+import { fadeVariants, loaderVariants } from '@lib/variants'
+import Image from '@image'
+import { MILISECONDS_LAYOUT_ANIMATION } from '@rules'
+import { logo } from '@image-links'
 
-export const fadeVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
-      delay: 0,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
-      delay: 0,
-    },
-  },
-}
-
-export const svgVariants = {
-  hidden: {
-    fill: '#00000000',
-  },
-  visible: {
-    fill: '#43f7d58c',
-    transition: {
-      duration: 1.5,
-      delay: 1,
-    },
-  },
-  exit: {
-    fill: '#00000000',
-    transition: {
-      duration: 1,
-      delay: 0,
-    },
-  },
-}
-
-export const svgPathVariants = {
-  hidden: {
-    pathLength: 0,
-  },
-  visible: {
-    pathLength: 1,
-    transition: {
-      duration: 3,
-      ease: 'easeInOut',
-      delay: 0.25,
-    },
-  },
-  exit: {
-    pathLength: 0,
-    transition: {
-      duration: 1,
-      ease: 'easeInOut',
-      delay: 0,
-    },
-  },
-}
-
-export const loaderVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: { type: 'tween', duration: 1, delay: 0.5 },
-  },
-  exit: {
-    opacity: 0,
-    transition: { type: 'tween', duration: 0.75, delay: 0.5 },
-  },
-}
 type Props = {
   children: any
 }
@@ -92,7 +19,7 @@ export default function LayoutAnimation({ children }: Props) {
     const timeOut = setTimeout(() => {
       if (setIsLayoutAnimationOpen) setIsLayoutAnimationOpen(false)
       clearTimeout(timeOut)
-    }, 3000)
+    }, MILISECONDS_LAYOUT_ANIMATION)
   }, [])
 
   return (
@@ -106,7 +33,14 @@ export default function LayoutAnimation({ children }: Props) {
           variants={loaderVariants}
           className={styles.loader}
         >
-          <div>HOLA :D</div>
+          <Image
+            src={logo}
+            alt="Rodrigo Terán"
+            width={100}
+            height={100}
+            priority
+          />
+          <h1>Rodrigo Terán</h1>
         </motion.div>
       ) : (
         <motion.div

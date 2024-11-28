@@ -8,20 +8,31 @@ import { initialRefs, refsReducer } from '@store/refs/refs'
 import { IMapRef, REF_REDUCER_ACTION } from '@store/refs/refs.types'
 import { logoMetaTag } from '@image-links'
 import { ownProdUrl } from '@routes'
-import { createContext, Dispatch, useReducer } from 'react'
+import Animations from '@layouts/Animations/Animations'
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useReducer,
+  useState,
+} from 'react'
 
 export const AppContext = createContext<IAppContext>({} as IAppContext)
 
 interface IAppContext {
   refsState: IMapRef
+  isLayoutAnimationOpen: boolean
 
   refsDispatch: Dispatch<REF_REDUCER_ACTION>
+  setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
   const { t } = useTranslation('common')
 
   const [refsState, refsDispatch] = useReducer(refsReducer, initialRefs)
+  const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
+    useState<boolean>(true)
 
   return (
     <>
@@ -49,14 +60,18 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
       <AppContext.Provider
         value={{
           refsState,
+          isLayoutAnimationOpen,
 
           refsDispatch,
+          setIsLayoutAnimationOpen,
         }}
       >
-        <Nav />
-        <CommonLayout>
-          <Component {...pageProps} />
-        </CommonLayout>
+        <Animations>
+          <Nav />
+          <CommonLayout>
+            <Component {...pageProps} />
+          </CommonLayout>
+        </Animations>
       </AppContext.Provider>
     </>
   )

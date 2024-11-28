@@ -46,7 +46,7 @@
     align-items: center;
     opacity: 1;
 
-    transition: opacity ease-out 600ms, transform ease-out 600ms;
+    transition: opacity ease-out 1200ms, transform ease-out 1200ms;
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
@@ -73,7 +73,7 @@
   font-size: 1.2rem;
   opacity: 1;
 
-  transition: opacity ease-out 600ms, transform ease-out 600ms;
+  transition: opacity ease-out 1200ms, transform ease-out 1200ms;
   &_text {
     display: block;
     width: fit-content;
@@ -85,7 +85,7 @@
     background-color: transparent;
     border-bottom: 1.5px dashed var(--black);
 
-    transition: width ease-out 1000ms, opacity ease-out 1000ms;
+    transition: width ease-out 1600ms, opacity ease-out 1600ms;
   }
 }
 

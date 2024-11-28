@@ -42,7 +42,7 @@ export const experienceStyles: IExperience[] = [
       text: 'meta-display',
       src: metaExperience,
       styles: {
-        right: '50px',
+        right: '20px',
       },
     },
     car: {
@@ -73,85 +73,141 @@ export const experienceStyles: IExperience[] = [
       },
     ],
   },
-  //   {
-  //     title: {
-  //       text: 'msft-1-title',
-  //       styles: {
-  //         width: '120px',
-  //       },
-  //     },
-  //     display: {
-  //       text: 'msft-1-display',
-  //       src: metaExperience,
-  //       styles: {},
-  //     },
-  //     car: {
-  //       src: msft1Car,
-  //       styles: {},
-  //     },
-  //     paragraphs: [
-  //       {
-  //         text: 'msft-1-p-1',
-  //         styles: {},
-  //       },
-  //       {
-  //         text: 'msft-1-p-2',
-  //         styles: {},
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: {
-  //       text: 'google-title',
-  //       styles: {
-  //         width: '95px',
-  //       },
-  //     },
-  //     display: {
-  //       text: 'google-display',
-  //       src: metaExperience,
-  //       styles: {},
-  //     },
-  //     car: {
-  //       src: googleCar,
-  //       styles: {},
-  //     },
-  //     paragraphs: [
-  //       {
-  //         text: 'google-p-1',
-  //         styles: {},
-  //       },
-  //       {
-  //         text: 'google-p-2',
-  //         styles: {},
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: {
-  //       text: 'msft-2-title',
-  //       styles: {
-  //         width: '120px',
-  //       },
-  //     },
-  //     display: {
-  //       text: 'msft-2-display',
-  //       src: metaExperience,
-  //       styles: {},
-  //     },
-  //     car: {
-  //       src: msft2Car,
-  //       styles: {},
-  //     },
-  //     paragraphs: [
-  //       {
-  //         text: 'msft-2-p-1',
-  //         styles: {},
-  //       },
-  //       {
-  //         text: 'msft-2-p-2',
-  //         styles: {},
-  //       },
-  //     ],
-  //   },
+  {
+    title: {
+      text: 'msft-1-title',
+      styles: {
+        width: '120px',
+        top: '250px',
+        left: '400px',
+        transform: 'scale(1.3)',
+      },
+    },
+    display: {
+      text: 'msft-1-display',
+      src: metaExperience,
+      styles: {
+        left: '50px',
+        top: '260px',
+      },
+    },
+    car: {
+      src: msft1Car,
+      styles: {
+        left: '550px',
+        top: '320px',
+        transform: 'scale(1.3)',
+      },
+    },
+    paragraphs: [
+      {
+        text: 'msft-1-p-1',
+        styles: {
+          top: '320px',
+          left: '750px',
+          width: '246px',
+        },
+      },
+      {
+        text: 'msft-1-p-2',
+        styles: {
+          top: '400px',
+          left: '860px',
+          width: '207px',
+        },
+      },
+    ],
+  },
+  {
+    title: {
+      text: 'google-title',
+      styles: {
+        width: '95px',
+        top: '530px',
+        transform: 'scale(1.8)',
+        right: '250px',
+      },
+    },
+    display: {
+      text: 'google-display',
+      src: metaExperience,
+      styles: {
+        top: '650px',
+        right: '0px',
+      },
+    },
+    car: {
+      src: googleCar,
+      styles: {
+        top: '700px',
+        transform: 'scale(2)',
+        right: '500px',
+      },
+    },
+    paragraphs: [
+      {
+        text: 'google-p-1',
+        styles: {
+          top: '530px',
+          width: '288px',
+          textAlign: 'right',
+          left: '200px',
+        },
+      },
+      {
+        text: 'google-p-2',
+        styles: {
+          top: '610px',
+          width: '330px',
+          textAlign: 'right',
+          left: '100px',
+        },
+      },
+    ],
+  },
+  {
+    title: {
+      text: 'msft-2-title',
+      styles: {
+        width: '120px',
+        transform: 'scale(2)',
+        top: '750px',
+        left: '220px',
+      },
+    },
+    display: {
+      text: 'msft-2-display',
+      src: metaExperience,
+      styles: {
+        top: '1000px',
+        left: '350px',
+      },
+    },
+    car: {
+      src: msft2Car,
+      styles: {
+        top: '900px',
+        left: '0',
+        transform: 'scale(3.5)',
+      },
+    },
+    paragraphs: [
+      {
+        text: 'msft-2-p-1',
+        styles: {
+          top: '1050px',
+          left: '700px',
+          width: '305px',
+        },
+      },
+      {
+        text: 'msft-2-p-2',
+        styles: {
+          top: '1150px',
+          left: '700px',
+          width: '337px',
+        },
+      },
+    ],
+  },
 ]

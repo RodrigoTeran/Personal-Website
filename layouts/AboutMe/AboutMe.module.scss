@@ -1,0 +1,29 @@
+.section {
+  padding-bottom: 140px;
+}
+.cards {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  z-index: 0;
+}
+.shadow {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .cards {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .shadow {
+    bottom: -100px;
+  }
+}

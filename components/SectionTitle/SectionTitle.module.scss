@@ -1,0 +1,15 @@
+.h2 {
+  font-size: 2.25rem;
+  margin: 0;
+  &_wrapper {
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  &_underline {
+    height: 5px;
+    width: 78px;
+    background-color: var(--black);
+  }
+}

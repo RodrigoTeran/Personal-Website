@@ -4,5 +4,25 @@
   "p-1": "My journey into the world of software engineering, content creation, and entrepreneurship began when I made the decision to study Computer Technology Engineering at the Tecnológico de Monterrey.",
   "p-2": "Since then, I was a very ambitious young man, and I had clear goals... To fill myself with experience and knowledge to do great things for Mexico...",
   "p-3": "First, I want to start with my experiences in the internships during my university career...",
-  "p-4": "it was right in my last year of university when I started to undertake and create content."
+  "p-4": "it was right in my last year of university when I started to undertake and create content.",
+
+  "meta-title": "Meta",
+  "meta-display": "Internship at Meta Summer 2022",
+  "meta-p-1": "Developed Teamplace, a business management software",
+  "meta-p-2": "Manage calendars, messages, and bots for team communication",
+
+  "msft-1-title": "Microsoft",
+  "msft-1-display": "Internship at MSFT Summer 2023",
+  "msft-1-p-1": "Reduced the boot time in Word Web by 2 seconds in the 95th percentile",
+  "msft-1-p-2": "Analyzed Word Web performance metrics",
+
+  "google-title": "Google",
+  "google-display": "Internship at Google Summer 2024",
+  "google-p-1": "I implemented server-side injected environment variables in Firebase",
+  "google-p-2": "Contributed with the product management team for the development of the implementation",
+
+  "msft-2-title": "Microsoft",
+  "msft-2-display": "Internship at MSFT Fall 2024",
+  "msft-2-p-1": "Developed an accessibility feature for disabled tools",
+  "msft-2-p-2": "Fixed a bug with page sizes when images were floating"
 }

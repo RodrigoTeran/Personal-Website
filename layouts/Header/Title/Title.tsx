@@ -1,34 +1,49 @@
-import { useEffect, useRef } from 'react'
 import styles from './Title.module.scss'
-import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
+import { motion } from 'framer-motion'
+import { containerVariants, elementVariants } from '@lib/variants'
 
 export default function Title() {
-  const { animate } = useAnimationsScroll()
-
-  const titleRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    animate({
-      componentsList: [
-        {
-          element: titleRef.current,
-          screenPercentage: 0.4,
-          notAppearClass: styles.notTitle,
-        },
-      ],
-    })
-  }, [])
+  const title1 = 'Rodrigo Terán'
+  const title2 = 'Hernández'
 
   return (
-    <div
-      ref={titleRef}
-      className={`${styles.title_wrapper} ${styles.notTitle}`}
-    >
-      <h1 className={styles.title}>
-        Rodrigo Terán
-        <br />
-        Hernández
-      </h1>
+    <div className={`${styles.title_wrapper}`}>
+      <motion.h1
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className={styles.title}
+      >
+        <div>
+          {title1.split('').map((char, index) => {
+            return (
+              <motion.span
+                whileHover={{ y: -30 }}
+                variants={elementVariants}
+                key={index}
+                style={{
+                  marginRight: index == 7 ? '20px' : '',
+                }}
+              >
+                {char}
+              </motion.span>
+            )
+          })}
+        </div>
+        <div>
+          {title2.split('').map((char, index) => {
+            return (
+              <motion.span
+                whileHover={{ y: -30 }}
+                variants={elementVariants}
+                key={index}
+              >
+                {char}
+              </motion.span>
+            )
+          })}
+        </div>
+      </motion.h1>
       <div className={styles.title_underline}></div>
     </div>
   )

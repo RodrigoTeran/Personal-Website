@@ -33,3 +33,30 @@ export const loaderVariants = {
     transition: { type: 'tween', duration: 0.75, delay: 0.5 },
   },
 }
+export const containerVariants = {
+  hidden: {
+    opacity: 1,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0,
+      staggerChildren: 0.1,
+      when: 'beforeChildren',
+    },
+  },
+}
+
+export const elementVariants = {
+  hidden: {
+    scaleY: 0,
+    originY: '100%',
+    color: '#fff7f2',
+  },
+  visible: {
+    scaleY: 1,
+    originY: '100%',
+    color: '#000',
+    transition: { type: 'spring', stiffness: 200 },
+  },
+}

@@ -29,8 +29,17 @@ export default function Path() {
 
       {experienceStyles.map((element: IExperience, index: number) => {
         return (
-          <div key={index} className={styles.row}>
-            <div className={styles.display} style={element.display.styles}>
+          <div
+            key={index}
+            className={styles.row}
+            extra-css={`tag-row-${index}`}
+            style={element.row.styles}
+          >
+            <div
+              className={styles.display}
+              style={element.display.styles}
+              extra-css={`tag-id-${index}`}
+            >
               <div className={styles.display_img}>
                 <Image
                   width={306}
@@ -44,14 +53,22 @@ export default function Path() {
               </div>
             </div>
 
-            <div className={styles.title_wrapper} style={element.title.styles}>
+            <div
+              className={styles.title_wrapper}
+              style={element.title.styles}
+              extra-css={`tag-id-${index}`}
+            >
               <div className={styles.title}>
                 <div className={styles.title_stick}></div>
                 <div className={styles.title_sign}>{t(element.title.text)}</div>
               </div>
             </div>
 
-            <div className={styles.car} style={element.car.styles}>
+            <div
+              className={styles.car}
+              style={element.car.styles}
+              extra-css={`tag-id-${index}`}
+            >
               <Image
                 width={85}
                 height={99}
@@ -62,13 +79,14 @@ export default function Path() {
 
             {element.paragraphs.map((paragraph: IParagraph, pIndex: number) => {
               return (
-                <p
+                <div
                   className={styles.paragraph}
                   style={paragraph.styles}
                   key={pIndex}
+                  extra-css={`tag-id-${index}`}
                 >
                   {t(paragraph.text)}
-                </p>
+                </div>
               )
             })}
           </div>

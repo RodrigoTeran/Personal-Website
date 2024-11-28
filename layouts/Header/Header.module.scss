@@ -1,6 +1,19 @@
 .header {
   background-color: var(--white);
   height: 100vh;
+  min-height: 830px;
   width: 100%;
-  padding-top: 110px;
+  padding: 110px 0;
+
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+@media screen and (max-width: 1000px) {
+  .header {
+    height: fit-content;
+    padding-top: 150px;
+    gap: 60px;
+  }
 }

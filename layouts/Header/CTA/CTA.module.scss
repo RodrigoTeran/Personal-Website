@@ -1,0 +1,17 @@
+.cta {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  button {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .cta {
+    justify-content: center;
+    button {
+      font-size: 1rem;
+    }
+  }
+}

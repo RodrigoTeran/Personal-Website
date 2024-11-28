@@ -4,6 +4,8 @@ import Head from 'next/head'
 import useTranslation from 'next-translate/useTranslation'
 import CommonLayout from '@layouts/Common/Common'
 import Nav from '@layouts/Nav/Nav'
+import { logoMetaTag } from '@image-links'
+import { ownProdUrl } from '@routes'
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
   const { t } = useTranslation('common')
@@ -19,17 +21,11 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
           name="keywords"
           content={`Rodrigo Terán, Programación, Programming, Coding, Web Developer, Desarrollador Web`}
         />
-        <meta
-          property="og:image:secure_url"
-          content="https://www.rodrigoteran.dev/images/logo.png"
-        />
-        <meta property="og:url" content="https://www.rodrigoteran.dev" />
+        <meta property="og:image:secure_url" content={logoMetaTag} />
+        <meta property="og:url" content={ownProdUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={t('title')} />
-        <meta
-          name="twitter:image"
-          content="https://www.rodrigoteran.dev/images/logo.png"
-        />
+        <meta name="twitter:image" content={logoMetaTag} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content="Rodrigo Terán" />
         <meta property="og:title" content={t('title')} />

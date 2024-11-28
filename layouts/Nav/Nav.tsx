@@ -5,6 +5,7 @@ import { home } from '@routes'
 import { youtube, blog } from '@links'
 import Link from 'next/link'
 import { RightArrow, YouTube, Blog } from '@icon'
+import { logo } from '@image-links'
 
 interface NavLinkProps {
   href: string
@@ -42,7 +43,7 @@ export default function Nav() {
         <Link href={home}>
           <div className={styles.nav_content_logo}>
             <Image
-              src={'/images/logo.png'}
+              src={logo}
               alt="Rodrigo Terán"
               width={60}
               height={60}

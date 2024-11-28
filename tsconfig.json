@@ -22,6 +22,7 @@
       "@styles/*": ["styles/*"],
       "@routes": ["routes/routes"],
       "@links": ["routes/outside"],
+      "@image-links": ["routes/images"],
       "@image": ["components/Image/Image"],
       "@icon": ["icons/index"]
     }

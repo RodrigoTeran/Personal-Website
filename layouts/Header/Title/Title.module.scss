@@ -1,0 +1,19 @@
+.title {
+  font-size: 4rem;
+  margin: 0;
+  &_wrapper {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+  }
+  &_underline {
+    width: 78px;
+    height: 5px;
+    background-color: var(--black);
+  }
+}
+@media screen and (max-width: 350px) {
+  .title {
+    font-size: 3rem;
+  }
+}

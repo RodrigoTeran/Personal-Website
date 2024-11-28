@@ -25,7 +25,7 @@ export default function Path() {
               </div>
             </div>
 
-            <div style={element.title.styles}>
+            <div className={styles.title_wrapper} style={element.title.styles}>
               <div className={styles.title}>
                 <div className={styles.title_stick}></div>
                 <div className={styles.title_sign}>{t(element.title.text)}</div>

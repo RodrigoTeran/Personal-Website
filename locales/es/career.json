@@ -5,6 +5,23 @@
   "p-3": "Primero quiero empezar con mis experiencias en los internships durante mi carrera universitaria...",
   "p-4": "justo en mi último año de universidad fue cuando empecé a emprender y a crear contenido.",
 
+  "meta-title": "Meta",
+  "meta-display": "Internship en Meta verano 2022",
   "meta-p-1": "Desarrollé Teamplace, un software de gestión empresarial",
-  "meta-p-2": "Gestiona calendarios, mensajes y bots para la comunicación entre equipos"
+  "meta-p-2": "Gestiona calendarios, mensajes y bots para la comunicación entre equipos",
+
+  "msft-1-title": "Microsoft",
+  "msft-1-display": "Internship en MSFT verano 2023",
+  "msft-1-p-1": "Reduje el Boot en Word Web por 2 segundos en el percentil 95",
+  "msft-1-p-2": "Analicé las métricas de desempeño de Word Web",
+
+  "google-title": "Google",
+  "google-display": "Internship en Google verano 2024",
+  "google-p-1": "Implementé variables de entorno inyectadas desde el servidor en Firebase",
+  "google-p-2": "Colaboré con el equipo de product management para el desarrollo de la implementación",
+
+  "msft-2-title": "Microsoft",
+  "msft-2-display": "Internship en MSFT otoño 2024",
+  "msft-2-p-1": "Desarrollé una función de accesibilidad para herramientas deshabilitadas",
+  "msft-2-p-2": "Resolví un bug del tamaño de las páginas cuando las imágenes estaban flotantes"
 }

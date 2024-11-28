@@ -1,4 +1,11 @@
-import { ComponentProps, CSSProperties } from 'react'
+import {
+  ComponentProps,
+  CSSProperties,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import styles from './Card.module.scss'
 import { Plus } from '@icon'
 
@@ -23,11 +30,61 @@ coords.set('content-creation', {
 
 interface CardProps {
   cardType: CARDS
+  cardsRef: MutableRefObject<HTMLDivElement | null>
 }
 
 type Props = ComponentProps<'button'> & CardProps
 
-export default function Card({ children, cardType, ...props }: Props) {
+export default function Card({
+  children,
+  cardType,
+  cardsRef,
+  ...props
+}: Props) {
+  const [x, setX] = useState<number>(-100)
+  const [y, setY] = useState<number>(-100)
+  const refOfCard = useRef<HTMLDivElement | null>(null)
+
+  const mouseLeave = (): void => {
+    setX(-100)
+    setY(-100)
+  }
+
+  const mousemove = (e: MouseEvent): void => {
+    if (refOfCard.current === null) return
+    if (cardsRef.current === null) return
+
+    const xParent = cardsRef.current.offsetLeft
+    const yParent = cardsRef.current.offsetTop
+
+    const x = e.pageX - xParent - refOfCard.current.offsetLeft
+    const y = e.pageY - yParent - refOfCard.current.offsetTop
+
+    setX(x - 100)
+    setY(y - 100)
+  }
+
+  const addListeners = (): void => {
+    if (refOfCard.current === null) return
+    if (cardsRef.current === null) return
+    refOfCard.current.addEventListener('mousemove', mousemove)
+    refOfCard.current.addEventListener('mouseleave', mouseLeave)
+  }
+  const removeListeners = (): void => {
+    if (refOfCard.current === null) return
+    if (cardsRef.current === null) return
+    refOfCard.current.removeEventListener('mousemove', mousemove)
+    refOfCard.current.removeEventListener('mouseleave', mouseLeave)
+  }
+
+  useEffect(() => {
+    addListeners()
+
+    return () => {
+      removeListeners()
+    }
+  }, [refOfCard.current])
+
   const getStyles = (): CSSProperties => {
     const myCoords: CSSProperties | undefined = coords.get(cardType)
     if (myCoords === undefined) return {}
@@ -39,9 +96,17 @@ export default function Card({ children, cardType, ...props }: Props) {
       className={styles.card_wrapper}
       css-attr={cardType}
       style={getStyles()}
+      ref={refOfCard}
     >
       <div className={styles.card_shadow}></div>
       <button {...props} className={styles.card}>
+        <div
+          style={{
+            left: `${x}px`,
+            top: `${y}px`,
+          }}
+          className={styles.selector}
+        ></div>
         <div className={styles.card_text}>
           {children
             ?.toLocaleString()

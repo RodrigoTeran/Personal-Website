@@ -1,3 +1,14 @@
+.selector {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--white);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+
 .card {
   width: 532px;
   height: 285px;
@@ -9,6 +20,9 @@
   justify-content: space-between;
   padding: 22px;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
   &_text {
     display: block;
     justify-content: flex-start;
@@ -21,6 +35,8 @@
     position: absolute;
     width: fit-content;
     height: fit-content;
+    transition: transform ease-out 300ms;
+
     &[css-attr='career'] .card_shadow {
       background-color: var(--beige-light);
     }
@@ -40,6 +56,31 @@
       margin-left: auto;
       margin-bottom: 70px;
       margin-right: 30px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover .selector {
+        opacity: 1;
+        visibility: visible;
+      }
+      &[css-attr='career']:hover {
+        transform: rotateZ(-10deg) translateY(-25px);
+      }
+      &[css-attr='entrepreneurship']:hover {
+        transform: translateY(-25px);
+      }
+      &[css-attr='content-creation']:hover {
+        transform: rotateZ(0deg) translateY(25px) translateX(-50px);
+      }
+
+      &[css-attr='career']:active {
+        transform: rotateZ(-10deg) translateY(-35px);
+      }
+      &[css-attr='entrepreneurship']:active {
+        transform: translateY(-35px);
+      }
+      &[css-attr='content-creation']:active {
+        transform: rotateZ(0deg) translateY(15px) translateX(-50px);
+      }
     }
   }
   &_shadow {

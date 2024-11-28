@@ -40,7 +40,7 @@
 }
 .block {
   height: 50%;
-  width: 300px;
+  width: 250px;
   display: flex;
   gap: 16px;
   flex-direction: column;
@@ -53,15 +53,9 @@
   &_dash {
     height: 0;
     width: 50vw;
-    max-width: 900px;
+    max-width: 750px;
     background-color: transparent;
     border-bottom: 1.5px dashed var(--black);
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .block {
-    width: 200px;
   }
 }
 

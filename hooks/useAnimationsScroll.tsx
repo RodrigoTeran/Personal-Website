@@ -9,34 +9,43 @@ export type ArrayElement = {
 
 interface IuseAnimationsScroll {
   (): {
-    animate: ({ componentsList, isBothSides }: Params) => void
+    animate: ({}: Params) => void
   }
 }
 
 type Params = {
   componentsList: ArrayElement[]
   isBothSides?: boolean // Reload animation
+  isClassesReverse?: boolean // Instead of removing... adding class
 }
 
 export const useAnimationsScroll: IuseAnimationsScroll = () => {
   const [canStartAnimation, setAanStartAnimation] = useState<boolean>(false)
   const componentsListRef = useRef<ArrayElement[]>([])
   const isBothSidesRef = useRef<boolean>(false)
+  const isClassesReverseRef = useRef<boolean>(false)
 
   useEffect(() => {
     if (!canStartAnimation) return
 
-    addClasses()
+    if (!isClassesReverseRef.current) {
+      addClasses()
+    }
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [canStartAnimation])
-  const animate = ({ componentsList, isBothSides = false }: Params): void => {
+  const animate = ({
+    componentsList,
+    isBothSides = false,
+    isClassesReverse = false,
+  }: Params): void => {
     setAanStartAnimation(true)
     componentsListRef.current = componentsList
     isBothSidesRef.current = isBothSides
+    isClassesReverseRef.current = isClassesReverse
   }
   const addClasses = () => {
     try {
@@ -75,14 +84,24 @@ export const useAnimationsScroll: IuseAnimationsScroll = () => {
         ) {
           // Element is not visible
           if (isBothSidesRef.current) {
-            // Add class notAppear
-            htmlElement.classList.add(notAppearClass)
+            if (isClassesReverseRef.current) {
+              // Remove class notAppear
+              htmlElement.classList.remove(notAppearClass)
+            } else {
+              // Add class notAppear
+              htmlElement.classList.add(notAppearClass)
+            }
           }
           continue
         }
         // Element is visible
-        // Remove class notAppear
-        htmlElement.classList.remove(notAppearClass)
+        if (isClassesReverseRef.current) {
+          // Add class notAppear
+          htmlElement.classList.add(notAppearClass)
+        } else {
+          // Remove class notAppear
+          htmlElement.classList.remove(notAppearClass)
+        }
       }
     } catch {}
   }

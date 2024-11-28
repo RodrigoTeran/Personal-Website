@@ -1,0 +1,54 @@
+.more {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+
+  cursor: pointer;
+  padding: 10px;
+  transition: transform ease-out 500ms, opacity ease-out 500ms,
+    visibility ease-out 500ms;
+  animation-name: anima_more;
+  animation-duration: 400ms;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      svg {
+        fill: var(--lavender-intense);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .more {
+    display: none;
+  }
+}
+
+// Animations
+@keyframes anima_more {
+  from {
+    transform: translateY(0px) translateX(-50%);
+  }
+  to {
+    transform: translateY(-20px) translateX(-50%) scale(1.2);
+  }
+}
+
+.notMore {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.notAnymore {
+  visibility: hidden;
+  opacity: 0;
+}
+.red {
+  background-color: red;
+}

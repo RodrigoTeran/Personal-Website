@@ -1,23 +1,18 @@
-import { createContext } from "react";
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import "../styles/global.scss";
-import useTranslation from "next-translate/useTranslation";
-
-interface ValueAppProvider {
-
-}
-
-export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
+import type { AppProps } from 'next/app'
+import '../styles/global.scss'
+import Head from 'next/head'
+import useTranslation from 'next-translate/useTranslation'
+import CommonLayout from '@layouts/Common/Common'
+import Nav from '@layouts/Nav/Nav'
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation('common')
 
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
-        <meta name="description" content={t("title")} />
+        <title>{t('title')}</title>
+        <meta name="description" content={t('title')} />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="theme-color" content="#FFFFFF" />
         <meta
@@ -30,25 +25,22 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
         />
         <meta property="og:url" content="https://www.rodrigoteran.dev" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={t("title")} />
+        <meta property="og:site_name" content={t('title')} />
         <meta
           name="twitter:image"
           content="https://www.rodrigoteran.dev/images/logo.png"
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content="Rodrigo Terán" />
-        <meta property="og:title" content={t("title")} />
-        <meta property="og:description" content={t("title")} />
-        <meta name="twitter:title" content={t("title")} />
-        <meta name="twitter:description" content={t("title")} />
+        <meta property="og:title" content={t('title')} />
+        <meta property="og:description" content={t('title')} />
+        <meta name="twitter:title" content={t('title')} />
+        <meta name="twitter:description" content={t('title')} />
       </Head>
-      <GlobalContext.Provider
-        value={{}}
-      >
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </GlobalContext.Provider>
+      <Nav />
+      <CommonLayout>
+        <Component {...pageProps} />
+      </CommonLayout>
     </>
-  );
+  )
 }

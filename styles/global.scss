@@ -1,82 +1,82 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Vidaloka', serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--black);
+  box-sizing: border-box;
+  font-family: "Vidaloka", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
 }
 
 :root {
-    --white: #FFFFFF;
-    --black: #000000;
+  --white: #ffffff;
+  --black: #000000;
 
-    --lavender-intense: #3F00FF;
-    --lavender-light: #C6B4FE;
+  --lavender-intense: #3f00ff;
+  --lavender-light: #c6b4fe;
 
-    --beige-light: #FFF7F2;
+  --beige-light: #fff7f2;
 
-    --red-intense: #FF0000;
-    --red-light: #F9CDCD;
+  --red-intense: #ff0000;
+  --red-light: #f9cdcd;
 
-    --gray-100: #F1F1F1;
-    --gray-200: #E3E3E3;
-    --gray-300: #CACACA;
+  --gray-100: #f1f1f1;
+  --gray-200: #e3e3e3;
+  --gray-300: #cacaca;
 
-    font-size: 16px;
+  font-size: 16px;
 }
 
 ::-webkit-scrollbar {
-    width: .5rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--gray-200);
+  background-color: var(--gray-200);
 
-    @media (hover: hover) and (pointer: fine) {
-        &:hover {
-            background-color: var(--gray-200);
-        }
-
-        &:active {
-            background-color: var(--gray-300);
-        }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--gray-200);
     }
+
+    &:active {
+      background-color: var(--gray-300);
+    }
+  }
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: var(--gray-100);
+  background-color: var(--gray-100);
 }
 
 ::selection {
-    background-color: var(--black);
-    color: var(--white);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 html {
-    min-height: 100%;
-    width: 100vw;
-    position: relative;
+  min-height: 100%;
+  width: 100vw;
+  position: relative;
 }
 
 body {
-    position: relative;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: var(--white);
-    color: var(--black);
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 input,
 button {
-    outline: none;
-    border-style: none;
+  outline: none;
+  border-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }

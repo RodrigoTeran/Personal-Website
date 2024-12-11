@@ -252,3 +252,18 @@
   transform: translateY(-50px);
   opacity: 0;
 }
+
+.display,
+.paragraph {
+  transition: visibility ease-out 300ms, opacity ease-out 300ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.row:hover {
+  .display,
+  .paragraph {
+    visibility: visible;
+    opacity: 1;
+  }
+}

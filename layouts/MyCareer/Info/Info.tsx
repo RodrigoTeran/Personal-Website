@@ -8,12 +8,12 @@ export default function Info() {
 
   return (
     <div className={styles.info}>
-      <Image src={startImage} width={440} height={96.5} alt="Start" />
+      <Image priority src={startImage} width={440} height={96.5} alt="Start" />
       <p css-attr="first">{t('p-1')}</p>
       <p>{t('p-2')}</p>
       <p>{t('p-3')}</p>
       <p css-attr="last">{t('p-4')}</p>
-      <Image src={shadowCar} width={218} height={172} alt="The start" />
+      <Image priority src={shadowCar} width={218} height={172} alt="The start" />
     </div>
   )
 }

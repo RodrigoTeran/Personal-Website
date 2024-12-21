@@ -1,11 +1,17 @@
 import { ComponentProps } from 'react'
 import styles from './SectionTitle.module.scss'
 
-type Props = ComponentProps<'h2'>
+interface Props extends ComponentProps<'h2'> {
+  orientation?: 'left' | 'right'
+}
 
-export default function SectionTitle({ children, ...props }: Props) {
+export default function SectionTitle({
+  children,
+  orientation = 'left',
+  ...props
+}: Props) {
   return (
-    <div className={styles.h2_wrapper}>
+    <div className={`${styles.h2_wrapper} ${styles[orientation]}`}>
       <h2 className={styles.h2} {...props}>
         {children}
       </h2>

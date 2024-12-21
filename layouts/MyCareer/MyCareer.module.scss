@@ -1,3 +1,14 @@
 .section {
   padding-bottom: 140px;
+  height: 2420px;
+}
+@media screen and (max-width: 1100px) {
+  .section {
+    height: calc(4000px - (1200px - 50vw));
+  }
+}
+@media screen and (max-width: 700px) {
+  .section {
+    height: calc(4000px - 1200px);
+  }
 }

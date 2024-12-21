@@ -70,6 +70,7 @@ export default function Path() {
           width={DIMENSION_LONG_X}
           height={DIMENSION_LONG_Y}
           src={carsLongPath}
+          priority
         />
       </div>
       <div
@@ -83,6 +84,7 @@ export default function Path() {
           width={DIMENSION_SMALL_X}
           height={DIMENSION_SMALL_Y}
           src={carsSmallPath}
+          priority
         />
       </div>
       {experienceStyles.map((element: IExperience, index: number) => {
@@ -100,6 +102,7 @@ export default function Path() {
                   height={198}
                   src={element.display.src}
                   alt={t(element.title.text)}
+                  priority
                 />
               </div>
               <div className={styles.display_text}>
@@ -120,6 +123,7 @@ export default function Path() {
                 height={99}
                 src={element.car.src}
                 alt={t(element.title.text)}
+                priority
               />
             </div>
 

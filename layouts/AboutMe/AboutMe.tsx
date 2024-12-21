@@ -37,7 +37,7 @@ export default function AboutMe() {
           {t('card-3')}
         </Card>
         <div className={styles.shadow}>
-          <Image src={shadowAboutMe} width={735} height={364} />
+          <Image src={shadowAboutMe} width={735} height={364} priority />
         </div>
       </div>
     </section>

@@ -1,0 +1,16 @@
+.section {
+  padding-bottom: 140px;
+  h3 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+  }
+}
+.wrapper_title {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -14,6 +14,7 @@ export default function Button({
   text,
   children = null,
   href,
+  className,
   ...props
 }: OverlapProps) {
   if (href !== null && href !== undefined) {
@@ -22,7 +23,7 @@ export default function Button({
         target="_blank"
         rel="noreferrer"
         href={href}
-        className={styles.button}
+        className={`${styles.button} ${className}`}
         {...props}
       >
         {children === null ? (
@@ -38,7 +39,7 @@ export default function Button({
   }
 
   return (
-    <button className={styles.button} {...props}>
+    <button className={`${styles.button} ${className}`} {...props}>
       {children !== null && <div>{children}</div>}
       <div>{text}</div>
     </button>

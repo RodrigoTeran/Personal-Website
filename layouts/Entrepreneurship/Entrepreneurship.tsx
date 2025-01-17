@@ -2,6 +2,8 @@ import styles from './Entrepreneurship.module.scss'
 import Title from '@components/SectionTitle/SectionTitle'
 import useTranslation from 'next-translate/useTranslation'
 import Image from '@image'
+import Button from '@components/Button/Button'
+import { RightArrow } from '@icon'
 import { useRef, useContext, useEffect } from 'react'
 import { AppContext } from '@app'
 
@@ -65,6 +67,11 @@ export default function Entrepreneurship() {
             <div className={styles.wrapper_video_block_bottom_black}></div>
             <div className={styles.wrapper_video_block_bottom_lavender}></div>
           </div>
+        </div>
+        <div>
+          <Button href='https://neojaus.com' text="Visitar NeoJaus" className={styles.cta}>
+            <RightArrow width={20} />
+          </Button>
         </div>
       </div>
     </section>

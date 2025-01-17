@@ -32,6 +32,40 @@ export default function Entrepreneurship() {
           height={111}
           priority
         />
+        <div className={styles.wrapper_video}>
+          <div className={styles.wrapper_video_block_top}>
+            <div className={styles.wrapper_video_block_top_solid}></div>
+            <div className={styles.wrapper_video_block_top_points}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <iframe
+            src="https://www.youtube.com/embed/xuz2mG56gqw?si=kQfnOg78YBBzH1XI"
+            title="Rodrigo Terán"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+          <div className={styles.wrapper_video_block_bottom}>
+            <div className={styles.wrapper_video_block_bottom_black}></div>
+            <div className={styles.wrapper_video_block_bottom_lavender}></div>
+          </div>
+        </div>
       </div>
     </section>
   )

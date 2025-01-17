@@ -69,7 +69,7 @@ export default function Entrepreneurship() {
           </div>
         </div>
         <div>
-          <Button href='https://neojaus.com' text="Visitar NeoJaus" className={styles.cta}>
+          <Button href='https://neojaus.com' text={t("cta")} className={styles.cta}>
             <RightArrow width={20} />
           </Button>
         </div>

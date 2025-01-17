@@ -1,7 +1,12 @@
 import type { MutableRefObject } from 'react'
 import { ADD_REF } from './actions'
 
-export type Refs = 'header' | 'about-me' | 'my-career-info' | 'entrepreneurship'
+export type Refs =
+  | 'header'
+  | 'about-me'
+  | 'my-career-info'
+  | 'entrepreneurship'
+  | 'content-creation'
 
 export type IMapRef = Map<Refs, MutableRefObject<any>>
 

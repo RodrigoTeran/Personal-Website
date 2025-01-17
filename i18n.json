@@ -2,6 +2,13 @@
   "locales": ["en", "es"],
   "defaultLocale": "es",
   "pages": {
-    "/": ["common", "header", "about-me", "career", "entrepreneurship"]
+    "/": [
+      "common",
+      "header",
+      "about-me",
+      "career",
+      "entrepreneurship",
+      "content-creation"
+    ]
   }
 }

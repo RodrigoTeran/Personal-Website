@@ -37,12 +37,13 @@
       align-items: center;
 
       flex-wrap: wrap;
+      z-index: 3;
       &_yt {
         font-family: sans-serif !important;
         color: var(--white);
         font-weight: bold;
         background-color: #f00;
-        border-radius: 5px;
+        border-radius: 6px;
         padding: 10px 15px;
         display: flex;
         gap: 7px;

@@ -6,6 +6,7 @@ import Button from '@components/Button/Button'
 import { RightArrow } from '@icon'
 import { useRef, useContext, useEffect } from 'react'
 import { AppContext } from '@app'
+import { neoJausText, ytVideoPresentation } from '@image-links'
 
 export default function Entrepreneurship() {
   const { refsDispatch } = useContext(AppContext)
@@ -28,7 +29,7 @@ export default function Entrepreneurship() {
       <div className={styles.wrapper_title}>
         <h3>{t('subtitle')}</h3>
         <Image
-          src="/images/neojaus-t.webp"
+          src={neoJausText}
           alt="NeoJaus"
           width={370}
           height={111}
@@ -57,7 +58,7 @@ export default function Entrepreneurship() {
             </div>
           </div>
           <iframe
-            src="https://www.youtube.com/embed/xuz2mG56gqw?si=kQfnOg78YBBzH1XI"
+            src={ytVideoPresentation}
             title="Rodrigo Terán"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"

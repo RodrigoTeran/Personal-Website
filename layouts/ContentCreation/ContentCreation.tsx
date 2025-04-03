@@ -16,6 +16,7 @@ import { LinkedIn, YouTube, Instagram, Wave, RightArrow } from '@icon'
 import { Fragment, useContext, useEffect, useRef } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Button from '@components/Button/Button'
+import { blogLogo, socialMediaMe, ytAnimation, ytInternships, ytInterview, ytLogo } from '@image-links'
 
 interface CardProps {
   img: string
@@ -81,7 +82,7 @@ function ContentCreation() {
               rel="noreferrer"
               className={styles.wrapper_top_card_ctas_yt}
             >
-              <Image src="/images/ytPlay.png" width={35} height={24} priority />
+              <Image src={ytLogo} width={35} height={24} priority />
               YouTube
             </a>
             <a
@@ -91,7 +92,7 @@ function ContentCreation() {
               className={styles.wrapper_top_card_ctas_blog}
             >
               <Image
-                src="/images/blogLogo.png"
+                src={blogLogo}
                 width={27}
                 height={19}
                 priority
@@ -108,7 +109,7 @@ function ContentCreation() {
         </div>
         <div className={styles.wrapper_top_me}>
           <Image
-            src="/images/socialMediaMe.png"
+            src={socialMediaMe}
             width={231}
             height={231}
             priority
@@ -136,19 +137,19 @@ function ContentCreation() {
           </div>
           <div className={styles.cards}>
             <Card
-              img="/images/ytvideos/internships.png"
+              img={ytInternships}
               text="card-1"
               cta="cta-1"
               href={internships}
             />
             <Card
-              img="/images/ytvideos/interview.png"
+              img={ytInterview}
               text="card-2"
               cta="cta-2"
               href={interview}
             />
             <Card
-              img="/images/ytvideos/animation.png"
+              img={ytAnimation}
               text="card-3"
               cta="cta-3"
               href={animation}

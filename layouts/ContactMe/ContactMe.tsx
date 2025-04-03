@@ -1,12 +1,16 @@
 import useTranslation from 'next-translate/useTranslation'
 import styles from './ContactMe.module.scss'
-import { useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import emailJs from 'emailjs-com'
 import InputText from '@components/Input/Input'
 import Button from '@components/Button/Button'
 import Title from '@components/SectionTitle/SectionTitle'
+import { AppContext } from '@app'
 
 const Card = () => {
+  const { refsDispatch } = useContext(AppContext)
+  const contactMeRef = useRef<HTMLDivElement | null>(null)
+
   const { t } = useTranslation('contact')
 
   const [nameClient, setNameClient] = useState<string>('')
@@ -24,6 +28,16 @@ const Card = () => {
       msgClient.trim() != ''
     )
   }
+
+  useEffect(() => {
+    refsDispatch({
+      type: 'action-add-ref',
+      payload: {
+        key: 'contact-me',
+        ref: contactMeRef,
+      },
+    })
+  }, [])
 
   const submit = (event: any) => {
     event.preventDefault()
@@ -69,7 +83,7 @@ const Card = () => {
   }
 
   return (
-    <div>
+    <div ref={contactMeRef}>
       <Title orientation="right">{t('header-title')}</Title>
       <div className={styles.primary_wrapper}>
         <div className={styles.left_title}>

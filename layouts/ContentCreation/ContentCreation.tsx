@@ -70,7 +70,7 @@ function ContentCreation() {
   }, [])
 
   return (
-    <section className={styles.section}>
+    <section ref={contentCreationRef} className={styles.section}>
       <Title orientation="left">{t('title')}</Title>
       <div className={styles.wrapper_top}>
         <div className={styles.wrapper_top_card}>

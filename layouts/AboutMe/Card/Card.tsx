@@ -16,6 +16,8 @@ import { goto } from '@lib/goto'
 type CARDS = 'career' | 'entrepreneurship' | 'content-creation'
 const cardTypesMapRef = new Map<CARDS, Refs>()
 cardTypesMapRef.set('career', 'my-career-info')
+cardTypesMapRef.set('entrepreneurship', 'entrepreneurship')
+cardTypesMapRef.set('content-creation', 'content-creation')
 
 const coords = new Map<CARDS, CSSProperties>()
 coords.set('career', {

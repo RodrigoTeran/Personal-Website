@@ -7,6 +7,7 @@ export type Refs =
   | 'my-career-info'
   | 'entrepreneurship'
   | 'content-creation'
+  | 'contact-me'
 
 export type IMapRef = Map<Refs, MutableRefObject<any>>
 

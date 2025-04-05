@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  div {
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    background-color: var(--lavender-intense);
+    animation-name: anima_bounces;
+    animation-timing-function: ease-out;
+    animation-duration: 350ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+.wrapper_1 {
+  animation-delay: 0ms;
+}
+.wrapper_2 {
+  animation-delay: 80ms;
+}
+.wrapper_3 {
+  animation-delay: 160ms;
+}
+@keyframes anima_bounces {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-35px);
+  }
+}

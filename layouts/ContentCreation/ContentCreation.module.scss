@@ -143,6 +143,8 @@
 
   margin-left: calc(-1 * (150px + 50vw - 700px));
 
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
+
   &_wave {
     width: 100vw;
     position: absolute;
@@ -212,7 +214,10 @@
     width: 90vw;
   }
 }
-
+.title_section {
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
+  display: block;
+}
 
 .notVisibleLeft {
   opacity: 0;
@@ -223,6 +228,9 @@
   opacity: 0;
   visibility: hidden;
   transform: translateX(100px);
-
-  background-color: red;
+}
+.notVisibleUp {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
 }

@@ -70,14 +70,21 @@ function ContentCreation() {
     })
   }, [])
 
+  const contentCreationTitleRef = useRef<HTMLDivElement | null>(null)
   const contentCreationLeftRef = useRef<HTMLDivElement | null>(null)
   const contentCreationRightRef = useRef<HTMLDivElement | null>(null)
+  const contentCreationStoriesRef = useRef<HTMLDivElement | null>(null)
 
   const { animate } = useAnimationsScroll()
 
   useEffect(() => {
     animate({
       componentsList: [
+        {
+          element: contentCreationTitleRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisibleUp,
+        },
         {
           element: contentCreationLeftRef.current,
           screenPercentage: 0.5,
@@ -88,13 +95,20 @@ function ContentCreation() {
           screenPercentage: 0.5,
           notAppearClass: styles.notVisibleRight,
         },
+        {
+          element: contentCreationStoriesRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisibleUp,
+        },
       ],
     })
   }, [])
 
   return (
     <section ref={contentCreationRef} className={styles.section}>
-      <Title orientation="left">{t('title')}</Title>
+      <div className={`${styles.notVisibleUp} ${styles.title_section}`} ref={contentCreationTitleRef}>
+        <Title orientation="left">{t('title')}</Title>
+      </div>
       <div className={styles.wrapper_top}>
         <div className={`${styles.wrapper_top_card} ${styles.notVisibleLeft}`} ref={contentCreationLeftRef}>
           <div className={styles.wrapper_top_card_info}>{t('card')}</div>
@@ -150,7 +164,7 @@ function ContentCreation() {
           </div>
         </div>
       </div>
-      <div className={styles.wrapper_stories}>
+      <div ref={contentCreationStoriesRef} className={`${styles.wrapper_stories} ${styles.notVisibleUp}`}>
         <Wave className={styles.wrapper_stories_wave} />
         <div
           className={`${stylesWrapper.wrapper} ${styles.wrapper_stories_inner}`}

@@ -1,8 +1,6 @@
 {
-  "presentation-title": "Hi,-tell me about-your project",
-  "presentation-subtitle": "Let's create something together",
-  "presentation-contact-1": "Remember that you can also contact me",
-  "presentation-contact-2": "in my social media",
+  "header-title": "Contact me",
+  "title": "Write me if you have a question or if you want to work together.",
 
   "card-1": "Send me a message",
   "card-2": "Full name",

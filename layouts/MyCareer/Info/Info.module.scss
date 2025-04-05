@@ -1,0 +1,22 @@
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 30px;
+  padding-bottom: 100px;
+
+  p {
+    text-align: center;
+    max-width: 500px;
+    margin: 0;
+    font-size: 1.125rem;
+
+    &[css-attr='first'] {
+      max-width: 600px;
+    }
+    &[css-attr='last'] {
+      max-width: 400px;
+    }
+  }
+}

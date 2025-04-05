@@ -1,20 +1,19 @@
-// Components
-import Header from "../components/Header/index";
-import About from "../components/About/index";
-import Experience from "../components/Experience/index";
-import Skills from "../components/Skills/index";
-import Projects from "../components/Projects/index";
-import Contact from "../components/Contact/index";
+import Header from '@layouts/Header/Header'
+import AboutMe from '@layouts/AboutMe/AboutMe'
+import MyCareer from '@layouts/MyCareer/MyCareer'
+import Entrepreneurship from '@layouts/Entrepreneurship/Entrepreneurship'
+import ContentCreation from '@layouts/ContentCreation/ContentCreation'
+import ContactMe from '@layouts/ContactMe/ContactMe'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
+      <AboutMe />
+      <MyCareer />
+      <Entrepreneurship />
+      <ContentCreation />
+      <ContactMe />
     </>
-  );
+  )
 }

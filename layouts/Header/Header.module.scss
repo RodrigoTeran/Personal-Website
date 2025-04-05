@@ -1,0 +1,21 @@
+.header {
+  background-color: var(--white);
+  height: 100vh;
+  min-height: 830px;
+  width: 100%;
+  padding: 110px 0;
+
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  position: relative;
+}
+@media screen and (max-width: 1000px) {
+  .header {
+    overflow: hidden;
+    height: fit-content;
+    padding-top: 150px;
+    gap: 60px;
+  }
+}

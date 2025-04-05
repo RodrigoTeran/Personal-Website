@@ -1,1 +1,1 @@
-declare module "emailjs-com";
+declare module 'emailjs-com'

@@ -1,0 +1,27 @@
+import { ownProdUrl } from '@routes'
+
+export const imageHeader = '/images/ImageHeader.png'
+export const neoJausText = '/images/neojaus-t.webp'
+export const shadowAboutMe = '/images/shadowAboutMe.png'
+export const startImage = '/images/start.png'
+export const ytLogo = '/images/ytPlay.png'
+export const blogLogo = '/images/blogLogo.png'
+export const socialMediaMe = '/images/socialMediaMe.png'
+export const logo = '/images/logo.png'
+export const shadowCar = '/images/cars/car-shadow.png'
+export const metaCar = '/images/cars/car-meta.png'
+export const msft1Car = '/images/cars/car-msft-1.png'
+export const googleCar = '/images/cars/car-google.png'
+export const msft2Car = '/images/cars/car-msft-2.png'
+export const carsLongPath = '/images/cars/path.png'
+export const carsSmallPath = '/images/cars/smallPath.png'
+export const metaExperience = '/images/experiences/meta.png'
+export const googleExperience = '/images/experiences/google.png'
+export const msft1Experience = '/images/experiences/msft1.png'
+export const msft2Experience = '/images/experiences/msft2.png'
+export const ytInternships = '/images/ytvideos/internships.png'
+export const ytInterview = '/images/ytvideos/interview.png'
+export const ytAnimation = '/images/ytvideos/animation.png'
+export const logoMetaTag = `${ownProdUrl}${logo}`
+
+export const ytVideoPresentation = `https://www.youtube.com/embed/xuz2mG56gqw?si=kQfnOg78YBBzH1XI`

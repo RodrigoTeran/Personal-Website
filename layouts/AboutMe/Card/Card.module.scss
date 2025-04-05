@@ -1,0 +1,116 @@
+.selector {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--white);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+
+.card {
+  width: 532px;
+  height: 285px;
+  border: 2px solid var(--black);
+  background-color: var(--white);
+  font-size: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  &_text {
+    display: block;
+    justify-content: flex-start;
+    div {
+      text-align: left;
+    }
+  }
+
+  &_wrapper {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    transition: transform ease-out 300ms;
+
+    &[css-attr='career'] .card_shadow {
+      background-color: var(--beige-light);
+    }
+    &[css-attr='entrepreneurship'] .card_shadow {
+      background-color: var(--red-light);
+    }
+    &[css-attr='content-creation'] .card_shadow {
+      background-color: var(--lavender-light);
+    }
+    &[css-attr='content-creation'] {
+      transform: rotateZ(7.5deg);
+    }
+    &[css-attr='content-creation'] svg {
+      margin-left: auto;
+    }
+    &[css-attr='entrepreneurship'] svg {
+      margin-left: auto;
+      margin-bottom: 70px;
+      margin-right: 30px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover .selector {
+        opacity: 1;
+        visibility: visible;
+      }
+      &[css-attr='career']:hover {
+        transform: rotateZ(-10deg) translateY(-25px);
+      }
+      &[css-attr='entrepreneurship']:hover {
+        transform: translateY(-25px);
+      }
+      &[css-attr='content-creation']:hover {
+        transform: rotateZ(0deg) translateY(25px) translateX(-50px);
+      }
+
+      &[css-attr='career']:active {
+        transform: rotateZ(-10deg) translateY(-35px);
+      }
+      &[css-attr='entrepreneurship']:active {
+        transform: translateY(-35px);
+      }
+      &[css-attr='content-creation']:active {
+        transform: rotateZ(0deg) translateY(15px) translateX(-50px);
+      }
+    }
+  }
+  &_shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    z-index: -1;
+    border: 2px solid var(--black);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 100%;
+    &_wrapper {
+      width: 100%;
+      position: static;
+      transform: rotateZ(0deg) !important;
+    }
+    &_shadow {
+      width: calc(100% - 30px);
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .card {
+    font-size: 1.8rem;
+  }
+}

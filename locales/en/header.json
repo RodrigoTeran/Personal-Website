@@ -1,10 +1,5 @@
 {
-  "name": "I'm Rodrigo",
-
-  "typing-1": "Web Developer",
-  "typing-2": "Tech Enthusiast",
-  "typing-3": "Books lover",
-
-  "btn-1": "Contact me",
-  "btn-2": "Resume"
+  "left-description": "I am a 22-year-old 🇲🇽 young;passionate about technology;and entrepreneurship",
+  "right-description": "Cofounder and;CTO of NeoJaus",
+  "cta": "contact me"
 }

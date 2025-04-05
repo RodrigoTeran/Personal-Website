@@ -1,0 +1,33 @@
+.cta {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
+
+  button {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .cta {
+    justify-content: center;
+    button {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cta button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// Animations
+.notCta {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px);
+}

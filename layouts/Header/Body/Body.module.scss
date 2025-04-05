@@ -1,0 +1,153 @@
+.body {
+  flex: 1 1 0%;
+  max-height: 400px;
+
+  display: flex;
+  align-items: center;
+
+  &_left {
+    justify-content: flex-end;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: translateX(-15px);
+      }
+    }
+
+    &_mobile {
+      display: none !important;
+    }
+    &_icons {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      a {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: transform ease-out 100ms;
+
+        svg {
+          transition: fill ease-out 100ms;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            transform: scale(1.2);
+          }
+          &:hover svg {
+            fill: var(--lavender-intense);
+          }
+        }
+      }
+    }
+  }
+  &_center {
+    z-index: 1;
+    height: 100%;
+    flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+
+    transition: 600ms opacity ease-out 100ms, 600ms transform ease-out 100ms;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transition: transform ease-out 300ms;
+        transform: scale(1.05);
+      }
+    }
+  }
+  &_right {
+    justify-content: flex-start;
+    align-items: flex-end;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        transform: translateX(15px);
+      }
+    }
+    div {
+      text-align: right;
+    }
+  }
+}
+.block {
+  height: 50%;
+  width: 250px;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  overflow: visible;
+  font-size: 1.2rem;
+  opacity: 1;
+
+  transition: 600ms opacity ease-out 100ms, 600ms transform ease-out 100ms;
+  &_text {
+    display: block;
+    width: fit-content;
+  }
+  &_dash {
+    height: 0;
+    width: 50vw;
+    max-width: 750px;
+    background-color: transparent;
+    border-bottom: 1.5px dashed var(--black);
+
+    transition: 1600ms opacity ease-out 100ms, 1600ms width ease-out 100ms;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .body {
+    flex-direction: column;
+    gap: 30px;
+    max-height: none;
+    &_center {
+      height: 520px;
+    }
+    &_left {
+      width: 100%;
+      &_pc {
+        display: none !important;
+      }
+      &_mobile {
+        display: flex !important;
+      }
+    }
+    &_right {
+      width: 100%;
+    }
+  }
+  .block {
+    font-size: 1rem;
+    &_dash {
+      width: 80vw;
+      max-width: 290px;
+    }
+  }
+}
+
+// Animations
+.notBlockLeft {
+  opacity: 0;
+  transform: translateX(100px);
+  .block_dash {
+    width: 100px;
+    opacity: 0;
+  }
+}
+.notBlockRight {
+  opacity: 0;
+  transform: translateX(-100px);
+  .block_dash {
+    width: 100px;
+    opacity: 0;
+  }
+}
+.notImage {
+  transform: scale(0.8);
+  opacity: 0;
+}

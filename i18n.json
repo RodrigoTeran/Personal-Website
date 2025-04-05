@@ -5,18 +5,11 @@
     "/": [
       "common",
       "header",
-      "about",
-      "experience",
-      "contact",
-      "projects/overview",
-      "projects/learnToDrive",
-      "projects/diet",
-      "projects/dog",
-      "projects/dark",
-      "projects/fourier"
-    ],
-    "/crypto": [
-      "common"
+      "about-me",
+      "career",
+      "entrepreneurship",
+      "content-creation",
+      "contact"
     ]
   }
 }

@@ -1,161 +1,78 @@
-// Modules
-import { createContext, Dispatch, SetStateAction, useRef, useState } from "react";
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
+import type { AppProps } from 'next/app'
+import '../styles/global.scss'
+import Head from 'next/head'
+import useTranslation from 'next-translate/useTranslation'
+import CommonLayout from '@layouts/Common/Common'
+import Nav from '@layouts/Nav/Nav'
+import { initialRefs, refsReducer } from '@store/refs/refs'
+import { IMapRef, REF_REDUCER_ACTION } from '@store/refs/refs.types'
+import { logoMetaTag } from '@image-links'
+import { ownProdUrl } from '@routes'
+import Animations from '@layouts/Animations/Animations'
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useReducer,
+  useState,
+} from 'react'
 
-export type Refs = "about-me" | "experience" | "skills" | "projects" | "contact-me";
+export const AppContext = createContext<IAppContext>({} as IAppContext)
 
-// App Interface
-interface ValueAppProvider {
-  isLayoutAnimationOpen: boolean;
-  setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>;
-  isModalImgOpen: boolean;
-  setIsModalImgOpen: Dispatch<SetStateAction<boolean>>;
-  modalImgState: PropsImgModal;
-  setModalImgState: Dispatch<SetStateAction<PropsImgModal>>;
-  aboutMeRef: any;
-  experienceRef: any;
-  skillsRef: any;
-  projectsRef: any;
-  contactMeRef: any;
-  goTo: (
-    place: Refs
-  ) => void
+interface IAppContext {
+  refsState: IMapRef
+  isLayoutAnimationOpen: boolean
+
+  refsDispatch: Dispatch<REF_REDUCER_ACTION>
+  setIsLayoutAnimationOpen: Dispatch<SetStateAction<boolean>>
 }
-export const GlobalContext = createContext<Partial<ValueAppProvider>>({});
-
-// Styles
-import "../styles/global.scss";
-
-// Components
-import AnimationLayout from "../components/animations/Layout/index";
-
-// Context
-import MessagesContext from "../context/Messages.context";
-
-// Modals
-import ImgModal from "../components/Modals/ImgModal/index";
-
-// Types
-import type { Props as PropsImgModal } from "../components/Modals/ImgModal/index";
 
 export default function PortfolioApp({ Component, pageProps }: AppProps) {
-  // Translation
-  const { t } = useTranslation("common");
+  const { t } = useTranslation('common')
 
-  // Layout animation
+  const [refsState, refsDispatch] = useReducer(refsReducer, initialRefs)
   const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
-    useState<boolean>(true);
-
-  // Modal imgs
-  const [isModalImgOpen, setIsModalImgOpen] = useState<boolean>(false);
-  const [modalImgState, setModalImgState] = useState<PropsImgModal>({
-    src: "",
-    alt: "",
-  });
-
-  // Go-to
-  // Refs
-  const aboutMeRef = useRef<any>(null);
-  const experienceRef = useRef<any>(null);
-  const skillsRef = useRef<any>(null);
-  const projectsRef = useRef<any>(null);
-  const contactMeRef = useRef<any>(null);
-
-  const getTop = (component: any): number => {
-    // It computes the distance that exista bewteen a component and the top of the whole website
-    try {
-      if (!document) return 0;
-      if (!document.scrollingElement) return 0;
-
-      return parseInt(
-        component.getBoundingClientRect().top +
-        document.scrollingElement.scrollTop
-      );
-    } catch {
-      // Error
-      return 0;
-    }
-  };
-
-  const goTo = (place: Refs): void => {
-    /**
-     * Is substract 100 beacuse that is the height of the nav
-     * So, the nav doesnt interfer
-     */
-    const places: any = {
-      "about-me": aboutMeRef,
-      "experience": experienceRef,
-      "skills": skillsRef,
-      "projects": projectsRef,
-      "contact-me": contactMeRef
-    }
-
-    const top = getTop(places[place].current) - 100;
-    // No Error
-    window.scroll({
-      top: top,
-      left: 0,
-      behavior: "smooth",
-    });
-  }
+    useState<boolean>(false)
 
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
-        <meta name="description" content={t("title")} />
+        <title>{t('title')}</title>
+        <meta name="description" content={t('title')} />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="theme-color" content="#1d1d1d" />
+        <meta name="theme-color" content="#FFFFFF" />
         <meta
           name="keywords"
           content={`Rodrigo Terán, Programación, Programming, Coding, Web Developer, Desarrollador Web`}
         />
-        <meta
-          property="og:image:secure_url"
-          content="https://www.rodrigoteran.dev/images/logo.png"
-        />
-        <meta property="og:url" content="https://www.rodrigoteran.dev" />
+        <meta property="og:image:secure_url" content={logoMetaTag} />
+        <meta property="og:url" content={ownProdUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={t("title")} />
-        <meta
-          name="twitter:image"
-          content="https://www.rodrigoteran.dev/images/logo.png"
-        />
+        <meta property="og:site_name" content={t('title')} />
+        <meta name="twitter:image" content={logoMetaTag} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image:alt" content="Rodrigo Terán" />
-        <meta property="og:title" content={t("title")} />
-        <meta property="og:description" content={t("title")} />
-        <meta name="twitter:title" content={t("title")} />
-        <meta name="twitter:description" content={t("title")} />
+        <meta property="og:title" content={t('title')} />
+        <meta property="og:description" content={t('title')} />
+        <meta name="twitter:title" content={t('title')} />
+        <meta name="twitter:description" content={t('title')} />
       </Head>
-      <GlobalContext.Provider
+      <AppContext.Provider
         value={{
+          refsState,
           isLayoutAnimationOpen,
+
+          refsDispatch,
           setIsLayoutAnimationOpen,
-          isModalImgOpen,
-          setIsModalImgOpen,
-          modalImgState,
-          setModalImgState,
-          aboutMeRef,
-          experienceRef,
-          skillsRef,
-          projectsRef,
-          contactMeRef,
-          goTo
         }}
       >
-        <MessagesContext>
-          {/* Modal images */}
-          <ImgModal />
-          <main>
-            <AnimationLayout>
-              <Component {...pageProps} />
-            </AnimationLayout>
-          </main>
-        </MessagesContext>
-      </GlobalContext.Provider>
+        <Animations>
+          <Nav />
+          <CommonLayout>
+            <Component {...pageProps} />
+          </CommonLayout>
+        </Animations>
+      </AppContext.Provider>
     </>
-  );
+  )
 }

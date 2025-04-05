@@ -1,0 +1,41 @@
+.input {
+  position: relative;
+  width: 100%;
+  &_label {
+    color: var(--black);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform ease-out 300ms, left ease-out 300ms,
+      top ease-out 300ms, font-size ease-out 300ms,
+      background-color ease-out 300ms;
+    background-color: var(--white);
+    padding: 0 5px;
+    &_textarea {
+      top: 25px;
+    }
+    &.open {
+      transform: translateY(-50%);
+      top: 0;
+      left: 12px;
+      font-size: 0.8rem;
+    }
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    color: var(--black);
+    background: none;
+  }
+  textarea {
+    resize: none;
+    height: 100px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

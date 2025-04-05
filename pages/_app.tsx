@@ -32,7 +32,7 @@ export default function PortfolioApp({ Component, pageProps }: AppProps) {
 
   const [refsState, refsDispatch] = useReducer(refsReducer, initialRefs)
   const [isLayoutAnimationOpen, setIsLayoutAnimationOpen] =
-    useState<boolean>(false)
+    useState<boolean>(true)
 
   return (
     <>

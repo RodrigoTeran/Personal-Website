@@ -7,6 +7,7 @@ import { RightArrow } from '@icon'
 import { useRef, useContext, useEffect } from 'react'
 import { AppContext } from '@app'
 import { neoJausText, ytVideoPresentation } from '@image-links'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
 
 export default function Entrepreneurship() {
   const { refsDispatch } = useContext(AppContext)
@@ -23,8 +24,22 @@ export default function Entrepreneurship() {
     })
   }, [])
 
+  const { animate } = useAnimationsScroll()
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: entrepreneurshipRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisible,
+        },
+      ],
+    })
+  }, [])
+
   return (
-    <section ref={entrepreneurshipRef} className={styles.section}>
+    <section ref={entrepreneurshipRef} className={`${styles.section} ${styles.notVisible}`}>
       <Title orientation="right">{t('title')}</Title>
       <div className={styles.wrapper_title}>
         <h3>{t('subtitle')}</h3>

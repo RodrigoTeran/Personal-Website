@@ -1,5 +1,6 @@
 .section {
   padding-bottom: 140px;
+  transition: opacity ease-out 600ms, transform ease-out 600ms;
 }
 .cards {
   position: relative;
@@ -26,4 +27,11 @@
   .shadow {
     bottom: -100px;
   }
+}
+
+// Animations
+.notVisible {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100px);
 }

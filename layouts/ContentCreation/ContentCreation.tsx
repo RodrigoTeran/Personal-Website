@@ -17,6 +17,7 @@ import { Fragment, useContext, useEffect, useRef } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Button from '@components/Button/Button'
 import { blogLogo, socialMediaMe, ytAnimation, ytInternships, ytInterview, ytLogo } from '@image-links'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
 
 interface CardProps {
   img: string
@@ -69,11 +70,33 @@ function ContentCreation() {
     })
   }, [])
 
+  const contentCreationLeftRef = useRef<HTMLDivElement | null>(null)
+  const contentCreationRightRef = useRef<HTMLDivElement | null>(null)
+
+  const { animate } = useAnimationsScroll()
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: contentCreationLeftRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisibleLeft,
+        },
+        {
+          element: contentCreationRightRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisibleRight,
+        },
+      ],
+    })
+  }, [])
+
   return (
     <section ref={contentCreationRef} className={styles.section}>
       <Title orientation="left">{t('title')}</Title>
       <div className={styles.wrapper_top}>
-        <div className={styles.wrapper_top_card}>
+        <div className={`${styles.wrapper_top_card} ${styles.notVisibleLeft}`} ref={contentCreationLeftRef}>
           <div className={styles.wrapper_top_card_info}>{t('card')}</div>
           <div className={styles.wrapper_top_card_ctas}>
             <a
@@ -107,7 +130,7 @@ function ContentCreation() {
             <div></div>
           </div>
         </div>
-        <div className={styles.wrapper_top_me}>
+        <div ref={contentCreationRightRef} className={`${styles.wrapper_top_me} ${styles.notVisibleRight}`}>
           <Image
             src={socialMediaMe}
             width={231}

@@ -16,8 +16,9 @@
   justify-content: space-between;
   padding: 0 40px;
   align-items: center;
-
+  
   &_card {
+    transition: opacity ease-out 600ms, transform ease-out 600ms;
     border: 4px solid var(--black);
     padding: 40px;
     max-width: 520px;
@@ -89,6 +90,7 @@
     flex-direction: column;
     gap: 21px;
     align-items: center;
+    transition: opacity ease-out 600ms, transform ease-out 600ms;
 
     img {
       border-radius: 100%;
@@ -209,4 +211,18 @@
   @media screen and (max-width: 400px) {
     width: 90vw;
   }
+}
+
+
+.notVisibleLeft {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100px); 
+}
+.notVisibleRight {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px);
+
+  background-color: red;
 }

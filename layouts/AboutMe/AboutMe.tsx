@@ -6,6 +6,7 @@ import { shadowAboutMe } from '@image-links'
 import Image from '@image'
 import { useRef, useContext, useEffect } from 'react'
 import { AppContext } from '@app'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
 
 export default function AboutMe() {
   const { refsDispatch } = useContext(AppContext)
@@ -23,8 +24,22 @@ export default function AboutMe() {
     })
   }, [])
 
+  const { animate } = useAnimationsScroll()
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: aboutMeRef.current,
+          screenPercentage: 0.2,
+          notAppearClass: styles.notVisible,
+        },
+      ],
+    })
+  }, [])
+
   return (
-    <section ref={aboutMeRef} className={styles.section}>
+    <section ref={aboutMeRef} className={`${styles.section} ${styles.notVisible}`}>
       <Title>{t('title')}</Title>
       <div ref={cardsRef} className={styles.cards}>
         <Card cardsRef={cardsRef} cardType="career">

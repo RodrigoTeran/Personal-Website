@@ -5,6 +5,7 @@ import useTranslation from 'next-translate/useTranslation'
 import { useRef, useContext, useEffect } from 'react'
 import { AppContext } from '@app'
 import styles from './MyCareer.module.scss'
+import { useAnimationsScroll } from '@hooks/useAnimationsScroll'
 
 export default function MyCareer() {
   const { refsDispatch } = useContext(AppContext)
@@ -21,8 +22,22 @@ export default function MyCareer() {
     })
   }, [])
 
+  const { animate } = useAnimationsScroll()
+
+  useEffect(() => {
+    animate({
+      componentsList: [
+        {
+          element: myCareerRef.current,
+          screenPercentage: 0.5,
+          notAppearClass: styles.notVisible,
+        },
+      ],
+    })
+  }, [])
+
   return (
-    <section ref={myCareerRef} className={styles.section}>
+    <section ref={myCareerRef} className={`${styles.section} ${styles.notVisible}`}>
       <Title>{t('title')}</Title>
       <Info />
       <Path />
